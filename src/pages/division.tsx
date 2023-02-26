@@ -6,6 +6,9 @@ export default function Division() {
       <Head>
         <title>Division</title>
       </Head>
+      <main>
+        TES DIVISION
+      </main>
     </>
   );
 }

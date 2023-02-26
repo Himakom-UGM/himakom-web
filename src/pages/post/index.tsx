@@ -6,6 +6,9 @@ export default function Post() {
       <Head>
         <title>Post</title>
       </Head>
+      <main>
+        Post
+      </main>
     </>
   );
 }
