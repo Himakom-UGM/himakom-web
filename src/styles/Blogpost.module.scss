@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+.bannerwrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url('../../public/images/blogpostimage1.png') rgba(0, 0, 0, 0.77);
+    background-size: cover;
+    background-blend-mode: multiply;
+    width: 100%;
+    row-gap: 10px;
+    @media (min-width:1024px){
+        padding-block: 166px;
+        padding-inline: 288px;
+    }
+
+    @media (min-width:600px) and (max-width:1024px){
+        padding-block: 166px;
+        padding-inline: 120px;
+    }
+
+    @media (max-width:599px){
+        padding-block: 140px;
+        padding-inline: 10px;
+    }
+
+    &_button{
+        color: white;
+        margin-inline: auto;
+
+        a{
+            @media (min-width:1024px){
+                padding-block: 11px;
+                padding-inline: 40px;
+            }
+        
+            @media (min-width:600px) and (max-width:1024px){
+                padding-block: 11px;
+                padding-inline: 30px;
+            }
+        
+            @media (max-width:599px){
+                padding-block: 5px;
+                padding-inline: 30px;
+            }
+            border: 1px solid white;
+            border-radius: 30px;
+
+            // Font Styling
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 18px;
+            /* identical to box height */
+
+            text-align: center;
+        }
+        
+    }
+
+    &_title{
+        margin-inline: auto;
+
+        h1{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 700;
+           
+            text-align: center;
+
+            color: #F8F8F8;
+
+            @media (min-width:1024px){
+                font-size: 40px ;
+                line-height: 48px;
+
+            }
+        
+            @media (min-width:600px) and (max-width:1024px){
+                font-size: 32px;
+                line-height: 36px;
+            }
+        
+            @media (max-width:599px){
+                font-size: 28px;
+                line-height: 32px;
+
+            }
+        }
+    }
+
+    &_postdate{
+        margin-inline: auto;
+        font-style: normal;
+        font-weight: 400;
+        text-align: center;
+
+        color: #F8F8F8;
+
+        @media (min-width:1024px){
+            font-size: 16px ;
+            line-height: 19px;
+
+        }
+    
+        @media (min-width:600px) and (max-width:1024px){
+            font-size: 14px;
+            line-height: 17px;
+        }
+    
+        @media (max-width:599px){
+            font-size: 12px;
+            line-height: 15px;
+
+        }
+    }
+
+}
+
+.contentwrapper{
+    display: flex;
+    flex-direction: row;
+    padding-inline: 47px;
+    position: relative;
+    column-gap: 5%;
+    padding-top: 64px;
+    padding-bottom: 30px;
+
+    &_leftcol{
+        width: 65%;
+        position: relative;
+        color: #252525;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        h2:not(:first-child){
+            margin-top: 20px;
+        }
+
+        h2{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 900;
+            font-size: 36px;
+            line-height: 43px;
+            text-align: justify;
+
+          
+        }
+
+        p{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: justify;
+        }
+
+        &_imagewrapper{
+            p{
+                margin-top: 6px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+            }
+
+        }
+
+        &_notes{
+            margin-top: 55px;
+
+            P{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+            }
+        }
+
+    }
+
+    &_rightcol{
+        width: 30%;
+
+        &_search{
+            position: relative;
+            &_iconinactive{
+                position: absolute;
+                z-index: 10;
+                right: 26px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &_iconactive{
+                position: absolute;
+                z-index: 10;
+                right: -50px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            input{
+                width: 100%;
+                padding-block: 13px;
+                padding-inline: 24px;
+                border: 1px #252525 solid;
+                border-radius: 30px;
+                position: relative;
+
+                &::placeholder{
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    color: #252525;
+                }
+
+            }
+        }
+
+    }
+
+}
