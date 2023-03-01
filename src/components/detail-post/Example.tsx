@@ -1,17 +1,13 @@
 import  blogpoststyle from '../../styles/Blogpost.module.scss'
 import Image from 'next/image'
-import { useState } from 'react';
+
+import SearchButton from './Searchbutton'
 
 export default function Example() {
-   
-  const [search, setSearch] = useState(true);
-
-  const searchActive = blogpoststyle.contentwrapper_rightcol_search_iconactive;
-
-  const searchInActive = blogpoststyle.contentwrapper_rightcol_search_iconinactive;
 
 
-  return <>
+  return (
+  <>
     <div className={blogpoststyle.bannerwrapper}>
 
       <div className={blogpoststyle.bannerwrapper_button}>
@@ -57,14 +53,15 @@ export default function Example() {
       </div>
 
       <div className={blogpoststyle.contentwrapper_rightcol}>
-        <div className={blogpoststyle.contentwrapper_rightcol_search}>
-          <Image src='search_icon.svg' alt='search icon' width='30' height='30'/>
-          <input type="text" placeholder='Find Other Article' onMouseEnter={()=>setSearch(false)} onMouseLeave={()=>setSearch(false)}/>
+        <SearchButton/>
+        <div className={blogpoststyle.contentwrapper_rightcol_tablecontents}>
+          
         </div>
       </div>
     </div>
 
   </>
+  );
 }
 
 

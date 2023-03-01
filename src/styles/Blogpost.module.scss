@@ -188,40 +188,7 @@
     &_rightcol{
         width: 30%;
 
-        &_search{
-            position: relative;
-            &_iconinactive{
-                position: absolute;
-                z-index: 10;
-                right: 26px;
-                top: 50%;
-                transform: translateY(-50%);
-            }
 
-            &_iconactive{
-                position: absolute;
-                z-index: 10;
-                right: -50px;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            input{
-                width: 100%;
-                padding-block: 13px;
-                padding-inline: 24px;
-                border: 1px #252525 solid;
-                border-radius: 30px;
-                position: relative;
-
-                &::placeholder{
-                    font-family: 'Lato';
-                    font-style: normal;
-                    font-weight: 400;
-                    color: #252525;
-                }
-
-            }
-        }
 
     }
 
