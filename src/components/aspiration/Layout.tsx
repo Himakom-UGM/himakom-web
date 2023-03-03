@@ -28,12 +28,12 @@ export default function Layout() {
 
 	return (
 		<form
-			className="flex h-[460px] flex-col justify-between gap-y-1 rounded-xl bg-white p-3"
+			className="max-w-[640px] mx-auto mt-6 customMd:mt-0 customMd:max-w-full flex h-[460px] flex-col justify-between gap-y-1 rounded-xl bg-white p-3"
 			onSubmit={submitHandler}
 		>
 			{!uploadActive && <Form />}
 			{uploadActive && <Drag onClose={handleClose} />}
-			<div className="mt-1 flex items-center justify-between">
+			<div className="mt-1 ml-3 flex items-center justify-between">
 				<div onClick={fileClickHandler} className="flex items-center gap-x-3">
 					<button
 						disabled={uploadActive}

@@ -1,6 +1,5 @@
 import UploadLarge from '@/svg/upload-large';
 import { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import FileLogo from '@/svg/file';
 import TrashLogo from '@/svg/trash';
 import CloseLogo from '@/svg/close';
@@ -67,12 +66,12 @@ export default function Drag(props: { onClose: () => void }) {
 	return (
 		<div
 			className={`relative grid h-full grid-cols-2 rounded-xl border-2 border-black ${
-				files.length > 0 ? 'px-3' : 'px-7'
+				files.length > 0 ? 'px-4 pt-6' : 'px-10 pt-4'
 			} py-3 `}
 		>
 			<div
 				onClick={handleClose}
-				className="absolute z-10 right-[6px] top-[6px] cursor-pointer"
+				className="absolute z-10 right-3 top-3 cursor-pointer"
 			>
 				<CloseLogo />
 			</div>

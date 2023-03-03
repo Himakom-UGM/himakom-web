@@ -3,7 +3,10 @@ module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		screens: {
-			customMd: '768px',
+			customMd: '960px',
+		},
+		fontFamily: {
+			Lato: ['Lato', 'sans-serif'],
 		},
 		extend: {
 			colors: {
