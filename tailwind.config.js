@@ -2,6 +2,12 @@
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
+		screens: {
+			customMd: '960px',
+		},
+		fontFamily: {
+			Lato: ['Lato', 'sans-serif'],
+		},
 		extend: {
 			colors: {
 				primary: {
@@ -27,6 +33,7 @@ module.exports = {
 					100: '#F3F100',
 					200: '#F3DB00',
 				},
+				onDrop: 'rgba(63, 63, 156, 0.5)'
 			},
 		},
 		plugins: [],

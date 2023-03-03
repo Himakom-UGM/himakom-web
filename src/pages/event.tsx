@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Head from "next/head";
 import Image from "next/image"
 
@@ -31,3 +32,8 @@ const Event: React.FunctionComponent = (): JSX.Element => {
     );
 }
 export default Event;
+=======
+export default function Event() {
+	return <>Event</>;
+}
+>>>>>>> 9c4c9fefe859565443e810d23555f788515d53dd
