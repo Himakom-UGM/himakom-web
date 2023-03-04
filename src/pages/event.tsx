@@ -1,33 +1,70 @@
 import Head from "next/head";
 import Image from "next/image"
+import FotoAngkatan from "public/images/bg/foto_angkatan.png"
+import TextureEvent from "public/images/bg/texture_page_events.png"
+import Searching from "public/images/icon/searching_forEvent.svg"
+import Send from "public/images/icon/send_icon.svg"
 
-const Event: React.FunctionComponent = (): JSX.Element => {
+export default function Event() {
     return (
         <>
             <Head>
                 <title>Event</title>
             </Head>
-            <div className="relative w-screen h-screen overflow-hidden bg-cover">
-                <Image
-                    src={"/patternpad.png"}
-                    quality={100}
-                    fill
-                    alt="hero"
-                    objectFit="cover"
-                    className="-z-[9999]"
-                />
-                <div className="w-[284px] h-[349px] bg-white rounded-[20px]">
-                    <div className="flex flex-col">
-                        <div className="">Our Planned </div>
-                        <div className="">Activities</div>
-                        <div className=""> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio aliquid animi, officiis eius aliquam hic veniam minus reprehenderit incidunt, quidem voluptatem distinctio magni doloremque magnam amet molestias nulla, consectetur nisi.</div>
+            <main>
+                <div className="w-full flex-wrap relative overflow-scroll">
+                    <Image
+                        src={"/patternpad.png"}
+                        quality={100}
+                        fill
+                        alt="hero"
+                        objectFit="cover"
+                        className="-z-[9999] h-full"
+                    />
+                    <div className="flex flex-col justify-center items-center content-around gap-[15px] pt-5">
+                        <div className="w-[284px]  bg-[#FFFFFF] rounded-[20px] mt-auto">
+                            <div className="flex flex-col justify-center items-center gap-5">
+                                <div className="text-[32px] font-bold text-[#3F3F9C]">Our Planned </div>
+                                <div className="text-[56px] font-bold text-[#3F3F9C]">Activities</div>
+                                <div className="text-[13px] font-bold text-[#3F3F9C] text-center"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio aliquid animi, officiis eius aliquam hic veniam minus reprehenderit incidunt, quidem voluptatem distinctio magni doloremque magnam amet molestias nulla, consectetur nisi.</div>
+                                <button className="w-[138px] h-[42px] rounded-[12px] mb-0 mt-auto bg-[#F3BE00]">Button Here</button>
+                            </div>
+                        </div>
+                        <div className="w-[284px] h-[220px] mb-auto mt-0 bg-[#D9D9D9] rounded-[20px] font-bold text-center drop-shadow-customShadow4-4-14px  flex justify-center items-center">
+                            <h3 className="">Calender Here</h3>
+                        </div>
                     </div>
-                    <button className="rounded-full bg-customYellow-200">Button Here</button>
+                </div>
+                <div className="flex flex-col">
+                    <div className="relative flex flex-col w-[375px] h-[172px] bg-[#F3BE00] items-center justify-center drop-shadow-customShadow0-4-4px">
+                        <div className="text-[40px] font-bold items-center">Archives</div>
+                        <div className="text-[15px] font-medium text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, </div>
+                        <div className="absolute flex flex-row -bottom-2">
+                            <input type="text" placeholder="Find Article.." src={Searching} className="font-regular w-[283px] h-[44px] rounded-[13px] bg-white drop-shadow-customShadow0-0-4"></input>
+                            <Image src={Searching} alt="" className="" />
+                            <Image src={Send} alt="" className="" />
+                        </div>
+                    </div>
+                    {/* <div className="relative flex flex-col w-[320px] h-[781px] items-center justify-center">
+                        <Image
+                            src={FotoAngkatan}
+                            objectFit="cover"
+                            className="relative h-[781px] object-cover opacity-60"
+                            alt=""
+                        />
+                        <Image
+                            src={TextureEvent}
+                            className="absolute scale-[175%] hidden"
+                            alt=""
+                        />
+                        <div className="absolute">
+                            <div className="w-[283px] h-[50.75px] bg-[#212152] rounded-t-[12px]"></div>
+                            <div className="w-[283px] h-[699.25px] bg-white rounded-[12px] bg-blurBackground"></div>
+                        </div> </div>*/}
                 </div>
 
-            </div>
+            </main>
 
         </>
     );
 }
-export default Event;

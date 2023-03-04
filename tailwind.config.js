@@ -36,6 +36,14 @@ module.exports = {
 				customMd: '960px',
 			},
 		},
+		dropShadow: {
+			'customShadow4-4-14': '4px 4px 14px rgba(0, 0, 0, 0.25)',
+			'customShadowS0-4-4': '0px 4px 4px rgba(0, 0, 0, 0.25)',
+			'customShadow0-0-4': '0px 0px 4px rgba(0, 0, 0, 0.25)',
+		},
+		colors: {
+			blurBackground: 'rgba(255, 255, 255, 0.46)'
+		},
 		plugins: [],
 	},
 };
