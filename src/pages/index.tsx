@@ -15,6 +15,7 @@ export default function Home() {
       <main className='bg-sky-200'>
         <h1>Tes saja</h1>
         <p>Hello Broh</p>
+        
         <Example />
       </main>
     </>
