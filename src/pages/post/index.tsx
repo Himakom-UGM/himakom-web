@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Blogpost from "../../components/detail-post/Example"
 
 export default function Post() {
   return (
@@ -8,6 +9,7 @@ export default function Post() {
       </Head>
       <main>
         Post
+      <Blogpost />
       </main>
     </>
   );

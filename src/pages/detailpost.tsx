@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Image from "next/image"
 import imageBackground from "public/images/bg/image_detail_post.png"
+import React from "react"
 
 export default function DetailPost() {
     return (

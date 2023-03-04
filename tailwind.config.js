@@ -35,6 +35,9 @@ module.exports = {
 					customMd: '960px',
 				},
 			},
+			screens: {
+				customMd: '960px',
+			},
 		},
 		dropShadow: {
 			'customShadow4-4-14': '4px 4px 14px rgba(0, 0, 0, 0.25)',

@@ -1,4 +1,5 @@
 import Header from './Header/Header';
+import Footer from './Footer/Footer';
 import { Lato } from 'next/font/google';
 
 export default function Layout(props: { children: React.ReactNode }) {
@@ -6,6 +7,7 @@ export default function Layout(props: { children: React.ReactNode }) {
 		<div className='font-Lato	'>
 			<Header />
 			<div className="layout__content">{props.children}</div>
+			<Footer/>
 		</div>
 	);
 }
