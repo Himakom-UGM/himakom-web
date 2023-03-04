@@ -32,9 +32,8 @@ module.exports = {
 				},
 				onDrop: 'rgba(63, 63, 156, 0.5)',
 				screens: {
-customMd: '960px',
+					customMd: '960px',
 				},
-				
 			},
 		},
 		dropShadow: {
