@@ -33,7 +33,7 @@ export default function Form() {
 	}, []);
 
 	return (
-		<div className='py-1 px-3'>
+		<div className='py-1 px-3 flex flex-col gap-y-2'>
 			<div className="flex flex-col">
 				<label htmlFor="to">To:</label>
 				<input
