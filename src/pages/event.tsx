@@ -30,7 +30,7 @@ export default function Event() {
                                 <button className="w-[138px] h-[42px] rounded-[12px] mb-0 mt-auto bg-[#F3BE00]">Button Here</button>
                             </div>
                         </div>
-                        <div className="w-[284px] h-[220px] mb-auto mt-0 bg-[#D9D9D9] rounded-[20px] font-bold text-center drop-shadow-customShadow4-4-14px  flex justify-center items-center">
+                        <div className="md:w-[698px] md:h-[519px] w-[284px] h-[220px] mb-auto mt-0 bg-[#D9D9D9] rounded-[20px] font-bold text-center drop-shadow-customShadow4-4-14px  flex justify-center items-center">
                             <h3 className="">Calender Here</h3>
                         </div>
                     </div>
