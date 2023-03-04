@@ -2,9 +2,6 @@
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
-		screens: {
-			customMd: '960px',
-		},
 		fontFamily: {
 			Lato: ['Lato', 'sans-serif'],
 		},
@@ -34,6 +31,10 @@ module.exports = {
 					200: '#F3DB00',
 				},
 				onDrop: 'rgba(63, 63, 156, 0.5)',
+				screens: {
+customMd: '960px',
+				},
+				
 			},
 		},
 		dropShadow: {
@@ -42,7 +43,7 @@ module.exports = {
 			'customShadow0-0-4': '0px 0px 4px rgba(0, 0, 0, 0.25)',
 		},
 		colors: {
-			blurBackground: 'rgba(255, 255, 255, 0.46)'
+			blurBackground: 'rgba(255, 255, 255, 0.46)',
 		},
 		plugins: [],
 	},
