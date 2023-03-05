@@ -13,15 +13,16 @@ const lato = Lato({
 function LegendStructure(){
   return(
     <>
-      {PHPI.map(items => {
+      {PHPI.map((items,index) => {
         return (
-          <div className="flex items-center pb-2 px-2 lg:pb-3">
+          <div className="flex items-center pb-2 px-2 lg:pb-3"       key={index}>
             <Image
               src={`/cabinet/${items.id}.svg`}
               alt=""
               width={14}
               height={12}
               className="filter "
+        
             />
             <h4 className="text-[10px] lg:text-xl font-bold text-start pl-3">{items.position}</h4>
           </div>
@@ -36,7 +37,7 @@ export default function CabinetPage(){
 
   return (
     <>
-      <main className={`${lato.className} w-screen h-screen`}>
+      <main className={`${lato.className} overflow-x-hidden`}>
         <div className="bg-[#3F3F9C]">
           <div className="relative  h-full z-0">
               <Image
@@ -159,7 +160,7 @@ export default function CabinetPage(){
           />
           <div className="bg-[#3F3F9C]/50 w-full h-full z-20 absolute" style={{background:'linear-gradient(90deg, #3F3F9C 53.44%, rgba(63, 63, 156, 0.4) 100%)'}}></div>
           <h1 className="text-2xl font-bold text-[#F8F8F8] text-center pb-10 lg:text-5xl z-30">Core Team</h1>
-          <div className="flex items-end ml-[370px] p-4 w-full overflow-x-scroll overflow-hidden z-30">
+          <div className="flex mx-[370px] p-4 w-full  z-30  overflow-hidden">
             <CarouselCabinet />
           </div>
         </div>  
