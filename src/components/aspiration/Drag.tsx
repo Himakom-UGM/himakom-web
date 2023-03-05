@@ -67,7 +67,7 @@ export default function Drag(props: { onClose: () => void }) {
 		<div
 			className={`relative grid h-full grid-cols-2 rounded-xl border-2 border-black ${
 				files.length > 0 ? 'px-4 pt-6' : 'px-10 pt-4'
-			} py-3 `}
+			} py-3 bg  `}
 		>
 			<div
 				onClick={handleClose}
@@ -81,7 +81,7 @@ export default function Drag(props: { onClose: () => void }) {
 					className={`
 				${
 					files.length > 0 ? '' : 'col-span-2'
-				} my-2 flex flex-col items-center justify-center gap-y-3 rounded-xl border-[3px] border-dashed border-primary-100`}
+				} my-2 p-4 flex flex-col items-center justify-center gap-y-3 rounded-xl border-[3px] border-dashed border-primary-100`}
 				>
 					<UploadLarge changeColor={false} />
 					<input
@@ -98,11 +98,11 @@ export default function Drag(props: { onClose: () => void }) {
                             }
 						}}
 					/>
-					<h3 className="text-lg font-medium">Drag and drop files here </h3>
+					<h3 className="text-lg font-medium text-center">Drag and drop files here </h3>
 					<p className="text-lg font-medium">Or</p>
 					<button
 						onClick={handleBrowse}
-						className="rounded-lg bg-primary-100 py-1 px-4 text-white"
+						className="rounded-lg bg-primary-100 py-1 px-4 text-contrast-100"
 					>
 						Browse
 					</button>

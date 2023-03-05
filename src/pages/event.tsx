@@ -4,7 +4,6 @@ import FotoAngkatan from "public/images/bg/foto_angkatan.png"
 import TextureEvent from "public/images/bg/texture_page_events.png"
 import Searching from "public/images/icon/searching_forEvent.svg"
 import Send from "public/images/icon/send_icon.svg"
-import Pattern from "public/images/bg/patternpad.png"
 
 export default function Event() {
     return (
@@ -15,7 +14,7 @@ export default function Event() {
             <main>
                 <div className="w-full flex-wrap relative">
                     <Image
-                        src={Pattern}
+                        src={'images/bg/patternpad.png'}
                         quality={100}
                         alt="hero"
                         fill
