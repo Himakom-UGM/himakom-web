@@ -1,3 +1,4 @@
+import CabinetPage from "@/components/cabinet";
 import Head from "next/head";
 
 export default function Cabinet() {
@@ -6,6 +7,7 @@ export default function Cabinet() {
       <Head>
         <title>Cabinet</title>
       </Head>
+      <CabinetPage />
     </>
   );
 }

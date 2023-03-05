@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.filters {
+    filter: sepia(100%) hue-rotate(203deg) saturate(185%);
+}
+  

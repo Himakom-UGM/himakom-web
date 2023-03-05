@@ -1,3 +1,4 @@
+import AboutPage from "@/components/about";
 import Head from "next/head";
 
 export default function About() {
@@ -6,6 +7,9 @@ export default function About() {
       <Head>
         <title>About</title>
       </Head>
+      <main>
+        <AboutPage />
+      </main>
     </>
   );
 }
