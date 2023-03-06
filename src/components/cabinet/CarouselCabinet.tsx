@@ -3,13 +3,11 @@ import { Lato } from 'next/font/google';
 import React, { useRef } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Mousewheel, Navigation } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-
-// import required modules
-import { Pagination, Navigation, Autoplay } from 'swiper' ;
 
 const lato = Lato({
 	subsets: ['latin'],
@@ -82,22 +80,29 @@ export const PHPI = [
 
 export default function CarouselCabinet() {
   return(
-	<Swiper 
-
-  loopedSlides={1}
-		slidesPerView='auto'
-		spaceBetween={0}
-		loop
-    modules={[ Autoplay]}
-		className="mySwiper"
-	>
-		{PHPI.map((items, index) => {
+    <Swiper 
+      loop
+      loopedSlides={7}
+      slidesPerView= 'auto'
+      modules= {[Mousewheel, Navigation, Autoplay]}
+      mousewheel ={{
+        forceToAxis: true,
+        sensitivity: 1,
+        releaseOnEdges: true,
+      }}
+      watchOverflow = {true}
+      slidesPerGroup = {13}
+      autoplay = {{
+        delay: 500,
+      }}
+    >
+		{PHPI.map((items) => {
 			return (
-				<SwiperSlide key={index} style={{ width: 'auto',   }} >
+				<SwiperSlide style={{ width: 'auto' }} >
 					<div
 						className={`relative mx-1 flex items-center justify-center ${lato.className}  `}
 					>
-						<div className="group relative h-[220px] w-[110px] -skew-x-[6deg] transform overflow-hidden rounded-md border-[5px] bg-[#F8F8F8] transition-all hover:visible hover:w-[150px] hover:duration-[100ms] hover:ease-in lg:h-[360px] lg:w-[180px] lg:hover:w-[320px]">
+						<div className="group relative h-[220px] w-[110px] transform overflow-hidden rounded-md border-[5px] bg-[#F8F8F8] transition-all hover:visible hover:w-[150px] hover:duration-[100ms] hover:ease-in lg:h-[360px] lg:w-[180px] lg:hover:w-[320px]">
 							<h1 className="duration-400 h-[80px] skew-x-[8deg] py-2 px-4 text-center text-xs font-bold text-[#3F3F9C] transition-opacity ease-out group-hover:opacity-0 lg:text-xl">
 								{items.position}
 							</h1>
