@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Open_Sans } from "next/font/google";
 import Example from "@/components/homepage/Example";
+import News from "./NewsPage";
 
 export default function Home() {
   return (
@@ -12,10 +13,8 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='bg-sky-200'>
-        <h1>Tes saja</h1>
-        <p>Hello Broh</p>
-        <Example />
+      <main className=''>
+        <News />
       </main>
     </>
   );

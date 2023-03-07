@@ -28,6 +28,9 @@ module.exports = {
 					200: '#F3DB00',
 				},
 			},
+			fontFamily: {
+				lato: ["Lato", "serif"]
+			}
 		},
 		plugins: [],
 	},
