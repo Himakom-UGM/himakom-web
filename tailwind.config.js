@@ -8,7 +8,7 @@ module.exports = {
 		extend: {
 			colors: {
 				primary: {
-					100: '#3F3F9C',
+					100: '#3F3F9C',	
 					200: '#303078',
 					300: '#212152',
 					400: '#13132F',
@@ -37,6 +37,7 @@ module.exports = {
 			},
 			screens: {
 				customMd: '960px',
+				customSm: '320px',
 			},
 		},
 		dropShadow: {
