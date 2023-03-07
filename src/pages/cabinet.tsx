@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Example from "@/components/cabinet/Example";
 
 export default function Cabinet() {
   return (
@@ -6,6 +7,9 @@ export default function Cabinet() {
       <Head>
         <title>Cabinet</title>
       </Head>
+      <main>
+        <Example/>
+      </main>
     </>
   );
 }
