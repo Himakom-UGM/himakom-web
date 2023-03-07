@@ -82,18 +82,13 @@ export default function CarouselCabinet() {
   return(
     <Swiper 
       loop
-      loopedSlides={7}
+      loopedSlides={1}
       slidesPerView= 'auto'
       modules= {[Mousewheel, Navigation, Autoplay]}
-      mousewheel ={{
-        forceToAxis: true,
-        sensitivity: 1,
-        releaseOnEdges: true,
-      }}
-      watchOverflow = {true}
-      slidesPerGroup = {13}
       autoplay = {{
-        delay: 500,
+		reverseDirection: true,
+        delay: 2000,
+		disableOnInteraction: true
       }}
     >
 		{PHPI.map((items) => {
