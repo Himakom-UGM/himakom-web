@@ -3,15 +3,20 @@ import { motion } from 'framer-motion';
 
 export default function RelatedMenu() {
 	return (
-		<ul className="absolute top-full z-20 flex w-44 flex-col gap-y-2 rounded-lg border border-black bg-[#F8F8F8] px-4 py-5 font-medium">
-			<li className="hover:font-semibold">
+		<motion.ul
+			initial={{ opacity: 0, y: -10 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: -10 }}
+			className="-my-3 flex max-w-sm flex-col gap-y-2 pl-6 text-base font-medium"
+		>
+			<li>
 				<Link href="https://omahti.web.id">OmahTI</Link>
 			</li>
-			<li className="hover:font-semibold">
+			<li>
 				<Link href="https://dcse.fmipa.ugm.ac.id">
 					Department of Computer Sciences and Electronics (DCSE)
 				</Link>
 			</li>
-		</ul>
+		</motion.ul>
 	);
 }

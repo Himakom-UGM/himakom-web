@@ -35,6 +35,7 @@ export default function ProfileMenu(props: { onMouseOver: () => void }) {
 			>
 				<button>Division</button>
 				<DropDown />
+
 				{divisions && <DivisionMenu />}
 			</li>
 		</ul>

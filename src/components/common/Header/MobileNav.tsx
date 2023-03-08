@@ -1,9 +1,25 @@
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppContext } from '@/context/state';
+import Image from 'next/image';
+import { useState } from 'react';
+import { ArrowDown, ArrowUp } from './Arrow';
+import ProfileMenu from './mobile/ProfileMenu';
+import RelatedMenu from './mobile/RelatedMenu';
 
 export default function MobileMenu() {
 	const { hamburger } = useAppContext();
+	const [profileArrow, setProfileArrow] = useState<string>('down');
+	const [relatedArrow, setRelatedArrow] = useState<string>('down');
+
+	const profileArrowHandler = () => {
+		setProfileArrow(profileArrow === 'down' ? 'up' : 'down');
+	};
+
+	const relatedArrowHandler = () => {
+		setRelatedArrow(relatedArrow === 'down' ? 'up' : 'down');
+	};
+
 	return (
 		<AnimatePresence>
 			{hamburger && (
@@ -18,18 +34,32 @@ export default function MobileMenu() {
 						<li>
 							<Link href="/">Home</Link>
 						</li>
-						<li>
+						<li
+							onClick={profileArrowHandler}
+							className="flex items-center justify-between pr-12"
+						>
 							<Link href="/profile">Profile</Link>
+							{profileArrow === 'down' ? <ArrowDown /> : <ArrowUp />}
 						</li>
+						<AnimatePresence>
+							{profileArrow === 'up' && <ProfileMenu />}
+						</AnimatePresence>
 						<li>
 							<Link href="/event">Events</Link>
 						</li>
 						<li>
 							<Link href="/exam">Exam Archive</Link>
 						</li>
-						<li>
+						<li
+							onClick={relatedArrowHandler}
+							className="flex items-center justify-between pr-12"
+						>
 							<Link href="/related">Related</Link>
+							{relatedArrow === 'down' ? <ArrowDown /> : <ArrowUp />}
 						</li>
+						<AnimatePresence>
+							{relatedArrow === 'up' && <RelatedMenu />}
+						</AnimatePresence>
 						<li>
 							<Link href="/aspiration">Aspiration</Link>
 						</li>
