@@ -18,7 +18,7 @@ export default function Home() {
       <main>
         <Banner/>
         <About/>
-        {/* <News /> */}
+        <News / >
       </main>
     </>
   );

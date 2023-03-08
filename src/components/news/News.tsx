@@ -3,74 +3,55 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import data from './data.json';
-import image from '../../../public/foto.png';
 
 const News = () => {
 	return (
 		<>
-			<div className="relative w-full overflow-x-hidden">
-				<div className="relative flex flex-col items-center justify-center py-12">
-					<h1 className="font-lato text-4xl font-semibold text-black sm:text-5xl">
+			<div className="relative mx-auto w-full max-w-7xl overflow-x-hidden bg-[#f8f8f8]">
+				<Image
+					src="/images/bg/news.png"
+					alt="decoration"
+					width={1438}
+					height={291}
+					className="absolute top-0 left-0 z-0"
+				/>
+				<div className="relative flex flex-col items-center justify-center py-12 text-[#252525]">
+					<h1 className="font-lato text-4xl font-semibold xl:text-5xl">
 						Latest News
 					</h1>
-					<p className="py-4 px-6 text-center font-thin md:text-xl">
+					<p className="max-w-[60%] py-4 px-6 text-center md:text-xl">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>
-					<div className="p-6 relative flex flex-col justify-center lg:flex-row">
-						<div className="relative flex w-full flex-col">
-							{data.newest.map((item) => {
-								return (
-									<div className="relative my-3 flex h-[500px] flex-col rounded-2xl bg-primary-100 sm:mx-6 sm:h-[70vh] md:h-[85vh] lg:h-[80vh] lg:my-0 ">
-										<Image
-											src={require('../../../public/' + item.image + '.png')}
-											alt="image"
-											className="w-full"
-										/>
-										<div className="relative flex flex-col gap-y-3 font-lato">
-											<h1 className="px-6 text-[20px] font-semibold text-[#F8F8F8]">
-												{item.judul}
-											</h1>
-											<h1 className="font-regular px-6 text-[12px] text-[#F8F8F8]">
-												{item.isi}
-											</h1>
-											<h1 className="mx-6 w-1/4 rounded-full border-2 border-white text-center text-white">
-												Topic
-											</h1>
-											<h1 className="px-6 pb-6 text-white ">
-												Posted on {item.posted} by {item.by}
-											</h1>
+					<div className="flex flex-col justify-center p-6 lg:flex-row">
+						<div className="relative flex w-full basis-1/2 flex-col overflow-y-hidden rounded-xl">
+							<Image
+								src="/images/content/ldk.png"
+								alt="image"
+								width={1200}
+								height={600}
+								className="absolute -mt-12"
+							/>
+							<div className="relative flex min-h-full flex-col rounded-xl bg-content-overlay px-8 duration-700 hover:bg-content">
+								<div className="relative flex flex-col gap-y-3 pt-52 font-lato text-[#F8F8F8]">
+									<h1 className="text-3xl font-semibold 2xl:text-4xl">
+										Lorem ipsum dolor sit amet, consectetur
+									</h1>
+									<p className="font-regular mt-1 max-w-[90%] text-sm">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+										do eiusmod tempor incididunt ut labore et dolore magna
+										aliqua. Ut
+									</p>
+									<div className="flex items-center gap-x-4 pt-2 pb-6 text-sm">
+										<div className="rounded-xl border border-white px-5 py-[2px] text-white">
+											Topic
+										</div>
+										<div className="text-white ">
+											Posted on 02/05/20 by Ramzy Izza
 										</div>
 									</div>
-								);
-							})}
-						</div>
-						<div className="relative flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-1 lg:h-[80vh] overflow-y-scroll">
-							{data.latest.map((item) => {
-								return (
-									<div className="relative my-3 flex h-[450px] flex-col rounded-2xl bg-primary-300 sm:mx-12 sm:h-[50vh] lg:mx-6 lg:mt-0">
-										<Image
-											src={require('../../../public/' + item.image + '.png')}
-											alt="image"
-											className="w-full"
-										/>
-										<div className="relative flex flex-col gap-y-3 font-lato">
-											<h1 className="px-6 text-[20px] font-semibold text-[#F8F8F8]">
-												{item.judul}
-											</h1>
-											<h1 className="font-regular hidden px-6 text-[12px] text-[#F8F8F8]">
-												{item.isi}
-											</h1>
-											<h1 className="mx-6 w-1/4 rounded-full border-2 border-white text-center text-white">
-												Topic
-											</h1>
-											<h1 className="px-6 pb-6 text-white ">
-												Posted on {item.posted} by {item.by}
-											</h1>
-										</div>
-									</div>
-								);
-							})}
+								</div>
+							</div>
 						</div>
 					</div>
 

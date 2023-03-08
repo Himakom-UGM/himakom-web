@@ -7,9 +7,14 @@ module.exports = {
 		},
 		extend: {
 			backgroundImage: {
-				'about': 'linear-gradient(to right, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, 1) 40%, rgba(50, 50, 123, 0.8) 100%)',
-				'about-mobile': 'linear-gradient(to bottom, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, .9) 42%, rgba(50, 50, 123, .7) 82%, rgba(50, 50, 123, 0.5) 100%)',
-
+				about:
+					'linear-gradient(to right, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, 1) 40%, rgba(50, 50, 123, 0.8) 100%)',
+				'about-mobile':
+					'linear-gradient(to bottom, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, .9) 42%, rgba(50, 50, 123, .7) 82%, rgba(50, 50, 123, 0.5) 100%)',
+				'content-overlay':
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0.2) 0%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
+				content:
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 40%,rgba(63, 63, 156, 1) 52%, rgba(63, 63, 156, 1) 100%)',
 			},
 			colors: {
 				blurBackground: 'rgba(255, 255, 255, 0.46)',
