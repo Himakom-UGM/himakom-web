@@ -1,0 +1,40 @@
+.search{
+    position: relative;
+    overflow: hidden;
+    &_icon{
+        position: absolute;
+        z-index: 10;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease-out;
+    }
+
+    input:focus ~ &_icon{
+        right: -50px;
+    }
+
+    input{
+        width: 100%;
+        padding-block: 13px;
+        padding-inline: 24px;
+        border: 1px #252525 solid;
+        border-radius: 30px;
+        position: relative;
+        transition: all 0.5s ease;
+
+        &::placeholder{
+            font-family: 'Lato';
+            font-style: normal;
+            font-weight: 400;
+            color: #252525;
+        }
+
+        &:hover{
+            box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.19) inset;
+            -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.19) inset;
+            -moz-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.19) inset;
+        }
+
+    }
+}
