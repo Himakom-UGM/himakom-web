@@ -43,6 +43,32 @@ module.exports = {
 			screens: {
 				customMd: '960px',
 			},
+			animation: {
+				'slide-down': 'slideDown 0.5s ease-in-out',
+				'slide-up': 'slideUp 0.5s ease-in-out',
+			},
+			keyframes: {
+				slideDown: {
+					'0%': {
+						transform: 'translateY(-100%)',
+						opacity: 0,
+					},
+					'100%': {
+						transform: 'translateY(0)',
+						opacity: 1,
+					},
+				},
+				slideUp: {
+					'0%': {
+						transform: 'translateY(0)',
+						opacity: 1,
+					},
+					'100%': {
+						transform: 'translateY(-100%)',
+						opacity: 0,
+					},
+				},
+			},
 		},
 		dropShadow: {
 			'customShadow4-4-14': '4px 4px 14px rgba(0, 0, 0, 0.25)',

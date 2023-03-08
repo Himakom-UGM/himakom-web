@@ -7,15 +7,15 @@ import { useAppContext } from '@/context/state';
 import ProfileMenu from './ProfileMenu';
 
 export default function Header() {
-	const {hamburger, updateHamburger} = useAppContext();
+	const { hamburger, updateHamburger } = useAppContext();
 	return (
 		<>
-			<div className="relative flex justify-between text-black bg-[#F0F0F0] px-6 py-2 customMd:justify-around customMd:px-0">
+			<div className="relative z-30 flex justify-between bg-[#F0F0F0] px-6 py-2 text-black customMd:justify-around customMd:px-0">
 				<HimakomBrand />
 				<Hamburger />
 				<DesktopNav />
 			</div>
-			{hamburger && <MobileMenu />}
+			<MobileMenu />
 		</>
 	);
 }

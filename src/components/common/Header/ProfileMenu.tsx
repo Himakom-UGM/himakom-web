@@ -19,7 +19,7 @@ export default function ProfileMenu(props: { onMouseOver: () => void }) {
 	return (
 		<ul
 			onMouseEnter={mouseOverHandler}
-			className="absolute top-full z-10 flex w-44 flex-col gap-y-2 rounded-lg border border-black bg-[#F8F8F8] px-4 pt-5 font-medium"
+			className="absolute top-full z-20 flex w-44 flex-col gap-y-2 rounded-lg border border-black bg-[#F8F8F8] px-4 pt-5 font-medium"
 		>
 			<li className="hover:font-semibold">
 				<Link href="/about">About Us</Link>
