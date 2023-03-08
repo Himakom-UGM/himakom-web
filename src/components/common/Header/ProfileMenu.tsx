@@ -2,6 +2,7 @@ import DropDown from '@/svg/dropdown';
 import Link from 'next/link';
 import { useState } from 'react';
 import DivisionMenu from './DivisionMenu';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function ProfileMenu(props: { onMouseOver: () => void }) {
 	const [divisions, setDivisions] = useState<boolean>(false);
@@ -17,7 +18,10 @@ export default function ProfileMenu(props: { onMouseOver: () => void }) {
 	};
 
 	return (
-		<ul
+		<motion.ul
+			animate={{ y: 0, opacity: 1 }}
+			initial={{ y: '-10', opacity: 0 }}
+			exit={{ y: '-10', opacity: 0 }}
 			onMouseEnter={mouseOverHandler}
 			className="absolute top-full z-20 flex w-44 flex-col gap-y-2 rounded-lg border border-black bg-[#F8F8F8] px-4 pt-5 font-medium"
 		>
@@ -31,13 +35,12 @@ export default function ProfileMenu(props: { onMouseOver: () => void }) {
 				onMouseEnter={activateDivisions}
 				onMouseMove={activateDivisions}
 				onMouseLeave={deactivateDivisions}
-				className="relative pb-5 flex justify-between hover:font-semibold"
+				className="relative flex justify-between pb-5 hover:font-semibold"
 			>
 				<button>Division</button>
 				<DropDown />
-
-				{divisions && <DivisionMenu />}
+				<AnimatePresence>{divisions && <DivisionMenu />}</AnimatePresence>
 			</li>
-		</ul>
+		</motion.ul>
 	);
 }

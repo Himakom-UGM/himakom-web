@@ -3,6 +3,7 @@ import Dropdown from '../ui/Dropdown';
 import { useState } from 'react';
 import ProfileMenu from './ProfileMenu';
 import RelatedMenu from './RelatedMenu';
+import { AnimatePresence } from 'framer-motion';
 
 export default function DesktopNav() {
 	const [profileOnHover, setProfileOnHover] = useState<boolean>(false);
@@ -37,9 +38,11 @@ export default function DesktopNav() {
 				>
 					<button>Profile</button>
 					<Dropdown />
-					{profileOnHover && (
-						<ProfileMenu onMouseOver={profileOnHoverHandler} />
-					)}
+					<AnimatePresence>
+						{profileOnHover && (
+							<ProfileMenu onMouseOver={profileOnHoverHandler} />
+						)}
+					</AnimatePresence>
 				</li>
 				<li>
 					<Link href="/event">Events</Link>
@@ -55,7 +58,7 @@ export default function DesktopNav() {
 				>
 					<button>Related</button>
 					<Dropdown />
-					{relatedOnHover && <RelatedMenu />}
+					<AnimatePresence>{relatedOnHover && <RelatedMenu />}</AnimatePresence>
 				</li>
 				<li>
 					<Link href="/aspiration">Aspiration</Link>
