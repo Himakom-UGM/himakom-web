@@ -9,7 +9,7 @@ import About from './About';
 
 export default function Banner() {
 	return (
-		<div className="relative mx-auto w-full max-w-7xl overflow-x-hidden">
+		<div className="relative mx-auto w-full max-w-7xl overflow-x-hidden overflow-y-hidden">
 			<Image
 				src="/images/bg/landing.png"
 				// width={1438}
