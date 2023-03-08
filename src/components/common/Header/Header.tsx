@@ -41,6 +41,7 @@ export default function Header() {
 			<motion.div
 				animate={hidden ? 'hidden' : 'visible'}
 				variants={variants}
+				initial="hidden"
 				transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.7 }}
 				className="fixed left-1/2 z-30 flex w-full  justify-between bg-[#F0F0F0] px-6 text-black customMd:justify-around customMd:py-1 customMd:px-0"
 			>
