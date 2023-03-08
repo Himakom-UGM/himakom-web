@@ -6,6 +6,11 @@ module.exports = {
 			Lato: ['Lato', 'sans-serif'],
 		},
 		extend: {
+			backgroundImage: {
+				'about': 'linear-gradient(to right, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, 1) 40%, rgba(50, 50, 123, 0.8) 100%)',
+				'about-mobile': 'linear-gradient(to bottom, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, .9) 42%, rgba(50, 50, 123, .7) 82%, rgba(50, 50, 123, 0.5) 100%)',
+
+			},
 			colors: {
 				blurBackground: 'rgba(255, 255, 255, 0.46)',
 				primary: {

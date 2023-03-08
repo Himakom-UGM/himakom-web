@@ -9,8 +9,8 @@ export default function Layout(props: { children: React.ReactNode }) {
 			<AppWrapper>
 				<Header />
 				<div className="layout__content">{props.children}</div>
+				<Footer />
 			</AppWrapper>
-			<Footer />
 		</div>
 	);
 }

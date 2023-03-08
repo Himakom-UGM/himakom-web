@@ -4,6 +4,7 @@ import { Open_Sans } from "next/font/google";
 import Example from "@/components/homepage/Example";
 import News from "./NewsPage";
 import Banner from "@/components/homepage/Banner";
+import About from "@/components/homepage/About";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
       <main>
         <Banner/>
+        <About/>
         {/* <News /> */}
       </main>
     </>

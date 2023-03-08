@@ -29,9 +29,9 @@ export default function Header() {
 
 	const variants = {
 		/** this is the "visible" key and it's respective style object **/
-		visible: { opacity: 1, y: 0 },
+		visible: { opacity: 1, y: 0, x: '-50%' },
 		/** this is the "hidden" key and it's respective style object **/
-		hidden: { opacity: 0, y: -20 },
+		hidden: { opacity: 0, y: -20, x: '-50%' },
 	};
 
 	useMotionValueEvent(scrollY, 'change', update);
@@ -42,7 +42,7 @@ export default function Header() {
 				animate={hidden ? 'hidden' : 'visible'}
 				variants={variants}
 				transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.7 }}
-				className="fixed z-30 mx-auto flex w-full max-w-7xl justify-between bg-[#F0F0F0] px-6 text-black customMd:justify-around customMd:py-1 customMd:px-0"
+				className="fixed left-1/2 z-30 flex w-full  justify-between bg-[#F0F0F0] px-6 text-black customMd:justify-around customMd:py-1 customMd:px-0"
 			>
 				<HimakomBrand />
 				<Hamburger />

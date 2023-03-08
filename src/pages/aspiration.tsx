@@ -2,14 +2,14 @@ import AspirationCard from '@/components/aspiration/AspirationCard';
 import Form from '@/components/aspiration/Form';
 import Layout from '@/components/aspiration/Layout';
 import { contentfulClient } from '@/utils/contentful/contentfulClient';
-import { AspirationEntry } from '@/utils/contentful/contentfulTypes';
+import { AspirationType } from '@/utils/contentful/contentfulTypes';
 import { EntryCollection } from 'contentful';
 import Head from 'next/head';
 import Image from 'next/image';
 
 export async function getServerSideProps() {
 	const entries = await contentfulClient.getEntries<
-		EntryCollection<AspirationEntry>
+		EntryCollection<AspirationType>
 	>({
 		content_type: 'aspiration',
 	});
@@ -24,7 +24,7 @@ export async function getServerSideProps() {
 export default function Aspiration({
 	entries,
 }: {
-	entries: EntryCollection<AspirationEntry>;
+	entries: EntryCollection<AspirationType>;
 }) {
 	console.log(entries.items);
 	return (
@@ -32,7 +32,7 @@ export default function Aspiration({
 			<Head>
 				<title>Aspiration</title>
 			</Head>
-			<div className=" bg-primary-100">
+			<div className=" bg-primary-100 pt-16">
 				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10   ">
 					<Image
 						src="/images/bg/aspiration.png"

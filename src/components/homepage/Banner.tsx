@@ -5,10 +5,11 @@ import RightBottom from './decoration/RightBottom';
 import LeftTop from './decoration/LeftTop';
 import { motion } from 'framer-motion';
 import Bottom from './decoration/Bottom';
+import About from './About';
 
 export default function Banner() {
 	return (
-		<div className="relative mx-auto w-full max-w-7xl">
+		<div className="relative mx-auto w-full max-w-7xl overflow-x-hidden">
 			<Image
 				src="/images/bg/landing.png"
 				// width={1438}
