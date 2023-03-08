@@ -21,6 +21,8 @@ export default function DesktopNav() {
 		setRelatedOnHover(false);
 	};
 
+	console.log('profileOnHover', profileOnHover);
+
 	return (
 		<nav className="text- relative hidden items-center customMd:flex">
 			<ul className="flex items-center justify-between gap-x-6 font-semibold">

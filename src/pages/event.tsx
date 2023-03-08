@@ -13,13 +13,13 @@ export default function Event() {
             </Head>
             <main>
                 <div className="w-full flex-wrap relative">
-                    <Image
+                    {/* <Image
                         src={'images/bg/patternpad.png'}
                         quality={100}
                         alt="hero"
                         fill
                         className="-z-[9999] object-cover"
-                    />
+                    /> */}
                     <div className="md:flex-row flex flex-col justify-center items-center content-around gap-[15px] pt-5">
                         <div className="w-[284px] md:w-[1344px] md:h-[654px] bg-[#FFFFFF] rounded-[20px] mt-auto">
                             <div className="flex flex-col justify-center items-center gap-5">

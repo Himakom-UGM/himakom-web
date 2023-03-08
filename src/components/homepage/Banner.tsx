@@ -25,15 +25,15 @@ export default function Banner() {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.8, duration: 0.2 }}
-				className="relative hidden flex-col items-center pt-20 font-semibold text-primary-300 customMd:flex 2xl:pt-28"
+				className="relative hidden flex-col items-center pt-32 font-semibold text-primary-300 customMd:flex 2xl:pt-28"
 			>
-				<h1 className="mb-[2px] text-xl italic 2xl:text-xl">
+				<h1 className="mb-[2px] text-2xl italic 2xl:text-3xl">
 					Universitas Gadjah Mada
 				</h1>
-				<h2 className="text-5xl font-extrabold 2xl:text-6xl">
+				<h2 className="text-6xl font-extrabold 2xl:text-7xl">
 					Himpunan Mahasiswa
 				</h2>
-				<h3 className="text-3xl 2xl:text-4xl">Ilmu Komputer</h3>
+				<h3 className="text-4xl 2xl:text-5xl">Ilmu Komputer</h3>
 			</motion.div>
 			<div className="mx-auto w-[90%] max-w-[480px] pt-44 text-center text-4xl font-semibold text-primary-300 md:max-w-[60%] customMd:hidden">
 				<h1>Himpunan Mahasiwa Ilmu Komputer</h1>
@@ -58,12 +58,11 @@ export default function Banner() {
 					alt="foto"
 				/>
 			</motion.div>
-
 			<RightTop />
 			<RightBottom />
 			<LeftTop />
 			<LeftBottom />
-            <Bottom/>
+			<Bottom />
 		</div>
 	);
 }
