@@ -1,14 +1,43 @@
-import Link from "next/link";
+import Link from 'next/link';
+import Dropdown from '../ui/Dropdown';
+import { useState } from 'react';
+import ProfileMenu from './ProfileMenu';
+import RelatedMenu from './RelatedMenu';
 
 export default function DesktopNav() {
+	const [profileOnHover, setProfileOnHover] = useState<boolean>(false);
+	const [relatedOnHover, setRelatedOnHover] = useState<boolean>(false);
+
+	const profileOnHoverHandler = () => {
+		setProfileOnHover(true);
+	};
+	const relatedOnHoverHandler = () => {
+		setRelatedOnHover(true);
+	};
+	const profileMouseOutHandler = () => {
+		setProfileOnHover(false);
+	};
+	const relatedMouseOutHandler = () => {
+		setRelatedOnHover(false);
+	};
+
 	return (
-		<nav className="hidden customMd:flex items-center">
-			<ul className="flex items-center gap-x-6 justify-between">
+		<nav className="text- relative hidden items-center customMd:flex">
+			<ul className="flex items-center justify-between gap-x-6 font-semibold">
 				<li>
 					<Link href="/">Home</Link>
 				</li>
-				<li>
-					<Link href="/profile">Profile</Link>
+				<li
+					onMouseEnter={profileOnHoverHandler}
+					onMouseOver={profileOnHoverHandler}
+					onMouseLeave={profileMouseOutHandler}
+					className="relative flex items-center gap-x-1 py-2"
+				>
+					<button>Profile</button>
+					<Dropdown />
+					{profileOnHover && (
+						<ProfileMenu onMouseOver={profileOnHoverHandler} />
+					)}
 				</li>
 				<li>
 					<Link href="/event">Events</Link>
@@ -16,8 +45,15 @@ export default function DesktopNav() {
 				<li>
 					<Link href="/exam">Exam Archive</Link>
 				</li>
-				<li>
-					<Link href="/related">Related</Link>
+				<li
+					onMouseEnter={relatedOnHoverHandler}
+					onMouseOver={relatedOnHoverHandler}
+					onMouseLeave={relatedMouseOutHandler}
+					className="relative flex items-center gap-x-1 py-2"
+				>
+					<button>Related</button>
+					<Dropdown />
+					{relatedOnHover && <RelatedMenu />}
 				</li>
 				<li>
 					<Link href="/aspiration">Aspiration</Link>
