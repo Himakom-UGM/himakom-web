@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function Card(props: {
 	title: string;
@@ -9,8 +10,15 @@ export default function Card(props: {
 	author: string;
 	primary: boolean;
 }) {
+	const router = useRouter();
+	const redirectHandler = () => {
+		router.push('/detailnews');
+	};
 	return (
-		<div className="relative flex w-full max-w-[450px] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl">
+		<div
+			onClick={redirectHandler}
+			className="relative flex w-full max-w-[450px] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
+		>
 			<Image
 				src={props.image}
 				alt="image"
@@ -23,7 +31,7 @@ export default function Card(props: {
 			<div
 				className={`${
 					props.primary
-						? 'bg-content-overlay-mobile customMd:bg-content-overlay hover:bg-content customMd:h-full'
+						? 'bg-content-overlay-mobile hover:bg-content customMd:h-full customMd:bg-content-overlay'
 						: '-mt-24 bg-content-overlaySecondary hover:bg-content-secondary customMd:-mt-16'
 				} relative flex flex-col rounded-xl px-8 duration-700`}
 			>

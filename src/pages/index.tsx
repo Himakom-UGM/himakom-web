@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { Open_Sans } from 'next/font/google';
 import Example from '@/components/homepage/Example';
-import News from './NewsPage';
+import News from '@/components/news/News';
 import Banner from '@/components/homepage/Banner';
 import About from '@/components/homepage/About';
 
