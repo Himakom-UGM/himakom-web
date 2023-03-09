@@ -37,19 +37,21 @@ export default function Header() {
 	useMotionValueEvent(scrollY, 'change', update);
 
 	return (
-		<div className="bg-[#F0F0F0]">
+		<div className="customMd:bg-[#F0F0F0]">
 			<motion.div
 				animate={hidden ? 'hidden' : 'visible'}
 				variants={variants}
 				initial="hidden"
 				transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.7 }}
-				className="fixed left-1/2 z-30 flex w-full  justify-between bg-[#F0F0F0] px-6 text-black customMd:justify-around customMd:py-1 customMd:px-0"
+				className="fixed left-1/2 z-20 flex w-full flex-col customMd:bg-[#F0F0F0]  text-black customMd:flex-row customMd:justify-around customMd:px-12"
 			>
-				<HimakomBrand />
-				<Hamburger />
-				<DesktopNav />
+				<div className='flex justify-between z-30 px-6 bg-[#F0F0F0] w-full max-w-7xl'>
+					<HimakomBrand />
+					<Hamburger />
+					<DesktopNav />
+				</div>
+				<MobileMenu />
 			</motion.div>
-			<MobileMenu />
 		</div>
 	);
 }

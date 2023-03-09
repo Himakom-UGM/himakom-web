@@ -14,7 +14,11 @@ module.exports = {
 				'content-overlay':
 					'linear-gradient(to bottom, rgba(218, 218, 218, 0.2) 0%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
 				content:
-					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 40%,rgba(63, 63, 156, 1) 52%, rgba(63, 63, 156, 1) 100%)',
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 0%,rgba(218, 218, 218, 0) 40%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
+				'content-overlaySecondary':
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0.2) 0%, rgba(33, 33, 82, 1) 70%, rgba(33, 33, 82, 1) 100%)',
+				'content-secondary':
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 40%, rgba(33, 33, 82, 1) 70%, rgba(33, 33, 82, 1) 100%)',
 			},
 			colors: {
 				blurBackground: 'rgba(255, 255, 255, 0.46)',
