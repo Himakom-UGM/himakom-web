@@ -43,10 +43,10 @@ export default function Drag(props: { onClose: () => void }) {
 	}
 
 	function handleFiles(fileList: FileList) {
-        if (files.length >= 10) {
-            alert('Max 10 files allowed');
-            return;
-        }
+		if (files.length >= 10) {
+			alert('Max 10 files allowed');
+			return;
+		}
 		for (let i = 0; i < fileList.length; i++) {
 			setFiles((prev) => [...prev, fileList[i]]);
 		}
@@ -66,12 +66,12 @@ export default function Drag(props: { onClose: () => void }) {
 	return (
 		<div
 			className={`relative grid h-full grid-cols-2 rounded-xl border-2 border-black ${
-				files.length > 0 ? 'px-4 pt-6' : 'px-10 pt-4'
-			} py-3 bg  `}
+				files.length > 0 ? 'px-4' : 'px-10'
+			} py-10`}
 		>
 			<div
 				onClick={handleClose}
-				className="absolute z-10 right-3 top-3 cursor-pointer"
+				className="absolute right-3 top-3 z-10 cursor-pointer"
 			>
 				<CloseLogo />
 			</div>
@@ -81,7 +81,7 @@ export default function Drag(props: { onClose: () => void }) {
 					className={`
 				${
 					files.length > 0 ? '' : 'col-span-2'
-				} my-2 p-4 flex flex-col items-center justify-center gap-y-3 rounded-xl border-[3px] border-dashed border-primary-100`}
+				} my-2 flex h-full flex-col items-center justify-center gap-y-3 rounded-xl border-[3px] border-dashed border-primary-100 p-4`}
 				>
 					<UploadLarge changeColor={false} />
 					<input
@@ -91,14 +91,20 @@ export default function Drag(props: { onClose: () => void }) {
 						ref={inputFileRef}
 						className="hidden"
 						onChange={(e) => {
-							if (e.target.files && e.target.files.length > 0 && files.length + e.target.files.length < 10) {
+							if (
+								e.target.files &&
+								e.target.files.length > 0 &&
+								files.length + e.target.files.length < 10
+							) {
 								handleFiles(e.target.files);
 							} else {
-                                alert('Max 10 files allowed');
-                            }
+								alert('Max 10 files allowed');
+							}
 						}}
 					/>
-					<h3 className="text-lg font-medium text-center">Drag and drop files here </h3>
+					<h3 className="text-center text-lg font-medium">
+						Drag and drop files here{' '}
+					</h3>
 					<p className="text-lg font-medium">Or</p>
 					<button
 						onClick={handleBrowse}
@@ -117,7 +123,7 @@ export default function Drag(props: { onClose: () => void }) {
 					onDragOver={handleDrag}
 					className={`${
 						dragActive ? 'col-span-2' : ''
-					} my-2 flex flex-col items-center justify-center gap-y-3 rounded-xl border-[3px] border-dashed border-onDrop`}
+					} my-2 h-full flex flex-col items-center justify-center gap-y-3 rounded-xl border-[3px] border-dashed border-onDrop`}
 				>
 					<div className="animate-pulse">
 						<UploadLarge changeColor={dragActive} />
@@ -140,16 +146,16 @@ export default function Drag(props: { onClose: () => void }) {
 				</div>
 			)}
 			{files.length > 0 && (
-				<div className="px-4 max-h-full relative">
+				<div className="relative h-full max-h-full px-4">
 					<h3 className="text-lg font-medium">Uploaded Files</h3>
-					<ul className="mt-3 h-[80%] absolute pr-2 w-[95%] overflow-y-scroll">
+					<ul className="absolute mt-3 h-[80%] w-[95%] overflow-y-scroll pr-2">
 						{files.map((file, index) => (
 							// max name file length 20
 							<li
 								key={index}
 								className="my-2 flex items-center justify-between text-sm font-medium"
 							>
-								<div className='flex gap-x-2'>
+								<div className="flex gap-x-2">
 									<FileLogo />
 
 									{file.name.length > 11

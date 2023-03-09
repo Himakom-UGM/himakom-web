@@ -10,35 +10,33 @@ export default function Card(props: {
 	primary: boolean;
 }) {
 	return (
-		<div className="relative flex w-full basis-1/2 flex-col overflow-y-hidden rounded-xl">
+		<div className="relative flex w-full max-w-[450px] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl">
 			<Image
 				src={props.image}
 				alt="image"
 				width={1200}
 				height={600}
-				className={`${props.primary ? '-mt-24' : ''} absolute`}
+				className={`${
+					props.primary ? 'customMd:-mt-8' : ''
+				} absolute scale-150 customMd:scale-100`}
 			/>
 			<div
 				className={`${
 					props.primary
-						? 'h-full bg-content-overlay hover:bg-content'
-						: '-mt-16 bg-content-overlaySecondary hover:bg-content-secondary'
+						? 'bg-content-overlay-mobile customMd:bg-content-overlay hover:bg-content customMd:h-full'
+						: '-mt-24 bg-content-overlaySecondary hover:bg-content-secondary customMd:-mt-16'
 				} relative flex flex-col rounded-xl px-8 duration-700`}
 			>
 				<div
-					className={`relative flex flex-col ${
-						props.primary ? 'gap-y-4 pt-72 text-base' : 'gap-y-1 pt-36 text-sm'
-					} font-lato text-[#F8F8F8]`}
+					className={`relative flex flex-col text-sm ${
+						props.primary ? 'gap-y-1 customMd:pt-64' : 'gap-y-1 customMd:pt-24'
+					} pt-32 font-lato text-[#F8F8F8]`}
 				>
-					<h1
-						className={`${
-							props.primary ? 'text-3xl 2xl:text-4xl' : 'text-2xl 2xl:text-3xl'
-						} font-semibold `}
-					>
+					<h1 className="text-2xl font-semibold 2xl:text-3xl ">
 						{props.title}
 					</h1>
 					<p className="mt-1 customMd:max-w-[90%]">{props.description}</p>
-					<div className="flex items-center gap-x-4 pt-2 pb-6">
+					<div className="flex flex-col items-center gap-y-2 gap-x-4 pt-2 pb-6 customMd:flex-row">
 						<div className="rounded-xl border border-white px-5 py-[2px] text-white">
 							{props.topic}
 						</div>

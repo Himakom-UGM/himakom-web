@@ -8,7 +8,7 @@ export default function Bottom() {
 			animate={{ y: 0, x: '-50%', opacity: 1 }}
 			transition={{ delay: 0.5, type: 'keyframes' }}
 			className={
-				'pointer-events-none absolute bottom-0 left-1/2 z-20 flex w-[44%] gap-x-4 md:w-[36%] customMd:w-[40%]'
+				'pointer-events-none absolute bottom-0 left-1/2 z-10 flex w-[44%] gap-x-4 md:w-[36%] customMd:w-[40%]'
 			}
 		>
 			<Image

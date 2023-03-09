@@ -32,8 +32,8 @@ export default function Aspiration({
 			<Head>
 				<title>Aspiration</title>
 			</Head>
-			<div className=" bg-primary-100 pt-16">
-				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10   ">
+			<div className="mx-auto max-w-7xl bg-primary-100 pt-10">
+				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10">
 					<Image
 						src="/images/bg/aspiration.png"
 						fill
@@ -51,8 +51,8 @@ export default function Aspiration({
 								zIndex: -1,
 							}}
 						/>
-						<div className="grid grid-cols-7 items-center p-12 px-6 customMd:gap-x-14 customMd:px-16">
-							<div className="text-white col-span-7 flex flex-col gap-y-8 text-contrast-100 customMd:col-span-3">
+						<div className="grid grid-cols-7 items-center p-12 px-6 customMd:gap-x-14 customMd:px-16 max-w-[640px] customMd:max-w-full mx-auto">
+							<div className="col-span-7 flex flex-col gap-y-8 text-contrast-100 customMd:col-span-3">
 								<h1 className=" flex flex-col customMd:mt-0">
 									<span className="text-5xl font-semibold md:text-6xl">
 										Aspirations
@@ -61,7 +61,7 @@ export default function Aspiration({
 										for the future.
 									</span>
 								</h1>
-								<p className="text-justify leading-tight customMd:leading-normal">
+								<p className="w-full text-justify leading-tight customMd:leading-normal xl:w-[90%]">
 									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
 									eu turpis molestie, dictum est a, mattis tellus. Sed
 									dignissim, metus nec fringilla accumsan, risus sem
@@ -74,7 +74,7 @@ export default function Aspiration({
 									Maecenas eget condimentum velit, sit amet feugiat lectus.{' '}
 								</p>
 							</div>
-							<div className="col-span-7 customMd:col-span-4">
+							<div className="col-span-7 h-full customMd:col-span-4">
 								<Layout />
 							</div>
 						</div>

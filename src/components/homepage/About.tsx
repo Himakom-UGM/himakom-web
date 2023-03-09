@@ -42,7 +42,7 @@ export default function About() {
 				/>
 			</div>
 			<div className="flex customMd:hidden flex-col items-center gap-y-2 py-16 pt-20 text-white">
-				<h1 className="text-xl font-semibold">About Us</h1>
+				<h1 className="text-3xl xl:text-4xl mb-1 font-semibold">About Us</h1>
 				<Image
 					src={'/images/logo/himakom.svg'}
 					alt="Himakom UGM"

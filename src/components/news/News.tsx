@@ -24,13 +24,13 @@ const News = () => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua.
 					</p>
-					<div className="flex basis-1/2 cursor-pointer flex-col justify-center gap-x-6 py-6 px-10 lg:flex-row">
+					<div className="flex basis-1/2 cursor-pointer flex-col justify-center gap-x-6 gap-y-3 py-6 px-10 lg:flex-row">
 						<Card
 							title="Lorem ipsum dolor sit amet, consectetur"
 							description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
 							primary
 							topic="Topic"
-							date="12/12/2021"
+							date="12/12/2022"
 							author="Ramzy Izza"
 							key={10}
 							image="/images/content/ldk.png"
@@ -41,8 +41,8 @@ const News = () => {
 								description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
 								primary={false}
 								topic="Topic"
-								date="12/12/2021"
-								author="Ramzy Izza"
+								date="10/01/2023"
+								author="Gelora Manalu"
 								key={12}
 								image="/images/content/pemira.png"
 							/>
@@ -52,7 +52,7 @@ const News = () => {
 								primary={false}
 								topic="Topic"
 								date="12/12/2021"
-								author="Ramzy Izza"
+								author="Josiah Farrel"
 								key={13}
 								image="/images/content/sh.png"
 							/>

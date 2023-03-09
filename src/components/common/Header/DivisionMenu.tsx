@@ -13,7 +13,7 @@ export default function Division() {
 		>
 			{division.map((division: any) => (
 				<li key={division.id} className="hover:font-semibold">
-					<Link href={`/division/${division.slug}`}>{division.name}</Link>
+					<Link href={`/about/${division.slug}`}>{division.name}</Link>
 				</li>
 			))}
 		</motion.ul>

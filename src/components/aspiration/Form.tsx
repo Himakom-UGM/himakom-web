@@ -33,7 +33,7 @@ export default function Form() {
 	}, []);
 
 	return (
-		<div className='flex flex-col gap-y-2  '>
+		<div className='flex flex-col gap-y-2'>
 			<div className="flex flex-col">
 				<label htmlFor="to">To:</label>
 				<input
@@ -79,7 +79,7 @@ export default function Form() {
 						id="message"
 						ref={msgRef}
 						placeholder="Enter Message..."
-						className="min-h-[200px] w-full bg-formColor-100 outline-none"
+						className="min-h-[216px] w-full bg-formColor-100 outline-none"
 					/>
 				</div>
 			</div>
