@@ -9,11 +9,6 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useRef } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
 
-const lato = Lato({
-	subsets: ['latin'],
-	display: 'optional',
-	weight: '400',
-});
 
 function LegendStructure() {
 	return (
@@ -41,7 +36,7 @@ function LegendStructure() {
 export default function CabinetPage() {
 	return (
 		<>
-			<main className={`${lato.className} overflow-x-hidden`}>
+			<main className={`overflow-x-hidden`}>
 				<div className="bg-[#3F3F9C]">
 					<div className="relative  z-0 h-full">
 						<Image
@@ -193,7 +188,7 @@ export default function CabinetPage() {
 					<h1 className="z-30 pb-10 text-center text-2xl font-bold text-[#F8F8F8] lg:text-5xl">
 						Core Team
 					</h1>
-					<div className="z-30 ml-20 flex w-full -skew-x-[8deg] p-4 lg:ml-[344px] lg:w-[76.2%] xl:w-[80.6%] 2xl:ml-[684px]">
+					<div className="z-30 flex w-full -skew-x-[8deg] p-4">
 						<CarouselCabinet />
 					</div>
 				</div>
@@ -228,7 +223,7 @@ export default function CabinetPage() {
 						>
 							<ambientLight intensity={1.1} />
 							<directionalLight />
-							<Box position={[0, 0, 0]} />
+							<CubeDivision position={[0, 0, 0]} />
 							<OrbitControls enableZoom={false} minZoom={10} />
 						</Canvas>
 					</div>
@@ -271,49 +266,4 @@ export default function CabinetPage() {
 	);
 }
 
-function Box(props: any) {
-	const divisionData = [
-		{
-			texture: '/cabinet/textures/Hublu.png',
-			url: '/division/hublu',
-		},
-		{
-			texture: '/cabinet/textures/Kewirush.png',
-			url: '/division/Kewirush',
-		},
-		{
-			texture: '/cabinet/textures/KPM.png',
-			url: '/division/KPM',
-		},
-		{
-			texture: '/cabinet/textures/Mikat.png',
-			url: '/division/Mikat',
-		},
-		{
-			texture: '/cabinet/textures/PO.png',
-			url: '/division/PO',
-		},
-		{
-			texture: '/cabinet/textures/PSDMA.png',
-			url: '/division/PSDMA',
-		},
-	];
 
-	const handleClick = (e: any) => {
-		Router.push(divisionData[e.face?.materialIndex].url);
-	};
-
-	const mesh = useRef();
-	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.001));
-	return (
-		<mesh {...props} ref={mesh} onClick={(e) => handleClick(e)}>
-			<boxGeometry args={[3, 3, 3]} />
-			{divisionData.map((d, i) => <meshStandardMaterial
-				{...useTexture({
-					map: d.texture
-				})}
-				attach={`material-${i}`}
-			/>)}
-		</mesh>
-	);
-}
