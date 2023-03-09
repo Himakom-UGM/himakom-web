@@ -106,7 +106,7 @@ export default function AboutPage(){
             className="absolute bottom-0 right-0 lg:right-0 lg:top-0 transform scale-x-[-1] lg:scale-x-[1] lg:rotate-180 md:w-[170px] xl:w-[255px] h-auto "
           />
       </div>
-      <section className="relative md:px-24 xl:px-48 xl:pt-20 lg:flex 2xl:px-80 ">
+      <section className="relative md:px-24 xl:px-48 xl:pt-20 lg:flex 2xl:px-70 ">
         <Image 
           src={"/backgroundMission.png"}
           fill={true}
@@ -151,9 +151,9 @@ export default function AboutPage(){
                 quality={100}
               />
             </div>
-          <div className="text-white xl:leading-7 flex flex-col items-center xl:justify-center lg:items-start lg:py-12 lg:ml-10 xl:py-0 lg:w-1/2 text-justify ">
+          <div className="text-white xl:leading-7 flex flex-col items-center justify-start 2xl:justify-center lg:items-start lg:py-12 lg:ml-10 xl:py-0 lg:w-1/2 text-justify ">
             <h1 className="font-bold text-2xl md:text-4xl lg:text-[48px] xl:text-6xl 2xl:text-[72px] pt-7">Mission</h1>
-            <ul className="list-decimal text-xs lg:text-lg xl:text-2xl 2xl:text-3xl md:text-base md:w-2/3 lg:w-full font-medium pt-3 2xl:pt-8 xl:leading-9 px-[52px] md:px-0">
+            <ul className="list-decimal text-xs lg:text-lg xl:text-2xl md:text-base md:w-2/3 lg:w-full font-medium pt-3 2xl:pt-8 xl:leading-9 px-[52px] md:px-0 2xl:pl-4">
               <li>
                 Menciptakan lingkungan dengan suasana yang nyaman melalui 3S (Santai, Serius, Selesai)  
               </li>
