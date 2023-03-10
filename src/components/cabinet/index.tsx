@@ -3,11 +3,73 @@ import CarouselCabinet from './CarouselCabinet';
 import CubeDivision from './CubeDivision';
 import Image from 'next/image';
 import { Lato } from 'next/font/google';
-import { PHPI } from './CarouselCabinet';
 import Router, { useRouter } from 'next/router';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useRef } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
+
+export const PHPI = [
+	{
+		id: 'makomji',
+		position: 'Ketua Himakom',
+		name: 'Kadek Ninda N.P',
+	},
+	{
+		id: 'ceoOti',
+		position: 'CEO OmahTI',
+		name: 'Antonius Teddy K',
+	},
+	{
+		id: 'sekjen',
+		position: 'Sekretaris Jendral',
+		name: 'Diki Bagastama',
+	},
+	{
+		id: 'sekre',
+		position: 'Sekretaris Umum',
+		name: 'Maeve Zahwa A.C.K',
+	},
+	{
+		id: 'bendahara',
+		position: 'Bendahara Umum',
+		name: 'Fahdgham Albar R',
+	},
+	{
+		id: 'mka',
+		position: 'Manajemen Kesekretariatan dan Alumni',
+		name: 'Ronggo Tsani M',
+	},
+	{
+		id: 'psdma',
+		position: 'Pengenbangan Sumber Daya Manusia dan Advokasi',
+		name: 'Gelora Damayanti M',
+	},
+	{
+		id: 'hublu',
+		position: 'Hubungan Luar',
+		name: 'Rachel Naragifta',
+	},
+	{
+		id: 'mikat',
+		position: 'Minat dan Bakat',
+		name: 'Konang Tyagazain N',
+	},
+	{
+		id: 'kewirush',
+		position: 'Kewirausahaan',
+		name: 'Rhazes Wahyu R.S',
+	},
+	{
+		id: 'kpm',
+		position: 'Kerumahtanggan dan Pengabdian Masyarakat',
+		name: 'Billy Fahd Qodama',
+	},
+	{
+		id: 'po',
+		position: 'Pengembangan Organisasi',
+		name: 'Fadya Nabila F',
+	},
+];
 
 
 function LegendStructure() {
@@ -32,6 +94,8 @@ function LegendStructure() {
 		</>
 	);
 }
+
+
 
 export default function CabinetPage() {
 	return (
@@ -159,7 +223,7 @@ export default function CabinetPage() {
 						</div>
 					</div>
 				</div>
-				<div className="relative flex h-[640px] flex-col items-center justify-center bg-[#3F3F9C]">
+				<div className="relative flex h-[640px] flex-col px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0 items-center justify-center bg-[#3F3F9C]">
 					<Image
 						src={'/cabinet/coreBackground.png'}
 						alt=""
@@ -188,7 +252,7 @@ export default function CabinetPage() {
 					<h1 className="z-30 pb-10 text-center text-2xl font-bold text-[#F8F8F8] lg:text-5xl">
 						Core Team
 					</h1>
-					<div className="z-30 flex w-full -skew-x-[8deg] p-4">
+					<div className="z-30 flex w-full -skew-x-[8deg] p-4 ">
 						<CarouselCabinet />
 					</div>
 				</div>
@@ -219,7 +283,7 @@ export default function CabinetPage() {
 					<div className="relative">
 						<Canvas
 							camera={{ position: [0, 0, 5] }}
-							style={{ width: `100%`, height: `500px`, position: `relative` }}
+							style={{ width: `100%`, height: `390px`, position: `relative` }}
 						>
 							<ambientLight intensity={1.1} />
 							<directionalLight />

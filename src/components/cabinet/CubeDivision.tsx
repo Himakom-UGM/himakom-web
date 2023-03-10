@@ -39,7 +39,7 @@ export default function CubeDivision(props: any) {
 	const mesh = useRef();
 	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.001));
 	return (
-		<mesh {...props} ref={mesh} onClick={(e) => handleClick(e)}>
+		<mesh {...props} ref={mesh} onClick={(e) => console.log(e.face)}>
 			<boxGeometry args={[3, 3, 3]} />
 			{divisionData.map((d, i) => <meshStandardMaterial
 				{...useTexture({
