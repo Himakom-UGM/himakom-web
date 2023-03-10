@@ -253,7 +253,7 @@ export default function CabinetPage() {
 						Core Team
 					</h1>
 					<div className="z-30 flex w-full -skew-x-[8deg] p-4 ">
-						<CarouselCabinet />
+						<CarouselCabinet props={PHPI}/>
 					</div>
 				</div>
 				<div className="relative flex h-full flex-col justify-center py-14">
