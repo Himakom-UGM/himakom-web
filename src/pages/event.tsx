@@ -1,3 +1,7 @@
 export default function Event() {
-	return <>event</>;
+	return (
+		<>
+			<main className="pt-16"></main>
+		</>
+	);
 }
