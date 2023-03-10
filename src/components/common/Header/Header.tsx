@@ -43,9 +43,9 @@ export default function Header() {
 				variants={variants}
 				initial="hidden"
 				transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.7 }}
-				className="fixed left-1/2 z-20 flex w-full flex-col customMd:bg-[#F0F0F0]  text-black customMd:flex-row customMd:justify-around customMd:px-12"
+				className="fixed left-1/2 z-20 flex w-full flex-col text-black  customMd:flex-row customMd:justify-around customMd:bg-[#F0F0F0] customMd:px-12"
 			>
-				<div className='flex justify-between z-30 px-6 bg-[#F0F0F0] w-full max-w-7xl'>
+				<div className="z-30 flex w-full max-w-7xl justify-between bg-[#F0F0F0] px-6">
 					<HimakomBrand />
 					<Hamburger />
 					<DesktopNav />
