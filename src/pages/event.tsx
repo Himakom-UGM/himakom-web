@@ -67,7 +67,7 @@ export default function Event() {
             <main>
                 <div className="w-full flex-wrap relative">
                     <Image
-                        src={Pattern}
+                        src={'images/bg/patternpad.png'}
                         quality={100}
                         alt="hero"
                         fill
