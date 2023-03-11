@@ -1,5 +1,5 @@
+import Coba from "@/components/division/Coba";
 import Hero from "@/components/division/Hero";
-import Progams from "@/components/division/Progams";
 import Head from "next/head";
 
 export default function Division() {
@@ -10,8 +10,8 @@ export default function Division() {
         
       </Head>
       <main>
-        <Hero/>
-        <Progams/>
+        {/* <Hero/> */}
+        {/* <Coba/> */}
       </main>
     </>
   );
