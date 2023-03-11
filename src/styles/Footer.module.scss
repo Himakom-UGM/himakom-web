@@ -1,0 +1,77 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    padding-block: 48px;
+    padding-inline: 60px;
+    justify-content: space-between;
+
+    @media (max-width:768px){
+        flex-wrap: wrap;
+        row-gap: 3rem;
+    }
+
+
+    background: linear-gradient(90.87deg, #3F3F9C 80%, rgba(63, 63, 156, 0) 120%), url('/public/images/bg/patternpad.png');
+
+
+    &_leftcol{
+        @media (min-width:768px){
+            width: 40%;
+        }
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+        &_content{
+            h2{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 30px;
+                line-height: 36px;
+                color: #F7F8FA;
+            }
+    
+            p{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 135%;
+                /* or 24px */
+    
+    
+                color: #F7F8FA;
+    
+            }
+
+        }
+
+
+    }
+
+    &_rightcol{
+        @media (min-width:768px){
+            width: 40%;
+        }
+        width: 100%;
+        display: flex;
+        @media (min-width:768px){
+            justify-content: flex-end;
+        }
+
+        &_icons{
+            margin-top: auto;
+
+            display: flex;
+            column-gap: 31px;
+            align-content: center;
+
+            a{
+                margin-block: auto;
+            }
+        }
+
+    }
+}

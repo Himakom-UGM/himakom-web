@@ -8,8 +8,24 @@ export default function Layout() {
 	const [numberUpload, setNumberUpload] = useState(0);
 	const [uploadActive, setUploadActive] = useState(false);
 
-	function submitHandler(e: React.FormEvent<HTMLFormElement>) {
+	async function uploadToApi(formData: FormData) {
+		const data = await fetch('/api/uploadaspiration', {
+			method: 'POST',
+			body: formData,
+		});
+	}
+
+	function submitHandler(e: any) {
 		e.preventDefault();
+		const formData = new FormData();
+		console.log(e);
+		formData.append('to', e.target[0].value);
+		formData.append('from', e.target[2].value);
+		formData.append('message', e.target[3].value);
+
+		uploadToApi(formData).then((data) => {
+			console.log(data);
+		});
 	}
 
 	console.log(uploadActive);
@@ -28,19 +44,19 @@ export default function Layout() {
 
 	return (
 		<form
-			className="max-w-[640px] mx-auto mt-6 customMd:mt-0 customMd:max-w-full flex h-[460px] flex-col justify-between gap-y-1 rounded-xl bg-white p-3"
+			className="mx-auto flex max-w-[640px] mt-6 h-[512px] flex-col justify-between gap-y-1 rounded-xl bg-contrast-100 p-6 first-letter:max-w-[640px] customMd:mt-0 customMd:max-w-full "
 			onSubmit={submitHandler}
 		>
 			{!uploadActive && <Form />}
 			{uploadActive && <Drag onClose={handleClose} />}
-			<div className="mt-1 ml-3 flex items-center justify-between">
+			<div className="flex items-center justify-between mt-2">
 				<div onClick={fileClickHandler} className="flex items-center gap-x-3">
 					<button
 						disabled={uploadActive}
 						style={{
 							borderColor: !uploadActive ? '#3F3F9C' : 'rgba(63, 63, 156, 0.5)',
 						}}
-						className="flex w-fit items-center gap-x-2 rounded-xl border-2 px-3 py-2 font-medium"
+						className="flex h-[36px] w-fit items-center gap-x-2 rounded-xl border-2 px-3 font-medium"
 					>
 						<span>
 							<Upload onUpload={uploadActive} />
@@ -48,16 +64,16 @@ export default function Layout() {
 						<span
 							className={!uploadActive ? 'text-primary-100' : 'text-onDrop'}
 						>
-							Upload Files
+							Files
 						</span>
 					</button>
-					<div className="underline underline-offset-4">
+					<div className="hidden underline underline-offset-4 customMd:block">
 						Attachments{numberUpload > 0 && ` (${numberUpload})`}
 					</div>
 				</div>
 				<button
 					type="submit"
-					className="h-[36px] min-w-[100px] rounded-xl bg-primary-300 text-white"
+					className="h-[36px] min-w-[100px] rounded-xl bg-primary-300 text-contrast-100"
 				>
 					Submit
 				</button>
