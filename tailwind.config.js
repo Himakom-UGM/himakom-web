@@ -25,7 +25,7 @@ module.exports = {
 			colors: {
 				blurBackground: 'rgba(255, 255, 255, 0.46)',
 				primary: {
-					100: '#3F3F9C',
+					100: '#3F3F9C',	
 					200: '#303078',
 					300: '#212152',
 					400: '#13132F',
@@ -58,6 +58,7 @@ module.exports = {
 			},
 			screens: {
 				customMd: '960px',
+				customSm: '320px',
 			},
 			animation: {
 				'slide-down': 'slideDown 0.5s ease-in-out',
