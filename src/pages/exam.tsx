@@ -13,9 +13,29 @@ type PostsType = {
 
 export default function Exam(props: { posts: any }) {
 	const [data, setData] = useState<PostsType>(props.posts);
+	const [delay, setDelay] = useState<boolean>(false);
 
 	function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+		if (delay) {
+			return;
+		}
+
+		function delaySearch() {
+			setDelay(true);
+			setTimeout(() => {
+				setDelay(false);
+			}, 500);
+		}
+
+		delaySearch();
+
 		const value = e.target.value.toLowerCase();
+
+		if (value === '') {
+			setData(props.posts);
+			return;
+		}
+		
 		// return name of the exam that contains the value
 		const filtered = props.posts.map((item: any) => {
 			return {
