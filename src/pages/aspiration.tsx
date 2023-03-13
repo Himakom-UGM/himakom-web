@@ -6,6 +6,7 @@ import { AspirationType } from '@/utils/contentful/contentfulTypes';
 import { EntryCollection } from 'contentful';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export async function getServerSideProps() {
 	const entries = await contentfulClient.getEntries<
@@ -13,8 +14,6 @@ export async function getServerSideProps() {
 	>({
 		content_type: 'aspiration',
 	});
-
-	console.log(entries);
 
 	return {
 		props: { entries },
@@ -26,13 +25,24 @@ export default function Aspiration({
 }: {
 	entries: EntryCollection<AspirationType>;
 }) {
-	console.log(entries.items);
+	const [searchValue, setSearchValue] = useState('');
+	const [filteredEntries, setFilteredEntries] = useState(entries.items);
+
+	useEffect(() => {
+		const filtered = entries.items.filter((entry) => {
+			return entry.fields.subject
+				.toLowerCase()
+				.includes(searchValue.toLowerCase());
+		});
+		setFilteredEntries(filtered);
+	},[entries.items, searchValue]);
+
 	return (
 		<>
 			<Head>
 				<title>Aspiration</title>
 			</Head>
-			<div className="mx-auto max-w-7xl bg-primary-100 pt-10">
+			<div className="mx-auto max-w-7xl bg-primary-100 pt-10 ">
 				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10">
 					<Image
 						src="/images/bg/aspiration.png"
@@ -51,7 +61,7 @@ export default function Aspiration({
 								zIndex: -1,
 							}}
 						/>
-						<div className="grid grid-cols-7 items-center p-12 px-6 customMd:gap-x-14 customMd:px-16 max-w-[640px] customMd:max-w-full mx-auto">
+						<div className="mx-auto grid max-w-[640px] grid-cols-7 items-center p-12 px-6 customMd:max-w-full customMd:gap-x-14 customMd:px-16">
 							<div className="col-span-7 flex flex-col gap-y-8 text-contrast-100 customMd:col-span-3">
 								<h1 className=" flex flex-col customMd:mt-0">
 									<span className="text-5xl font-semibold md:text-6xl">
@@ -80,7 +90,7 @@ export default function Aspiration({
 						</div>
 					</div>
 				</div>
-				<section className=" w-full bg-primary-100 ">
+				<section className=" w-full bg-primary-100 pb-16 ">
 					<div className="z-10 rounded-b-3xl  bg-contrast-100 pt-12 pb-16">
 						<p className=" mx-auto w-64  text-center text-5xl font-extrabold text-primary-100 customMd:w-full ">
 							Collective Aspirations
@@ -88,13 +98,14 @@ export default function Aspiration({
 					</div>
 					<div className="w-full px-4 customMd:px-20 ">
 						<input
+							onChange={(event) => setSearchValue(event.target.value)}
 							placeholder="Find Aspiration"
-							className="  -mt-8 h-12 w-full  rounded-lg	 border bg-contrast-100  px-12 text-lg shadow-2xl customMd:h-20 "
+							className="  shadow-3xl -mt-8 h-12  w-full	 rounded-lg border  bg-contrast-100 px-12 text-lg customMd:h-20 "
 						/>
 					</div>
 
 					<div className="  mx-20 mt-16 grid grid-cols-4 gap-8 text-primary-100  ">
-						{entries.items.map((entry) => (
+						{filteredEntries.map((entry) => (
 							<AspirationCard
 								key={entry.sys.id}
 								subject={entry.fields.subject}

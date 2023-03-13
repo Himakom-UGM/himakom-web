@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function About() {
 	return (
-		<div className="relative mx-auto h-fit max-w-7xl overflow-y-hidden bg-about-mobile customMd:bg-about">
+		<div className="relative mx-auto h-fit max-w-[1920px] overflow-y-hidden bg-about-mobile customMd:bg-about">
 			<Image
 				src="/images/bg/fmipa.png"
 				alt="FMIPA UGM"

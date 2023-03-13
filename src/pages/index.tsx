@@ -5,8 +5,23 @@ import Example from '@/components/homepage/Example';
 import News from '@/components/news/News';
 import Banner from '@/components/homepage/Banner';
 import About from '@/components/homepage/About';
+import { contentfulClient } from '@/utils/contentful/contentfulClient';
+import { EntryCollection } from 'contentful';
+import { NewsType } from '@/utils/contentful/contentfulTypes';
 
-export default function Home() {
+export async function getServerSideProps() {
+	const data = await contentfulClient.getEntries<NewsType>({
+		content_type: 'news',
+		});
+
+	return {
+		props: { data },
+	};
+
+}
+
+
+export default function Home({data}: {data: EntryCollection<NewsType>}) {
 	return (
 		<>
 			<Head>
@@ -22,7 +37,7 @@ export default function Home() {
 			<main>
 				<Banner />
 				<About />
-				<News />
+				<News data={data} />
 			</main>
 		</>
 	);
