@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image"
 import FotoAngkatan from "public/images/bg/foto_angkatan.png"
 import Pattern from "public/images/bg/patternpad.png"
-import FindArticle from "src/components/detail-post/Searchbutton"
 import img_Mikat from "public/images/bg/Image_Mikat.png"
 import img_KPM from "public/images/bg/image_KPM.png"
 import img_Hublu from "public/images/bg/image_Hublu.png"
@@ -13,6 +12,8 @@ import Link from "next/link"
 import { Menu, Transition, Listbox } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import {useEffect, KeyboardEvent } from 'react';
+import buttonStyle from 'src/styles/searchComponent.module.scss'
 
 interface GridComponentProps {
     image: string | StaticImageData;
@@ -54,6 +55,40 @@ const GridComponent = ({ image, divisi, content }: GridComponentProps) => {
         </Link >
     )
 };
+
+const FindArticle = ()  => {
+
+    //Functions to enter input value on press enter
+    const [inputValue, setInputValue] = useState("");
+  
+    const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        console.log(inputValue);
+        setInputValue('');
+      }
+    };
+  
+    return (
+        <>
+        <div className={buttonStyle.search}>
+          <form >
+            <input 
+            type="text" 
+            placeholder='Find Other Article'
+            id="search-input"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+            onKeyPress={handleKeyPress}
+            />
+            <Image src='search_icon.svg' alt='search icon' width='30' height='30' className={buttonStyle.search_icon}/>
+          </form>
+        </div>
+        
+        </>
+    );
+  }
+
 
 const yearContent = [
     { year: '2023' },
