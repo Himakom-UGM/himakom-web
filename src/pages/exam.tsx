@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { contentfulClient } from '@/utils/contentful/contentfulClient';
+import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import Link from 'next/link';
 
 type PostsType = {
@@ -15,33 +15,32 @@ export default function Exam(props: { posts: any }) {
 	const [data, setData] = useState<PostsType>(props.posts);
 	const [delay, setDelay] = useState<boolean>(false);
 
+	function delaySearch() {
+		setDelay(true);
+		setTimeout(() => {
+			setDelay(false);
+		}, 500);
+	}
+
 	function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
 		if (delay) {
 			return;
 		}
 
-		function delaySearch() {
-			setDelay(true);
-			setTimeout(() => {
-				setDelay(false);
-			}, 500);
-		}
-
-		delaySearch();
-
 		const value = e.target.value.toLowerCase();
 
 		if (value === '') {
 			setData(props.posts);
+			delaySearch();
 			return;
 		}
-		
+
 		// return name of the exam that contains the value
 		const filtered = props.posts.map((item: any) => {
 			return {
 				initial: item.initial,
 				data: item.data.filter((post: any) =>
-					post.name.toLowerCase().includes(value)
+					post.name.toLowerCase().startsWith(value)
 				),
 			};
 		});
@@ -50,7 +49,54 @@ export default function Exam(props: { posts: any }) {
 		const filtered2 = filtered.filter((item: any) => item.data.length > 0);
 
 		setData(filtered2);
+		delaySearch();
 	}
+
+	useEffect(() => {
+		async function getExams() {
+			const posts = (await contentfulClientCS.getEntries({
+				content_type: 'exams',
+			})) as any;
+
+			const postsData = posts.items.map((post: any) => {
+				return {
+					name: post?.fields?.class,
+					link: post?.fields?.driveLink,
+				};
+			});
+
+			// sort by name ascending
+			postsData.sort((a: any, b: any) => {
+				if (a.name < b.name) {
+					return -1;
+				}
+				if (a.name > b.name) {
+					return 1;
+				}
+				return 0;
+			});
+
+			const groupedPosts = postsData.reduce((acc: any, curr: any) => {
+				const initial = curr.name[0];
+				const index = acc.findIndex((item: any) => item.initial === initial);
+				if (index === -1) {
+					acc.push({
+						initial,
+						data: [curr],
+					});
+				} else {
+					acc[index].data.push(curr);
+				}
+				return acc;
+			}, []);
+
+			return groupedPosts;
+		}
+
+		getExams().then((res) => {
+			setData(res);
+		});
+	}, []);
 
 	return (
 		<div className="h-screen overflow-scroll bg-[#3F3F9C] px-12 pb-20 pt-24">
@@ -115,49 +161,32 @@ export default function Exam(props: { posts: any }) {
 }
 
 export async function getStaticProps() {
-	const posts = (await contentfulClient.getEntries({
-		content_type: 'exams',
-	})) as any;
-
-	const postsData = posts.items.map((post: any) => {
-		return {
-			name: post?.fields?.class,
-			link: post?.fields?.driveLink,
-		};
-	});
-
-	// sort by name ascending
-	postsData.sort((a: any, b: any) => {
-		if (a.name < b.name) {
-			return -1;
-		}
-		if (a.name > b.name) {
-			return 1;
-		}
-		return 0;
-	});
-
-	// group by initial name like this:
-	// [
-	// 	{
-	// 		initial: 'A',
-	// 		data: [
-	// 			{
-	// 				name: 'Algoritma dan Pemrograman',
-
-	const groupedPosts = postsData.reduce((acc: any, curr: any) => {
-		const initial = curr.name[0];
-		const index = acc.findIndex((item: any) => item.initial === initial);
-		if (index === -1) {
-			acc.push({
-				initial,
-				data: [curr],
-			});
-		} else {
-			acc[index].data.push(curr);
-		}
-		return acc;
-	}, []);
+	const groupedPosts = [
+		{
+			initial: 'A',
+			data: [],
+		},
+		{
+			initial: 'B',
+			data: [],
+		},
+		{
+			initial: 'C',
+			data: [],
+		},
+		{
+			initial: 'D',
+			data: [],
+		},
+		{
+			initial: 'E',
+			data: [],
+		},
+		{
+			initial: 'F',
+			data: [],
+		},
+	];
 
 	return {
 		props: {
