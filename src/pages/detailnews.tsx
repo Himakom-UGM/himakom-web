@@ -36,6 +36,10 @@ const allNews = [
 const NewsPage = () => {
 	return (
 		<div className="relative mx-auto flex max-w-7xl flex-col gap-x-4 px-8 pt-20 customMd:flex-row">
+			<section className="basis-1/4">
+				<Search />
+				<TableOfContent titles={allNewsToTitles(allNews)} />
+			</section>
 			<motion.article
 				initial={{
 					opacity: 0,
@@ -64,10 +68,6 @@ const NewsPage = () => {
 				</div>
 				<Section content={allNews[1]} />
 			</motion.article>
-			<section className="basis-1/4">
-				<Search />
-				<TableOfContent titles={allNewsToTitles(allNews)} />
-			</section>
 		</div>
 	);
 };

@@ -92,6 +92,7 @@ module.exports = {
 			'customShadowS0-4-4': '0px 4px 4px rgba(0, 0, 0, 0.25)',
 			'customShadow0-0-4': '0px 0px 4px rgba(0, 0, 0, 0.25)',
 		},
-		plugins: [],
+		plugins: [
+		],
 	},
 };
