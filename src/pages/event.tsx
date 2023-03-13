@@ -2,23 +2,22 @@ import Head from "next/head";
 import Image from "next/image"
 import FotoAngkatan from "public/images/bg/foto_angkatan.png"
 import Pattern from "public/images/bg/patternpad.png"
-import img_Dropdown from "public/images/icon/dropDown.svg";
 import FindArticle from "src/components/detail-post/Searchbutton"
 import img_Mikat from "public/images/bg/Image_Mikat.png"
 import img_KPM from "public/images/bg/image_KPM.png"
 import img_Hublu from "public/images/bg/image_Hublu.png"
 import img_PO from "public/images/bg/image_PO.png"
 import type { StaticImageData } from 'next/image'
-import React from "react";
+import React, { SVGProps } from "react";
 import Link from "next/link"
-import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Menu, Transition, Listbox } from '@headlessui/react'
+import { Fragment, useState } from 'react'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid'
 
 interface GridComponentProps {
     image: string | StaticImageData;
     divisi: string;
     content: string;
-
 }
 
 const GridComponent = ({ image, divisi, content }: GridComponentProps) => {
@@ -56,15 +55,75 @@ const GridComponent = ({ image, divisi, content }: GridComponentProps) => {
     )
 };
 
-const DropDown = () => {
-    return (
-        <button className=" flex w-[99px] h-[33.71px] bg-[#F3BE00] rounded-[10px] left-1/2">
-            2023
-        </button>
+const yearContent = [
+    { year: '2023' },
+    { year: '2022' },
+    { year: '2021' },
+    { year: '2020' },
+    { year: '2019' },
+]
+interface YearDropDownProps {
+    year: string;
+    link: string;
+}
 
-        
+const DropDown = () => {
+    const [selected, setSelected] = useState(yearContent[0])
+    return (
+        <div className="relative inline-block text-left z-10 -translate-x-3">
+            <Listbox value={selected} onChange={setSelected}>
+                <div className="lg:hidden relative mt-1">
+                    <Listbox.Button className="relative w-[99px] h-[33.71px]  cursor-default rounded-[10px] bg-[#F3BE00] text-left ">
+                        <span className="block truncate text-[#FFFFFF] font-bold translate-x-3">{selected.year}</span>
+                        <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                            <ChevronDownIcon
+                                className="h-5 w-5 text-[#FFFFFF]"
+                                aria-hidden="true"
+                            />
+                        </span>
+                    </Listbox.Button>
+                    <Transition
+                        as={Fragment}
+                        leave="transition ease-in duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-[10px]  bg-[#F3BE00] py-1 text-base shadow-lg ring-1  ring-opacity-5 focus:outline-none">
+                            {yearContent.map((person, personIdx) => (
+                                <Listbox.Option
+                                    key={personIdx}
+                                    className={({ active }) =>
+                                        `relative cursor-default select-none py-2 pl-3 pr-4 ${active ? 'bg-[#212152] text-[#FFFFFF]' : 'text-[#FFFFFF]'
+                                        }`
+                                    }
+                                    value={person}
+                                >
+                                    {({ selected }) => (
+                                        <>
+                                            <span
+                                                className={`block truncate ${selected ? 'font-bold text-[20px]' : 'font-bold text-[20px]'
+                                                    }`}
+                                            >
+                                                {person.year}
+                                            </span>
+                                            {selected ? (
+                                                <span className="absolute inset-y-0 right-0 flex items-center pr-2">
+                                                    <CheckIcon className="h-4 w-4 text-[#FFFFFF]" aria-hidden="true" />
+                                                </span>
+                                            ) : null}
+                                        </>
+                                    )}
+                                </Listbox.Option>
+                            ))}
+                        </Listbox.Options>
+                    </Transition>
+                </div>
+            </Listbox>
+        </div>
     )
 };
+
+
 
 export default function Event() {
     return (
@@ -117,10 +176,10 @@ export default function Event() {
                 </div>
                 <div className="absolute w-full p-14">
                     <div className="flex w-[12/13]  mx-auto h-[50.75px] md:h-[100px] bg-[#212152] rounded-t-[12px] justify-end items-center">
-                    <DropDown/>
+                            <DropDown />
                     </div>
-                    <div className="w-[12/13] h-[651px] md:h-[580px] bg-white rounded-b-[12px] bg-blurBackground">
-                        <div className="flex flex-wrap gap-[20px] h-[651px] md:h-[580px] p-2 pt-5 justify-center overflow-auto md:justify-between md:px-12">
+                    <div className="w-[12/13] h-[651px] md:h-[580px] bg-[#FFFFFF] rounded-b-[12px] bg-blurBackground">
+                        <div className="flex flex-wrap gap-[20px] h-[651px] md:h-[580px] p-2 pt-5 justify-center overflow-auto md:justify-between md:px-12 z-[0]">
                             <GridComponent image={img_Mikat} divisi={"MIKAT"} content="" />
                             <GridComponent image={img_Hublu} divisi={"HUBLU"} content="" />
                             <GridComponent image={img_KPM} divisi={"KPM"} content="" />
@@ -153,31 +212,6 @@ export default function Event() {
                         className="relative h-[781px] object-cover opacity-60"
                     />
                 </div>
-                {/* <div className="absolute w-full p-14">
-                    <div className="flex w-[12/13]  mx-auto h-[50.75px] md:h-[100px] bg-[#212152] rounded-t-[12px] justify-end items-center">
-                        <div className="absolute z-[100] -translate-x-3">
-                            <button className="hidden md:flex flex-row h-[65px] w-[137px] bg-[#F3BE00] left-1/2 rounded-[19px]">
-                                <div className="text-[#FFFFFF] text-[46px] font-bold translate-x-5">2023</div>
-                                <Image src={DropDown} alt="" className="hidden md:absolute right-0 -translate-x-3 top-1/2 -translate-y-1" />
-                            </button>
-                            <button className="md:hidden flex w-[99px] h-[33.71px] bg-[#F3BE00] rounded-[10px] left-1/2">
-                                <div className="text-[#FFFFFF] text-[20px] font-bold translate-x-5 ">2023</div>
-                                <Image src={DropDown} alt="" className="md:hidden absolute right-0 -translate-x-3 top-1/2 -translate-y-1" />
-                            </button>
-                            <div className="md:hidden absolute w-[99px] h-[208px] bg-[#F3BE00] rounded-[10px] right-0 py-4">
-                                <div className="flex flex-col overflow-scroll h-[208px] justify-center items-cente gap-2">
-                                    <a href="" className="flex w-full text-[20px] font-bold text-[#FFFFFF] hover:bg-[#212152] justify-center items-center">2017</a>
-                                    <a href="" className="flex w-full text-[20px] font-bold text-[#FFFFFF] hover:bg-[#212152] justify-center items-center">2018</a>
-                                    <a href="" className="flex w-full text-[20px] font-bold text-[#FFFFFF] hover:bg-[#212152] justify-center items-center">2019</a>
-                                    <a href="" className="flex w-full text-[20px] font-bold text-[#FFFFFF] hover:bg-[#212152] justify-center items-center">2020</a>
-                                    <a href="" className="flex w-full text-[20px] font-bold text-[#FFFFFF] hover:bg-[#212152] justify-center items-center">2021</a>
-                                    <a href="" className="flex w-full text-[20px] font-bold text-[#FFFFFF] hover:bg-[#212152] justify-center items-center">2022</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
-
             </main>
         </>
     );
