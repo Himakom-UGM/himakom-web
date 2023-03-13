@@ -9,14 +9,14 @@ const News = () => {
 	return (
 		<div
 			
-			className="relative mx-auto w-full max-w-7xl overflow-x-hidden bg-[#f8f8f8] pb-36"
+			className="relative mx-auto w-full max-w-[1920px] overflow-x-hidden bg-[#f8f8f8] pb-36"
 		>
 			<Image
 				src="/images/bg/news.png"
 				alt="decoration"
 				width={1438}
 				height={291}
-				className="absolute top-0 left-0 z-0"
+				className="absolute top-0 w-full z-0"
 			/>
 			<div className="relative flex flex-col items-center justify-center py-12 text-[#252525]">
 				<h1 className="font-lato text-4xl font-semibold xl:text-5xl">

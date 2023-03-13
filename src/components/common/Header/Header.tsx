@@ -45,7 +45,7 @@ export default function Header() {
 				transition={{ ease: [0.1, 0.25, 0.3, 1], duration: 0.7 }}
 				className="fixed left-1/2 z-20 flex w-full flex-col customMd:bg-[#F0F0F0]  text-black customMd:flex-row customMd:justify-around customMd:px-12"
 			>
-				<div className='flex justify-between z-30 px-6 bg-[#F0F0F0] w-full max-w-7xl'>
+				<div className='flex justify-between z-30 px-6 bg-[#F0F0F0] w-full max-w-[1920px]'>
 					<HimakomBrand />
 					<Hamburger />
 					<DesktopNav />
