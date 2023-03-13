@@ -71,7 +71,6 @@ export const PHPI = [
 	},
 ];
 
-
 function LegendStructure() {
 	return (
 		<>
@@ -85,7 +84,7 @@ function LegendStructure() {
 							height={12}
 							className="filter"
 						/>
-						<h4 className="pl-3 text-start text-[10px] font-bold lg:text-md xl:text-xl">
+						<h4 className="lg:text-md pl-3 text-start text-[10px] font-bold xl:text-xl">
 							{items.position}
 						</h4>
 					</div>
@@ -94,8 +93,6 @@ function LegendStructure() {
 		</>
 	);
 }
-
-
 
 export default function CabinetPage() {
 	return (
@@ -119,9 +116,9 @@ export default function CabinetPage() {
 							height="240"
 							className=" absolute bottom-0 left-0 -z-[9999] xl:w-[350px]"
 						/>
-						<div className="z-1 flex items-center justify-center pt-8 pb-32  xl:px-48 xl:py-44">
+						<div className="z-1 flex items-center justify-center pt-20 pb-32  xl:px-48 xl:py-44">
 							<div className="flex h-full w-9/12 max-w-[1056px] justify-center rounded-3xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] xl:w-full">
-								<div className="hidden lg:w-[1200px] xl:w-[1900px] items-center justify-center xl:px-16 lg:px-12 lg:py-12 lg:flex">
+								<div className="hidden items-center justify-center lg:flex lg:w-[1200px] lg:px-12 lg:py-12 xl:w-[1900px] xl:px-16">
 									<Image
 										src={'/cabinet/logo-kabinet.svg'}
 										alt=""
@@ -129,12 +126,12 @@ export default function CabinetPage() {
 										width={300}
 										height={245}
 										style={{
-											width: '100%'
+											width: '100%',
 										}}
 									/>
 								</div>
 								<div className="flex flex-col justify-center">
-									<h1 className="p-6 text-center  text-xl font-bold lg:px-0 lg:pb-2 xl:pt-12 lg:text-start xl:text-5xl">
+									<h1 className="p-6 text-center  text-xl font-bold lg:px-0 lg:pb-2 lg:text-start xl:pt-12 xl:text-5xl">
 										Arundaya Cakrabuana
 									</h1>
 									<h2 className="hidden font-semibold lg:block xl:text-2xl">
@@ -150,7 +147,7 @@ export default function CabinetPage() {
 											className="block lg:hidden"
 										/>
 									</div>
-									<p className="p-6 text-justify text-[10px] font-medium xl:w-11/12 xl:px-0 xl:py-8 xl:text-xl xl:leading-6 lg:pl-0 lg:py-3 lg:pr-12">
+									<p className="p-6 text-justify font-medium lg:py-3 lg:pl-0 lg:pr-12 xl:w-11/12 xl:px-0 xl:py-8 xl:text-xl xl:leading-6">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 										Etiam eu turpis molestie, dictum est a, mattis tellus. Sed
 										dignissim, metus nec fringilla accumsan, risus sem
@@ -211,19 +208,19 @@ export default function CabinetPage() {
 							quality={100}
 							width="240"
 							height="280"
-							className="hidden xl:w-[612px] xl:px-14 xl:py-[136px] lg:w-[400px] lg:px-8 lg:py-0 lg:block"
+							className="hidden lg:block lg:w-[400px] lg:px-8 lg:py-0 xl:w-[612px] xl:px-14 xl:py-[136px]"
 						/>
 						<div className="flex flex-col lg:w-1/3 lg:py-10">
 							<h3 className="pt-3 pb-6 text-center text-xs font-bold lg:text-lg xl:text-2xl">
 								Keterangan
 							</h3>
-							<div className="flex flex-col items-start lg:border-l-2 xl:border-l-4 border-[#3F3F9C] px-2 pb-2 lg:text-lg xl:text-xl xl:pl-4">
+							<div className="flex flex-col items-start border-[#3F3F9C] px-2 pb-2 lg:border-l-2 lg:text-lg xl:border-l-4 xl:pl-4 xl:text-xl">
 								<LegendStructure />
 							</div>
 						</div>
 					</div>
 				</div>
-				<div className="relative flex h-[640px] flex-col px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0 items-center justify-center bg-[#3F3F9C]">
+				<div className="relative flex h-[640px] flex-col items-center justify-center bg-[#3F3F9C] px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0">
 					<Image
 						src={'/cabinet/coreBackground.png'}
 						alt=""
@@ -253,7 +250,7 @@ export default function CabinetPage() {
 						Core Team
 					</h1>
 					<div className="z-30 flex w-full -skew-x-[8deg] p-4 ">
-						<CarouselCabinet props={PHPI}/>
+						<CarouselCabinet props={PHPI} />
 					</div>
 				</div>
 				<div className="relative flex h-full flex-col justify-center py-14">
@@ -276,10 +273,11 @@ export default function CabinetPage() {
 					<h1 className="pt-14 pb-3 text-center text-3xl font-bold xl:text-[52px]">
 						Divisions
 					</h1>
-					<p className='text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-						incididunt ut labore et dolore magna aliqua.</p>
-					<div className="flex w-full flex-row flex-wrap items-center justify-center">
-					</div>
+					<p className="text-center">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+					<div className="flex w-full flex-row flex-wrap items-center justify-center"></div>
 					<div className="relative">
 						<Canvas
 							camera={{ position: [0, 0, 5] }}
@@ -329,5 +327,3 @@ export default function CabinetPage() {
 		</>
 	);
 }
-
-
