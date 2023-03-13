@@ -24,9 +24,9 @@ export default function CarouselCabinet({props}:any) {
 		disableOnInteraction: true
       }}
     >
-		{props?.map((items:any) => {
+		{props?.map((items:any, index:any) => {
 			return (
-				<SwiperSlide style={{ width: 'auto' }} >
+				<SwiperSlide style={{ width: 'auto' }} key={index}>
 					<div
 						className={`relative mx-1 flex items-center justify-center `}
           >

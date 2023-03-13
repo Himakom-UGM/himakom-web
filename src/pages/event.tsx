@@ -21,7 +21,7 @@ interface GridComponentProps {
 const GridComponent = ({ image, divisi }: GridComponentProps) => {
     return (
         <a href="" >
-            <div className="flex w-[264px] h-[139px] bg-[#FFFFFF] rounded-[10px] md:h-[386px] md:w-[285px]">
+            <div className="flex w-[264px] h-[139px] rounded-[10px] bg-white md:h-[386px] md:w-[285px]">
                 <div className="flex flex-row md:flex-col">
                     <div className="w-full justify-center items-center">
                         <Image src={image} quality={100} alt="hero" className="md:hidden rounded-l-[10px] w-[108px] h-[139px] object-cover md:w-[285px] md:h-[182px]"
@@ -67,7 +67,7 @@ export default function Event() {
             <main>
                 <div className="w-full flex-wrap relative">
                     <Image
-                        src={'images/bg/patternpad.png'}
+                        src={'/images/bg/patternpad.png'}
                         quality={100}
                         alt="hero"
                         fill
@@ -139,7 +139,7 @@ export default function Event() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-[12/13] h-[651px] md:h-[580px] bg-white rounded-b-[12px] bg-blurBackground">
+                            <div className="w-[12/13] h-[651px] md:h-[580px] bg-white/50 rounded-b-[12px] bg-blurBackground">
                                 <div className="flex flex-wrap gap-[20px] h-[651px] md:h-[580px] p-2 pt-5 justify-center overflow-auto md:justify-between md:px-12">
                                     <GridComponent image={img_Mikat} divisi={"MIKAT"} />
                                     <GridComponent image={img_Hublu} divisi={"HUBLU"} />

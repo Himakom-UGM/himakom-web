@@ -5,9 +5,9 @@ export default function Card(props: {
 	title: string;
 	description: string;
 	image: string;
-	topic: string;
-	date: string;
-	author: string;
+	topic?: string;
+	date?: string;
+	author?: string;
 	primary: boolean;
 }) {
 	const router = useRouter();
@@ -22,18 +22,18 @@ export default function Card(props: {
 			<Image
 				src={props.image}
 				alt="image"
-				width={1200}
-				height={600}
+				fill
 				className={`${
 					props.primary ? 'customMd:-mt-8' : ''
-				} absolute scale-150 customMd:scale-100`}
+				} absolute scale-150 customMd:scale-100 w-96 h-96 object-cover`}
 			/>
+
 			<div
 				className={`${
 					props.primary
 						? 'bg-content-overlay-mobile hover:bg-content customMd:h-full customMd:bg-content-overlay'
 						: '-mt-24 bg-content-overlaySecondary hover:bg-content-secondary customMd:-mt-16'
-				} relative flex flex-col rounded-xl px-8 duration-700`}
+				} relative flex flex-col rounded-xl px-8 transition-all duration-700`}
 			>
 				<div
 					className={`relative flex flex-col text-sm ${
@@ -48,9 +48,11 @@ export default function Card(props: {
 						<div className="rounded-xl border border-white px-5 py-[2px] text-white">
 							{props.topic}
 						</div>
-						<div className="text-white ">
-							Posted on {props.date} by {props.author}
-						</div>
+						{props.date && props.author && (
+							<div className="text-white ">
+								Posted on {props.date} by {props.author}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
