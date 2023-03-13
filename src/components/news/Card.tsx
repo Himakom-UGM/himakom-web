@@ -25,7 +25,7 @@ export default function Card(props: {
 				fill
 				className={`${
 					props.primary ? 'customMd:-mt-8' : ''
-				} absolute scale-150 customMd:scale-100 w-96 h-96 object-cover`}
+				} absolute h-96 w-96 scale-150 object-cover customMd:scale-100`}
 			/>
 
 			<div
