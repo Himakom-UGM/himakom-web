@@ -3,7 +3,9 @@ import React from 'react';
 import Image from 'next/image';
 import Card from './Card';
 
-const News = () => {
+const News = (props: { data: any }) => {
+	console.log(props.data[0].image);
+
 	return (
 		<div className="relative mx-auto w-full max-w-[1920px] overflow-x-hidden bg-[#f8f8f8] pb-36">
 			<Image
@@ -23,35 +25,35 @@ const News = () => {
 				</p>
 				<div className="flex basis-1/2 cursor-pointer flex-col justify-center gap-x-6 gap-y-3 py-6 px-10 lg:flex-row">
 					<Card
-						title="Lorem ipsum dolor sit amet, consectetur"
-						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
+						title={props.data[0].title}
+						description={props.data[0].headerText}
 						primary
-						topic="Topic"
-						date="12/12/2022"
-						author="Ramzy Izza"
+						topic={props.data[0].topic}
+						date={props.data[0].updatedDate}
+						author={props.data[0].author}
 						key={10}
-						image="/images/content/ldk.png"
+						image={'https:' + props.data[0].image}
 					/>
 					<div className="flex basis-1/2 flex-col gap-y-4">
 						<Card
-							title="Lorem ipsum dolor sit amet, consectetur"
-							description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
+							title={props.data[1].title}
+							description={props.data[1].headerText}
 							primary={false}
-							topic="Topic"
-							date="10/01/2023"
-							author="Gelora Manalu"
+							topic={props.data[1].topic}
+							date={props.data[1].updatedDate}
+							author={props.data[1].author}
 							key={12}
-							image="/images/content/pemira.png"
+							image={'https:' + props.data[1].image}
 						/>
 						<Card
-							title="Lorem ipsum dolor sit amet, consectetur"
-							description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut"
+							title={props.data[2].title}
+							description={props.data[2].headerText}
 							primary={false}
-							topic="Topic"
-							date="12/12/2021"
-							author="Josiah Farrel"
+							topic={props.data[2].topic}
+							date={props.data[2].updatedDate}
+							author={props.data[2].author}
 							key={13}
-							image="/images/content/sh.png"
+							image={'https:' + props.data[2].image}
 						/>
 					</div>
 				</div>

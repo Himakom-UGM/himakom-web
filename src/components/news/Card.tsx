@@ -24,15 +24,15 @@ export default function Card(props: {
 				alt="image"
 				fill
 				className={`${
-					props.primary ? 'customMd:-mt-8' : ''
-				} absolute h-96 w-96 scale-150 object-cover customMd:scale-100`}
+					props.primary ? '' : ''
+				} absolute h-96 w-96 object-cover customMd:scale-100`}
 			/>
 
 			<div
 				className={`${
 					props.primary
 						? 'bg-content-overlay-mobile hover:bg-content customMd:h-full customMd:bg-content-overlay'
-						: '-mt-24 bg-content-overlaySecondary hover:bg-content-secondary customMd:-mt-16'
+						: '-mt-2 bg-content-overlaySecondary hover:bg-content-secondary customMd:mt-0'
 				} relative flex flex-col rounded-xl px-8 transition-all duration-700`}
 			>
 				<div

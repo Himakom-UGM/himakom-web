@@ -35,7 +35,7 @@ export default function Aspiration({
 				.includes(searchValue.toLowerCase());
 		});
 		setFilteredEntries(filtered);
-	},[entries.items, searchValue]);
+	}, [entries.items, searchValue]);
 
 	return (
 		<>

@@ -7,23 +7,60 @@ import Banner from '@/components/homepage/Banner';
 import About from '@/components/homepage/About';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import { EntryCollection } from 'contentful';
-import { NewsType } from '@/utils/contentful/contentfulTypes';
 import { useEffect, useState } from 'react';
+import { NewsType } from '@/utils/contentful/contentfulTypes';
 
-export async function getServerSideProps() {
-	const data = await contentfulClientCS.getEntries<NewsType>({
-		content_type: 'news',
-		});
+export default function Home() {
+	const [data, setData] = useState<any>();
 
-	return {
-		props: { data },
-	};
+	useEffect(() => {
+		async function fetchContent() {
+			const response = await contentfulClientCS.getEntries<any>({
+				content_type: 'news',
+			});
 
-}
+			const extractedData = response.items.map((item) => {
+				const createdDate = new Date(item.sys.createdAt).toLocaleDateString(
+					'id-ID',
+					{
+						year: 'numeric',
+						month: 'numeric',
+						day: 'numeric',
+					}
+				);
+				const updatedDate = new Date(item.sys.updatedAt).toLocaleDateString(
+					'id-ID',
+					{
+						year: 'numeric',
+						month: 'numeric',
+						day: 'numeric',
+					}
+				);
+				const title = item.fields.title;
+				const image = item.fields.image[0].fields.file.url;
+				const detail = item?.fields.detailnews;
+				const author = item?.fields.author;
+				const headerText = item?.fields.headerText;
+				const topic = item?.fields?.topic;
+				console.log(item.fields);
+				return {
+					title,
+					headerText,
+					createdDate,
+					updatedDate,
+					image,
+					detail,
+					author,
+					topic,
+				};
+			});
 
+			setData(extractedData);
+		}
 
-export default function Home({data}: {data: EntryCollection<NewsType>}) {
-	
+		fetchContent();
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -34,12 +71,12 @@ export default function Home({data}: {data: EntryCollection<NewsType>}) {
 					content="Himakom adalah organisasi himpunan mahasiswa Ilmu Komputer Universitas Gadjah Mada."
 				/>
 				<meta name="keywords" content="Himakom UGM, Ilmu Komputer, Omah TI" />
-        <link rel="icon" href="himakom.ico" />
+				<link rel="icon" href="himakom.ico" />
 			</Head>
 			<main>
 				<Banner />
 				<About />
-				<News data={data} />
+				{data && <News data={data} />}
 			</main>
 		</>
 	);

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import Search from '@/components/news/Search';
 import Section from '@/components/news/Section';
 import TableOfContent from '@/components/news/TableOfContent';
+import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 
 type NewsType = { title: string; content: string[] }[][];
 
@@ -34,9 +35,19 @@ const allNews = [
 ];
 
 const NewsPage = () => {
+	function getNews() {
+		contentfulClientCS
+			.getEntries({
+				content_type: 'news',
+			})
+			.then((response) => console.log(response.items));
+	}
+
+	getNews();
+
 	return (
 		<div className="relative mx-auto flex max-w-7xl flex-col gap-x-4 px-8 pt-20 customMd:flex-row">
-			<section className="basis-1/4 customMd:order-2 my-6 customMd:my-0">
+			<section className="my-6 basis-1/4 customMd:order-2 customMd:my-0">
 				<Search />
 				<TableOfContent titles={allNewsToTitles(allNews)} />
 			</section>
