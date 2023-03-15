@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import Link from 'next/link';
 
@@ -13,13 +13,16 @@ type PostsType = {
 
 export default function Exam(props: { posts: any }) {
 	const [data, setData] = useState<PostsType>(props.posts);
+	const [filteredList, setFilteredList] = useState<PostsType>(props.posts);
+	const [containedValue, setContainedValue] = useState<PostsType>(props.posts);
 	const [delay, setDelay] = useState<boolean>(false);
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	function delaySearch() {
 		setDelay(true);
 		setTimeout(() => {
 			setDelay(false);
-		}, 500);
+		}, 100);
 	}
 
 	function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
@@ -30,13 +33,13 @@ export default function Exam(props: { posts: any }) {
 		const value = e.target.value.toLowerCase();
 
 		if (value === '') {
-			setData(props.posts);
+			setFilteredList(data);
 			delaySearch();
 			return;
 		}
 
 		// return name of the exam that contains the value
-		const filtered = props.posts.map((item: any) => {
+		const filtered = data.map((item: any) => {
 			return {
 				initial: item.initial,
 				data: item.data.filter((post: any) =>
@@ -45,10 +48,15 @@ export default function Exam(props: { posts: any }) {
 			};
 		});
 
+		const temp = [];
+
 		// remove the initial if there is no exam that contains the value
 		const filtered2 = filtered.filter((item: any) => item.data.length > 0);
 
-		setData(filtered2);
+		// add the name if there is an exam that contains the value in filtered but not in filtered2
+		
+
+		setFilteredList(filtered2);
 		delaySearch();
 	}
 
@@ -95,7 +103,10 @@ export default function Exam(props: { posts: any }) {
 
 		getExams().then((res) => {
 			setData(res);
+			setFilteredList(res);
 		});
+
+		inputRef.current?.focus();
 	}, []);
 
 	return (
@@ -122,6 +133,7 @@ export default function Exam(props: { posts: any }) {
 					<input
 						type="text"
 						placeholder="Search"
+						ref={inputRef}
 						onChange={handleSearch}
 						className="rounded-xl py-[6px] pl-10 pr-4 text-lg outline-none placeholder:text-slate-400"
 					/>
@@ -136,7 +148,7 @@ export default function Exam(props: { posts: any }) {
 			</div>
 			<div className="mx-auto mt-6 w-full px-4">
 				<section className="flex w-full flex-col gap-y-2">
-					{data.map((item) => (
+					{filteredList.map((item) => (
 						<div key={item.initial} className="z-10 my-4">
 							<h2 className="mb-4 border-b-4 pb-1 text-lg font-semibold text-white">
 								{item.initial}

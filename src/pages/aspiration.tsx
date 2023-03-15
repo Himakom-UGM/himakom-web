@@ -1,7 +1,7 @@
 import AspirationCard from '@/components/aspiration/AspirationCard';
 import Form from '@/components/aspiration/Form';
 import Layout from '@/components/aspiration/Layout';
-import { contentfulClient } from '@/utils/contentful/contentfulClient';
+import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import { AspirationType } from '@/utils/contentful/contentfulTypes';
 import { EntryCollection } from 'contentful';
 import Head from 'next/head';
@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 export async function getServerSideProps() {
-	const entries = await contentfulClient.getEntries<
+	const entries = await contentfulClientCS.getEntries<
 		EntryCollection<AspirationType>
 	>({
 		content_type: 'aspiration',
