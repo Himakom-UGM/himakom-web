@@ -6,7 +6,12 @@ import Carousel from '@/components/common/Carousel';
 import Program from '@/components/about/Program';
 
 export type PropsDivision = {
-	info: { title: string; description: string; image: string; logo: string };
+	info: {
+		title: string;
+		description: string;
+		image: string;
+		logo: string;
+	};
 	members: {
 		name: string;
 		role: string;
@@ -19,22 +24,6 @@ export type PropsDivision = {
 		description: string;
 		image: string;
 	}[];
-};
-
-export type PropsMember = {
-	data: {
-		name: string;
-		role: string;
-		photo: string;
-		batch: number;
-	}[];
-};
-
-export type PropsInfo = {
-	title: string;
-	description: string;
-	image: string;
-	logo: string;
 };
 
 const divisionDummy = {
@@ -77,14 +66,49 @@ const divisionDummy = {
 			title: 'Program 2',
 			date: '2021-01-01',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+				'Ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
 			title: 'Program 3',
 			date: '2021-01-01',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Program 4',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Program 5',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Program 6',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Program 7',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Program 8',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 	],

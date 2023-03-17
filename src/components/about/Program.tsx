@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { useState } from "react";
+import Image from 'next/image';
+import { useState } from 'react';
 
 export type PropsProgram = {
 	title: string;
@@ -16,22 +16,54 @@ const data = {
 };
 
 export default function Program(props: { data: PropsProgram }) {
+	const [program, setProgram] = useState<{
+		title: string;
+		date: string;
+		description: string;
+		image: string;
+	}>(props.data[0]);
+
 	const data = props.data;
 
+	function handleDivision(e: any) {
+		const division = data.find((item) => item.title === e.target.innerText);
+		setProgram(division);
+	}
+
 	return (
-		<div className="mx-auto w-[60%] pt-24 font-Lato pb-20">
-			<h1 className="text-bold text-center">Our Programs</h1>
-			<div className="flex">
-				<div className="flex basis-2/5 flex-col">
+		<div className="mx-auto w-[60%] pt-24 pb-20 font-Lato">
+			<h1 className="mb-6 text-center text-2xl font-semibold">Our Programs</h1>
+			<div className="flex gap-x-2">
+				<div className="flex h-fit basis-2/5 flex-col overflow-auto">
 					{data.map((program) => (
-						<div className=" bg-slate-400 rounded m-2 " key={Math.random() * 10000}>program.title</div>
+						<div
+							onClick={(e) => handleDivision(e)}
+							className="m-2 rounded-md bg-[#32327B] px-2 py-1 text-white "
+							key={Math.random() * 10000}
+						>
+							{program.title}
+						</div>
 					))}
 				</div>
 				<div className=" basis-3/5 flex-row">
-					{
-						data.filter()
-					}
-					
+					{program && (
+						<div className="bg-[#32327B] rounded-lg overflow-hidden">
+							<div className="relative flex flex-col">
+								<Image
+									src={program.image}
+									width={300}
+									height={300}
+									alt="gambar program"
+									className="w-full"
+								/>
+								<div className="absolute bottom-0">
+									<h1 className="text-bold text-center">{program.title}</h1>
+									<p className="text-center">{program.date}</p>
+								</div>
+							</div>
+							<p className="text-center">{program.description}</p>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>
