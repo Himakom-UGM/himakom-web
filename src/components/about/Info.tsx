@@ -6,6 +6,7 @@ type PropsDivision = {
 	image: string;
 	logo: string;
 };
+
 export default function Info(props: { division: PropsDivision }) {
 	const data = props.division;
 	return (
