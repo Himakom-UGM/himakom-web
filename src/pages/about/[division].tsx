@@ -3,6 +3,7 @@ import { getDivisions } from '@/utilites/getDivisions';
 import Head from 'next/head';
 import Info from '@/components/about/Info';
 import Carousel from '@/components/common/Carousel';
+import Program from '@/components/about/Program';
 
 type PropsDivision = {
 	info: { title: string; description: string; image: string; logo: string };
@@ -29,7 +30,7 @@ export default function Division(props: PropsDivision) {
 			<main>
 				<Info division={props.info} />
 				<Carousel data={props.members} />
-				<Programs data={props.programs} />
+				<Program data={props.programs} />
 			</main>
 		</>
 	);
@@ -53,6 +54,9 @@ export async function getStaticProps(context: any) {
 	const division = divisions.find(
 		(division: any) => division.slug === context.params.division
 	);
+
+	
+
 	return {
 		props: {
 			division,
