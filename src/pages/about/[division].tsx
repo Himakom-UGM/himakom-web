@@ -1,12 +1,37 @@
 import { getDivisions } from '@/utilites/getDivisions';
 
-export default function Division(props: { division: any }) {
-	// get division from props
-	const { division } = props;
+import Head from 'next/head';
+import Info from '@/components/about/Info';
+import Carousel from '@/components/common/Carousel';
+
+type PropsDivision = {
+	info: { title: string; description: string; image: string; logo: string };
+	members: {
+		name: string;
+		role: string;
+		photo: string;
+		batch: number;
+	}[];
+	programs: {
+		title: string;
+		date: string;
+		description: string;
+		image: string;
+	}[];
+};
+
+export default function Division(props: PropsDivision) {
 	return (
-		<div>
-			<h1>{division.name}</h1>
-		</div>
+		<>
+			<Head>
+				<title>Division</title>
+			</Head>
+			<main>
+				<Info division={props.info} />
+				<Carousel data={props.members} />
+				<Programs data={props.programs} />
+			</main>
+		</>
 	);
 }
 
