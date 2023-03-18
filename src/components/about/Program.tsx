@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { MouseEvent, SetStateAction, useState } from 'react';
+import Bottom_P from './decoration/bottom2';
 
 export type PropsProgram = {
 	title: string;
@@ -27,43 +28,53 @@ export default function Program(props: { data: PropsProgram }) {
 
 	function handleDivision(e: any) {
 		const division = data.find((item) => item.title === e.target.innerText);
-		setProgram(division);
+		// setProgram(division);
 	}
 
 	return (
-		<div className="mx-auto w-[60%] pt-24 pb-20 font-Lato">
-			<h1 className="mb-6 text-center text-2xl font-semibold">Our Programs</h1>
-			<div className="flex gap-x-2">
-				<div className="flex h-fit basis-2/5 flex-col overflow-auto">
-					{data.map((program) => (
-						<div
-							onClick={(e) => handleDivision(e)}
-							className="m-2 rounded-md bg-[#32327B] px-2 py-1 text-white "
-							key={Math.random() * 10000}
-						>
-							{program.title}
-						</div>
-					))}
-				</div>
-				<div className=" basis-3/5 flex-row">
-					{program && (
-						<div className="bg-[#32327B] rounded-lg overflow-hidden">
-							<div className="relative flex flex-col">
-								<Image
-									src={program.image}
-									width={300}
-									height={300}
-									alt="gambar program"
-									className="w-full"
-								/>
-								<div className="absolute bottom-0">
-									<h1 className="text-bold text-center">{program.title}</h1>
-									<p className="text-center">{program.date}</p>
+		<div className="relative h-full w-full overflow-hidden">
+			<Bottom_P />
+			<div className="relative h-screen mx-auto pt-20 pb-12/ font-Lato md:pt-28">
+				<h1 className="mb-8 text-center text-4xl font-semibold">
+					Our Programs
+				</h1>
+				<div className="flex flex-col gap-x-2 px-10 xl:px-40 md:flex-row">
+					<div id='programs' className="flex h-[400px] basis-2/5 2xl:basis-[30%] ml-5 mb-8 gap-x-2 overflow-auto md:flex-col md:pr-2">
+						{data.map((program) => (
+							<div
+								onClick={(e) => handleDivision(e)}
+								className="text-md my-2 min-w-fit rounded-md bg-[#32327B] px-2 py-1 text-white "
+								key={Math.random() * 10000}
+							>
+								{program.title}
+							</div>
+						))}
+					</div>
+					<div className="h-full basis-4/5 flex-row md:pl-5 px-10">
+						{program && (
+							<div className="h-[400px] overflow-hidden rounded-lg bg-[#32327B]">
+								<div className="relative flex flex-col border border-black">
+									<Image
+										src={program.image}
+										width={400}
+										height={400}
+										alt="gambar program"
+										className="w-full max-h-[200px]"
+									/>
+									<div className="absolute bottom-0 ml-2 border text-white">
+										<h1 className="text-bold  text-left">{program.title}</h1>
+										<p className="text-left">{program.date}</p>
+									</div>
+								</div>
+								<div className="flex h-[10em] flex-col justify-between">
+									<p className="mx-5 h-[8em] overflow-hidden text-ellipsis py-1 text-justify text-white">
+										{program.description}
+									</p>
+									<p className="mx-5 text-yellow-500">Read more...</p>
 								</div>
 							</div>
-							<p className="text-center">{program.description}</p>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

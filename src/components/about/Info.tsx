@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Bottom_H from './decoration/bottom';
 
 type PropsDivision = {
 	title: string;
@@ -6,9 +7,6 @@ type PropsDivision = {
 	image: string;
 	logo: string;
 };
-
-import segitiga from '../../../public/assets/division/segitiga.png';
-import buletan from '../../../public/assets/division/buletan.png';
 
 const data = {
 	title: 'Kewirausahaan',
@@ -21,37 +19,30 @@ const data = {
 export default function Info(props: { division: PropsDivision }) {
 	// const data = props.division;
 	return (
-		<div className="z-10 pt-24 font-Lato w-[90%] mx-auto">
-			{/* <Image
-				src={segitiga}
-				className="absolute bottom-0 left-0 z-0  h-auto md:min-w-[400px] w-[300px] lg:block"
-				alt="bg"
-			/>
-			<Image
-				src={buletan}
-				alt="bg"
-				className="absolute top-0 right-0 z-0 h-auto md:min-w-[400px] w-[300px] lg:block"
-			></Image> */}
-			<div className="flex rounded-2xl px-6 py-10">
-				<div className="order-2 basis-1/2 flex justify-center items-center">
-					<Image
-						src={data.image}
-						width={1920}
-						height={1080}
-						alt="foto divisi"
-						className='w-[80%]'
-					/>
-				</div>
-				<div className="order-1 flex basis-1/2 flex-col gap-y-4">
-					<Image
-						src={data.logo}
-						width={500}
-						height={500}
-						alt="logo"
-						className="mx-auto w-[20%]"
-					/>
-					<h1 className="text-center text-3xl font-semibold">{data.title}</h1>
-					<p>{data.description}</p>
+		<div className="relative h-full w-full">
+			<Bottom_H />
+			<div className="relative mx-auto h-full w-[90%] px-10 pt-20 pb-20 font-Lato md:pt-32 md:pb-32">
+				<div className="flex flex-col rounded-2xl bg-white px-6 py-10 shadow-2xl md:flex-row">
+					<div className="order-2 flex basis-1/2 items-center justify-center ">
+						<Image
+							src={data.image}
+							width={1920}
+							height={1080}
+							alt="foto divisi"
+							className="w-[90%] pt-5 md:pt-0"
+						/>
+					</div>
+					<div className="order-1 flex basis-1/2 flex-col gap-y-4">
+						<Image
+							src={data.logo}
+							width={500}
+							height={500}
+							alt="logo"
+							className="mx-auto w-[20%] md:w-[30%] "
+						/>
+						<h1 className="text-center text-3xl font-semibold">{data.title}</h1>
+						<p className="text-justify px-4 text-lg">{data.description}</p>
+					</div>
 				</div>
 			</div>
 		</div>

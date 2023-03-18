@@ -20,7 +20,7 @@ const Hero = () => {
 			<div className="bg-gray flex min-h-screen flex-col items-center justify-center py-2 ">
 				<main className="flex w-full flex-1 items-center justify-center px-20 text-center">
 					<div className="relative z-0 mt-10 flex w-auto flex-col rounded-2xl bg-white shadow-2xl md:flex-row ">
-						<div className=" mx-auto  flex w-5/6 flex-col items-center ">
+						<div className=" mx-auto flex w-5/6 flex-col items-center ">
 							<Image
 								src={'/Logos_kewirus.png'}
 								width={300}
