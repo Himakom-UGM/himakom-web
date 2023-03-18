@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import { Scrollbars } from 'react-custom-scrollbars-2';
 
 import bottom_1 from '../../../public/assets/division/bottom_1.png';
 import bottom_2 from '../../../public/assets/division/bottom_2.png';
