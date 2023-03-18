@@ -6,7 +6,7 @@ import Layout from '@/components/aspiration/Layout';
 import useMediaQuery from '@/hooks/useMediaQuery';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import { AspirationType } from '@/utils/contentful/contentfulTypes';
-import { EntryCollection } from 'contentful';
+import { Entry, EntryCollection } from 'contentful';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -22,6 +22,75 @@ export async function getServerSideProps() {
 		props: { entries },
 	};
 }
+
+const aapirationsDummyData = [
+	{
+		sys: {
+			id: '1',
+		},
+		fields: {
+			subject: 'I want to be a doctor',
+			from: 'Anonymous',
+			to: 'Dr. John Doe',
+			message: 'yay',
+		},
+	},
+	{
+		sys: {
+			id: '1',
+		},
+		fields: {
+			subject: 'I want to be a doctor',
+			from: 'Anonymous',
+			to: 'Dr. John Doe',
+			message: 'yay',
+		},
+	},
+	{
+		sys: {
+			id: '1',
+		},
+		fields: {
+			subject: 'I want to be a doctor',
+			from: 'Anonymous',
+			to: 'Dr. John Doe',
+			message: 'yay',
+		},
+	},
+	{
+		sys: {
+			id: '1',
+		},
+		fields: {
+			subject: 'I want to be a doctor',
+			from: 'Anonymous',
+			to: 'Dr. John Doe',
+			message: 'yay',
+		},
+	},
+	{
+		sys: {
+			id: '1',
+		},
+		fields: {
+			subject: 'I want to be a doctor',
+			from: 'Anonymous',
+			to: 'Dr. John Doe',
+			message: 'yay',
+		},
+	},
+	{
+		sys: {
+			id: '1',
+		},
+		fields: {
+			subject: 'I want to be a doctor',
+			from: 'Anonymous',
+			to: 'Dr. John Doe',
+			message: 'yay',
+		},
+	},
+];
 
 export default function Aspiration({
 	entries,
@@ -95,7 +164,7 @@ export default function Aspiration({
 						</div>
 					</div>
 				</div>
-				<section className=" flex w-full flex-col items-center bg-primary-100 px-4 pb-16">
+				<section className=" relative flex w-full flex-col items-center bg-primary-100 px-4 pb-16">
 					<div className="z-10 w-screen   rounded-b-3xl bg-contrast-100 pt-12 pb-16">
 						<p className=" mx-auto w-64  text-center text-5xl font-extrabold text-primary-100 customMd:w-full ">
 							Collective Aspirations
@@ -105,14 +174,30 @@ export default function Aspiration({
 						<input
 							onChange={(event) => setSearchValue(event.target.value)}
 							placeholder="Find Aspiration"
-							className="  shadow-3xl -mt-8 h-12  w-full	 rounded-lg border  bg-contrast-100 px-12 text-lg customMd:h-20 "
+							className="  shadow-3xl relative z-20  -mt-8 	 h-12 w-full rounded-lg border border-gray-200 bg-contrast-100  px-12 text-lg shadow-2xl customMd:h-20 "
 						/>
 					</div>
 					{isMobile ? (
 						<AspirationsMobile filteredEntries={filteredEntries} />
 					) : (
-						<AspirationsDesktop filteredEntries={filteredEntries} />
+						<AspirationsDesktop
+							filteredEntries={aapirationsDummyData as Entry<AspirationType>[]}
+						/>
 					)}
+					<Image
+						width={300}
+						height={300}
+						alt="decoration_left"
+						className=" absolute bottom-0 left-0"
+						src="/aspiration/decoration_left.svg"
+					/>
+					<Image
+						width={300}
+						height={300}
+						alt="decoration_right"
+						className=" absolute bottom-0 right-0"
+						src="/aspiration/decoration_right.svg"
+					/>
 				</section>
 			</div>
 		</>

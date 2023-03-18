@@ -11,7 +11,7 @@ export default function AspirationCardMobile({
 	return (
 		<div 
             onClick={() => setEnabled(!enabled)}
-			className="flex flex-col justify-between gap-4 px-4 pt-6  "
+			className="flex flex-col justify-between gap-4 px-4 pt-6 cursor-pointer  "
 			key={entry.sys.id}
 		>
 			<p className=" overflow-hidden text-ellipsis  text-xl font-extrabold   ">

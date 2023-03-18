@@ -10,7 +10,7 @@ export default function AspirationsMobile({
 	filteredEntries: Entry<AspirationType>[];
 }) {
 	return (
-		<div className=" mx-4 mt-20 flex w-full max-w-[640px] flex-col rounded-lg  border bg-white pb-8 text-primary-100  ">
+		<div className=" mx-4 mb-2 mt-8 z-10 flex w-full max-w-[640px] flex-col rounded-lg  border bg-white pb-8 text-primary-100  ">
 			{filteredEntries.map((entry, index) => (
 				<>
 					<AspirationCardMobile entry={entry} key={index} />
