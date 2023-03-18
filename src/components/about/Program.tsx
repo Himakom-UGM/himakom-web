@@ -16,12 +16,7 @@ const data = {
 };
 
 export default function Program(props: { data: PropsProgram }) {
-	const [program, setProgram] = useState<{
-		title: string;
-		date: string;
-		description: string;
-		image: string;
-	}>(props.data[0]);
+	const [program, setProgram] = useState<any>(props.data[0]);
 
 	const data = props.data;
 
@@ -31,37 +26,41 @@ export default function Program(props: { data: PropsProgram }) {
 	}
 
 	return (
-		<div className="mx-auto w-[60%] pt-24 pb-20 font-Lato">
-			<h1 className="mb-6 text-center text-2xl font-semibold">Our Programs</h1>
-			<div className="flex gap-x-2">
-				<div className="flex h-fit basis-2/5 flex-col overflow-auto">
+		<div className="mx-auto w-[90%] max-w-[1920px] pt-24 pb-20 font-Lato customMd:w-[65%]">
+			<h1 className="mb-6 text-center text-3xl font-semibold xl:text-4xl">
+				Our Programs
+			</h1>
+			<div className="flex max-h-[60vh] gap-x-6">
+				<div className="flex max-w-[500px] basis-2/5 flex-col gap-y-3 overflow-scroll text-lg font-semibold">
 					{data.map((program) => (
 						<div
 							onClick={(e) => handleDivision(e)}
-							className="m-2 rounded-md bg-[#32327B] px-2 py-1 text-white "
+							className="rounded-md bg-[#32327B] px-4 py-[6px] text-white"
 							key={Math.random() * 10000}
 						>
 							{program.title}
 						</div>
 					))}
 				</div>
-				<div className=" basis-3/5 flex-row">
+				<div className="basis-3/5 flex-row">
 					{program && (
-						<div className="bg-[#32327B] rounded-lg overflow-hidden">
-							<div className="relative flex flex-col">
+						<div className="flex flex-col overflow-hidden rounded-lg">
+							<div className="relative flex h-[300px] flex-col">
 								<Image
 									src={program.image}
-									width={300}
-									height={300}
+									width={580}
+									height={580}
 									alt="gambar program"
 									className="w-full"
 								/>
-								<div className="absolute bottom-0">
-									<h1 className="text-bold text-center">{program.title}</h1>
-									<p className="text-center">{program.date}</p>
+								<div className="absolute bottom-2 left-6 text-white">
+									<h1 className="text-2xl font-semibold">{program.title}</h1>
+									<p className="text-lg">{program.date}</p>
 								</div>
 							</div>
-							<p className="text-center">{program.description}</p>
+							<p className="z-10 bg-[#32327B] px-6 py-5 text-justify text-lg text-white">
+								{program.description}
+							</p>
 						</div>
 					)}
 				</div>
