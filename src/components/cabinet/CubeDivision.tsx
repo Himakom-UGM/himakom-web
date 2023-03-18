@@ -2,6 +2,7 @@ import Router, { useRouter } from 'next/router';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useRef } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
+import THREE from 'three';
 
 
 export default function CubeDivision(props: any) {
@@ -36,15 +37,16 @@ export default function CubeDivision(props: any) {
 		Router.push(divisionData[e.face?.materialIndex].url);
 	};
 
-	const mesh = useRef();
-	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.001));
+	const material = useTexture(divisionData.map((d) => d.texture));
+
+	const mesh = useRef<THREE.Mesh>();
+	useFrame(() => (mesh.current!.rotation.x = mesh.current!.rotation.y += 0.001));
 	return (
 		<mesh {...props} ref={mesh} onClick={(e) => console.log(e.face)}>
 			<boxGeometry args={[3, 3, 3]} />
 			{divisionData.map((d, i) => <meshStandardMaterial
-				{...useTexture({
-					map: d.texture
-				})}
+			key={i}
+			map={material[i]}
 				attach={`material-${i}`}
 			/>)}
 		</mesh>

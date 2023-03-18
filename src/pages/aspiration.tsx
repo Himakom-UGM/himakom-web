@@ -1,6 +1,9 @@
 import AspirationCard from '@/components/aspiration/AspirationCard';
+import AspirationsDesktop from '@/components/aspiration/AspirationsDesktop';
+import AspirationsMobile from '@/components/aspiration/AspirationsMobile';
 import Form from '@/components/aspiration/Form';
 import Layout from '@/components/aspiration/Layout';
+import useMediaQuery from '@/hooks/useMediaQuery';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import { AspirationType } from '@/utils/contentful/contentfulTypes';
 import { EntryCollection } from 'contentful';
@@ -28,6 +31,8 @@ export default function Aspiration({
 	const [searchValue, setSearchValue] = useState('');
 	const [filteredEntries, setFilteredEntries] = useState(entries.items);
 
+	const isMobile = useMediaQuery(960);
+
 	useEffect(() => {
 		const filtered = entries.items.filter((entry) => {
 			return entry.fields.subject
@@ -42,7 +47,7 @@ export default function Aspiration({
 			<Head>
 				<title>Aspiration</title>
 			</Head>
-			<div className="mx-auto max-w-7xl bg-primary-100 pt-10 ">
+			<div className="mx-auto bg-primary-100 pt-10 ">
 				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10">
 					<Image
 						src="/images/bg/aspiration.png"
@@ -50,9 +55,9 @@ export default function Aspiration({
 						alt="bg"
 						style={{ zIndex: -2 }}
 					/>
-					<div className="relative h-full w-full overflow-hidden rounded-xl ">
+					<div className="relative  w-full overflow-hidden rounded-b-xl  ">
 						<Image
-							src="/images/bg/hero.png"
+							src="/images/bg/hero.svg"
 							fill
 							quality={100}
 							alt="hero"
@@ -90,30 +95,24 @@ export default function Aspiration({
 						</div>
 					</div>
 				</div>
-				<section className=" w-full bg-primary-100 pb-16 ">
-					<div className="z-10 rounded-b-3xl  bg-contrast-100 pt-12 pb-16">
+				<section className=" flex w-full flex-col items-center bg-primary-100 px-4 pb-16">
+					<div className="z-10 w-screen   rounded-b-3xl bg-contrast-100 pt-12 pb-16">
 						<p className=" mx-auto w-64  text-center text-5xl font-extrabold text-primary-100 customMd:w-full ">
 							Collective Aspirations
 						</p>
 					</div>
-					<div className="w-full px-4 customMd:px-20 ">
+					<div className="mx-auto w-full max-w-[640px] customMd:max-w-none customMd:px-20  ">
 						<input
 							onChange={(event) => setSearchValue(event.target.value)}
 							placeholder="Find Aspiration"
 							className="  shadow-3xl -mt-8 h-12  w-full	 rounded-lg border  bg-contrast-100 px-12 text-lg customMd:h-20 "
 						/>
 					</div>
-
-					<div className="  mx-20 mt-16 grid grid-cols-4 gap-8 text-primary-100  ">
-						{filteredEntries.map((entry) => (
-							<AspirationCard
-								key={entry.sys.id}
-								subject={entry.fields.subject}
-								from={entry.fields.from ? entry.fields.from : 'Anonymous'}
-								to={entry.fields.to}
-							/>
-						))}
-					</div>
+					{isMobile ? (
+						<AspirationsMobile filteredEntries={filteredEntries} />
+					) : (
+						<AspirationsDesktop filteredEntries={filteredEntries} />
+					)}
 				</section>
 			</div>
 		</>

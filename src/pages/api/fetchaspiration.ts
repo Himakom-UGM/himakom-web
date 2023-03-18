@@ -1,8 +1,8 @@
-import { contentfulClient } from "@/utils/contentful/contentfulClient";
+import { contentfulClientCS } from "@/utils/contentful/contentfulClient";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const fetchAspiration = async (req: NextApiRequest, res: NextApiResponse) => {
-    const aspiration = await contentfulClient.getEntries({
+    const aspiration = await contentfulClientCS.getEntries({
         content_type: "aspiration",
     });
         

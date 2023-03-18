@@ -117,14 +117,14 @@ const divisionDummy = {
 export default function Division(props: PropsDivision) {
 	return (
 		<>
-			<Head>
+			{/* <Head>
 				<title>Division</title>
 			</Head>
 			<main>
 				<Info division={props.info} />
 				<Carousel data={props.members} />
 				<Program data={props.programs} />
-			</main>
+			</main> */}
 		</>
 	);
 }
@@ -132,7 +132,7 @@ export default function Division(props: PropsDivision) {
 // get static paths
 export async function getStaticPaths() {
 	const divisions = await getDivisions();
-	const paths = divisions.map((division: any) => ({
+	const paths = divisions.map((division) => ({
 		params: { division: division.slug },
 	}));
 	return {
@@ -147,6 +147,7 @@ export async function getStaticProps(context: any) {
 	const division = divisions.find(
 		(division: any) => division.slug === context.params.division
 	);
+	console.log(division)
 
 	return {
 		props: {

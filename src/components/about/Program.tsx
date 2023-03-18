@@ -22,7 +22,9 @@ export default function Program(props: { data: PropsProgram }) {
 
 	function handleDivision(e: any) {
 		const division = data.find((item) => item.title === e.target.innerText);
-		setProgram(division);
+		if(division){
+			setProgram(division);
+		}
 	}
 
 	return (

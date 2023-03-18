@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const AppContext = createContext({
 	hamburger: false,
-	updateHamburger: (value: boolean) => {},
+	updateHamburger: () => {},
 });
 
 export const AppWrapper = (props: { children: any }) => {
