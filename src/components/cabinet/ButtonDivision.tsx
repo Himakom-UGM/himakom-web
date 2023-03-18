@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { Lato } from "next/font/google"
-import { PHPI } from "./CarouselCabinet";
+import  PHPI from "./CarouselCabinet";
 
 const lato = Lato({
   subsets: ['latin'],
@@ -11,9 +11,9 @@ const lato = Lato({
 export default function ButtonDivision() {
   return (
     <>
-    {PHPI.filter(e => ['psdma', 'hublu', 'mikat', 'kpm', 'po', 'kewirush'].includes(e['id'])).map(items => {
+    {/* {PHPI.filter(e => ['psdma', 'hublu', 'mikat', 'kpm', 'po', 'kewirush'].includes(e['id'])).map((items : any,index : any) => {
       return (
-        <div className={`flex m-4 ${lato.className}`}>
+        <div key={index} className={`flex m-4 ${lato.className}`}>
           <div className="group w-[80px] h-[80px] bg-[#3F3F9C] rounded-[21px] overflow-hidden ">
             <div className="flex flex-col justify-center items-center h-full transform group-hover:-translate-y-[2px] duration-200 ">
               <Image
@@ -32,7 +32,7 @@ export default function ButtonDivision() {
           </div>
         </div>        
       )
-    })}
+    })} */}
 
 
     </>

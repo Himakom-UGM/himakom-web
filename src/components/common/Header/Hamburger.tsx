@@ -4,7 +4,7 @@ import { useAppContext } from '@/context/state';
 export default function Hamburger() {
 	const { hamburger, updateHamburger } = useAppContext();
 	return (
-		<button className="customMd:hidden" onClick={updateHamburger}>
+		<button className="customMd:hidden" onClick={() => updateHamburger()}>
 			{!hamburger && (
 				<Image
 					src="/hamburger.svg"

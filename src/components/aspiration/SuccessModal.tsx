@@ -1,4 +1,4 @@
-export default function SuccessModal({ enabled }: { enabled: boolean }) {
+export default function SuccessModal({ enabled, setEnabled }: { enabled: boolean, setEnabled: any }) {
 	return (
 		<div
 			id="popup-modal"
