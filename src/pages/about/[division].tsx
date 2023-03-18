@@ -56,56 +56,112 @@ const divisionDummy = {
 	],
 	programs: [
 		{
-			title: 'Program 1',
+			title: 'Divwar',
 			date: '2021-01-01',
 			description:
 				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 2',
+			title: 'Ilkomp Got Talent',
 			date: '2021-01-01',
 			description:
 				'Ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 3',
+			title: 'Arak Arakan',
 			date: '2021-01-01',
 			description:
 				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 4',
+			title: 'Jumping',
 			date: '2021-01-01',
 			description:
 				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 5',
+			title: 'Sneakers',
 			date: '2021-01-01',
 			description:
 				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 6',
+			title: 'Computer in Action',
 			date: '2021-01-01',
 			description:
 				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 7',
+			title: 'Mikat Challege (Katchang)',
 			date: '2021-01-01',
 			description:
 				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
 			image: 'https://picsum.photos/1920/1080',
 		},
 		{
-			title: 'Program 8',
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
+			date: '2021-01-01',
+			description:
+				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
+			image: 'https://picsum.photos/1920/1080',
+		},
+		{
+			title: 'Mikat Challege (Katchang)',
 			date: '2021-01-01',
 			description:
 				'Dolor sit amet consectetur adipisicing elit. Quisquam, quae.',
@@ -114,17 +170,17 @@ const divisionDummy = {
 	],
 };
 
-export default function Division(props: PropsDivision) {
+export default function Division() {
 	return (
 		<>
-			{/* <Head>
+			<Head>
 				<title>Division</title>
 			</Head>
 			<main>
-				<Info division={props.info} />
-				<Carousel data={props.members} />
-				<Program data={props.programs} />
-			</main> */}
+				<Info division={divisionDummy.info} />
+				<Carousel data={divisionDummy.members} />
+				<Program data={divisionDummy.programs} />
+			</main>
 		</>
 	);
 }
@@ -147,7 +203,7 @@ export async function getStaticProps(context: any) {
 	const division = divisions.find(
 		(division: any) => division.slug === context.params.division
 	);
-	console.log(division)
+	console.log(division);
 
 	return {
 		props: {

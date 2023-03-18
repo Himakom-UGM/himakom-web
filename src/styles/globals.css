@@ -10,10 +10,16 @@
 
 #programs::-webkit-scrollbar {
     width: 10px;
+    border-radius: 100vh;
     background-color: darkblue;
 }
 
 #programs::-webkit-scrollbar-thumb {
     width: 10px;
-    background-color: yellow;
+    border-radius: 100vh;
+    background-color: #F3DB00;
+    -webkit-border-radius: 100vh;
+    -moz-border-radius: 100vh;
+    -ms-border-radius: 100vh;
+    -o-border-radius: 100vh;
 }
