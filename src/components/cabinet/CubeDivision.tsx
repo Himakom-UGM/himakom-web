@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
 import THREE from 'three';
 
-
 export default function CubeDivision(props: any) {
 	const divisionData = [
 		{
@@ -32,23 +31,57 @@ export default function CubeDivision(props: any) {
 			url: '/division/PSDMA',
 		},
 	];
+	  
+
+	const clickTimeout = useRef<NodeJS.Timeout | null>(null);
+
+	const handlePointerUp = (e: any) => {
+		if (clickTimeout.current !== null) {
+			clearTimeout(clickTimeout.current);
+		}
+
+		// Set a new click timeout
+		clickTimeout.current = setTimeout(() => {
+		}, 50); // Wait 500 milliseconds before registering the click event
+	};
+
+	const handlePointerDown = () => {
+		// Cancel the click timeout
+		console.log(clickTimeout.current, 'dowm')
+		if (clickTimeout.current !== null) {
+			clearTimeout(clickTimeout.current);
+		}
+	};
 
 	const handleClick = (e: any) => {
-		Router.push(divisionData[e.face?.materialIndex].url);
+		const face = e.face;
+		const index = face.materialIndex;
+		const division = divisionData[index];
+		Router.push(division.url);
 	};
 
 	const material = useTexture(divisionData.map((d) => d.texture));
 
 	const mesh = useRef<THREE.Mesh>();
-	useFrame(() => (mesh.current!.rotation.x = mesh.current!.rotation.y += 0.001));
+	
 	return (
-		<mesh {...props} ref={mesh} onClick={(e) => console.log(e.face)}>
+		<mesh
+			onPointerUp={handlePointerUp}
+			onPointerDown={handlePointerDown}
+			{...props}
+			ref={mesh}
+			onClick={(e : any) => console.log(e.face)}
+			
+		
+		>
 			<boxGeometry args={[3, 3, 3]} />
-			{divisionData.map((d, i) => <meshStandardMaterial
-			key={i}
-			map={material[i]}
-				attach={`material-${i}`}
-			/>)}
+			{divisionData.map((d, i) => (
+				<meshStandardMaterial
+					key={i}
+					map={material[i]}
+					attach={`material-${i}`}
+				/>	
+			))}
 		</mesh>
 	);
 }

@@ -23,74 +23,6 @@ export async function getServerSideProps() {
 	};
 }
 
-const aapirationsDummyData = [
-	{
-		sys: {
-			id: '1',
-		},
-		fields: {
-			subject: 'I want to be a doctor',
-			from: 'Anonymous',
-			to: 'Dr. John Doe',
-			message: 'yay',
-		},
-	},
-	{
-		sys: {
-			id: '1',
-		},
-		fields: {
-			subject: 'I want to be a doctor',
-			from: 'Anonymous',
-			to: 'Dr. John Doe',
-			message: 'yay',
-		},
-	},
-	{
-		sys: {
-			id: '1',
-		},
-		fields: {
-			subject: 'I want to be a doctor',
-			from: 'Anonymous',
-			to: 'Dr. John Doe',
-			message: 'yay',
-		},
-	},
-	{
-		sys: {
-			id: '1',
-		},
-		fields: {
-			subject: 'I want to be a doctor',
-			from: 'Anonymous',
-			to: 'Dr. John Doe',
-			message: 'yay',
-		},
-	},
-	{
-		sys: {
-			id: '1',
-		},
-		fields: {
-			subject: 'I want to be a doctor',
-			from: 'Anonymous',
-			to: 'Dr. John Doe',
-			message: 'yay',
-		},
-	},
-	{
-		sys: {
-			id: '1',
-		},
-		fields: {
-			subject: 'I want to be a doctor',
-			from: 'Anonymous',
-			to: 'Dr. John Doe',
-			message: 'yay',
-		},
-	},
-];
 
 export default function Aspiration({
 	entries,
@@ -181,7 +113,7 @@ export default function Aspiration({
 						<AspirationsMobile filteredEntries={filteredEntries} />
 					) : (
 						<AspirationsDesktop
-							filteredEntries={aapirationsDummyData as Entry<AspirationType>[]}
+							filteredEntries={filteredEntries}
 						/>
 					)}
 					<Image

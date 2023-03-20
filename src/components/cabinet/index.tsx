@@ -6,7 +6,14 @@ import { Lato } from 'next/font/google';
 import Router, { useRouter } from 'next/router';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useRef } from 'react';
-import { useTexture, OrbitControls } from '@react-three/drei';
+import {
+	useTexture,
+	OrbitControls,
+	AccumulativeShadows,
+	RandomizedLight,
+	Environment,
+	Stars,
+} from '@react-three/drei';
 
 export const PHPI = [
 	{
@@ -249,7 +256,7 @@ export default function CabinetPage() {
 					<h1 className="z-30 pb-10 text-center text-2xl font-bold text-[#F8F8F8] lg:text-5xl">
 						Core Team
 					</h1>
-					<div className="z-30 flex w-full -skew-x-[8deg] p-4 ">
+					<div className="z-30 flex w-full -skew-x-[8deg] px-8 ">
 						<CarouselCabinet props={PHPI} />
 					</div>
 				</div>
@@ -283,10 +290,12 @@ export default function CabinetPage() {
 							camera={{ position: [0, 0, 5] }}
 							style={{ width: `100%`, height: `390px`, position: `relative` }}
 						>
-							<ambientLight intensity={1.1} />
+							<ambientLight intensity={1.2} />
 							<directionalLight />
+							<hemisphereLight args={[0xffffbb, 0x080820, 1]} />
+
 							<CubeDivision position={[0, 0, 0]} />
-							<OrbitControls enableZoom={false} minZoom={10} />
+							<OrbitControls enableZoom={false} minZoom={10} autoRotate />
 						</Canvas>
 					</div>
 					<Image

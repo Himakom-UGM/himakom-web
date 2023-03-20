@@ -13,19 +13,18 @@ import { useEffect } from 'react';
 export default function CarouselCabinet({ props }: any) {
 	return (
 		<Swiper
-			loop
-			loopedSlides={1}
+			freeMode
 			slidesPerView="auto"
 			modules={[Mousewheel, Navigation, Autoplay]}
 			autoplay={{
-				reverseDirection: true,
+				reverseDirection: false,
 				delay: 2000,
 				disableOnInteraction: true,
 			}}
 		>
 			{props?.map((items: any) => {
 				return (
-					<SwiperSlide key={Math.random() * 100000} style={{ width: 'auto' }}>
+					<SwiperSlide key={items.id} style={{ width: 'auto'  }}>
 						<div className={`relative mx-1 flex items-center justify-center `}>
 							<div className="group relative h-[208px] w-[110px] transform overflow-hidden rounded-md border-[5px] bg-[#F8F8F8] transition-all hover:visible hover:w-[150px] hover:duration-[100ms] hover:ease-in lg:h-[380px] lg:w-[225px] lg:hover:w-[350px]">
 								<h1

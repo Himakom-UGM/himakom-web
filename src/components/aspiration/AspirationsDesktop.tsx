@@ -8,6 +8,7 @@ export default function AspirationsDesktop({
 }: {
 	filteredEntries: Entry<AspirationType>[];
 }) {
+	console.log(filteredEntries)
 	return (
 		<div className="relative z-10 mb-2 w-full px-20 mt-16 grid grid-cols-4 gap-8 text-primary-100  ">
 			{filteredEntries.map((entry) => (
@@ -16,6 +17,7 @@ export default function AspirationsDesktop({
 					subject={entry.fields.subject}
 					from={entry.fields.from ? entry.fields.from : 'Anonymous'}
 					to={entry.fields.to}
+					message={entry.fields.message}
 				/>
 			))}
 		</div>
