@@ -112,14 +112,14 @@ export default function Exam(props: { posts: any }) {
 	return (
 		<div className="h-screen overflow-scroll bg-[#3F3F9C] px-12 pb-20 pt-24">
 			<Image
-				src="/images/bg/examRight.png"
+				src="/main/images/bg/examRight.png"
 				alt=""
 				width={1500}
 				height={1500}
 				className="absolute top-0 right-0 z-0 w-[35%]"
 			/>
 			<Image
-				src="/images/bg/examLeft.png"
+				src="/main/images/bg/examLeft.png"
 				alt=""
 				width={1500}
 				height={1500}
@@ -138,7 +138,7 @@ export default function Exam(props: { posts: any }) {
 						className="rounded-xl py-[6px] pl-10 pr-4 text-lg outline-none placeholder:text-slate-400"
 					/>
 					<Image
-						src="/assets/search-gray.svg"
+						src="/main/assets/search-gray.svg"
 						width={50}
 						height={50}
 						alt="search"

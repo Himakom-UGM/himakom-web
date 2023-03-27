@@ -100,7 +100,7 @@ const Progams = () => {
 					</div>
 					<div className="mx-auto mr-16 h-full w-full rounded-2xl bg-[#32327B] text-justify text-white md:w-5/6 lg:ml-10">
 						<Image
-							src={'/progams.png'}
+							src={'/main/progams.png'}
 							height={600}
 							width={1920}
 							alt="gambar"

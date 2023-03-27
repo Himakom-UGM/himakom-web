@@ -44,9 +44,9 @@ export default function MobileMenu() {
 						<AnimatePresence>
 							{profileArrow === 'up' && <ProfileMenu />}
 						</AnimatePresence>
-						<li>
+						{/* <li>
 							<Link href="/event">Events</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link href="/exam">Exam Archive</Link>
 						</li>
@@ -60,9 +60,9 @@ export default function MobileMenu() {
 						<AnimatePresence>
 							{relatedArrow === 'up' && <RelatedMenu />}
 						</AnimatePresence>
-						<li>
+						{/* <li>
 							<Link href="/aspiration">Aspiration</Link>
-						</li>
+						</li> */}
 						<li>
 							<Link href="/contact">Contact Us</Link>
 						</li>

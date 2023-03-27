@@ -2,6 +2,7 @@
 
 const path = require('path');
 const nextConfig = {
+	basePath: '/main',
 	reactStrictMode: true,
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')],
@@ -22,6 +23,24 @@ const nextConfig = {
 			},
 		],
 	},
+	//DISABLE EVENTS AND ASPIRATION
+	async rewrites() {
+		return [
+		  {
+			source: '/main/aspiration',
+			destination: '/main',
+		  },
+		  {
+			source: '/main/event',
+			destination: '/main',
+		  },
+		]
+	  },
+	 
+	images : {
+		unoptimized : true
+	}
+	
 };
 
 module.exports = nextConfig;

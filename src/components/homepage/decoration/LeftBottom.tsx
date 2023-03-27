@@ -11,7 +11,7 @@ export default function LeftBottom() {
 			transition={{ delay: 0.5, type: 'keyframes' }}
 		>
 			<Image
-				src={'/images/decorative/lb.svg'}
+				src={'/main/images/decorative/lb.svg'}
 				alt={'Left Bottom'}
 				width={205}
 				height={480}
