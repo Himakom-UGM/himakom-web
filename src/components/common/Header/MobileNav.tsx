@@ -38,6 +38,7 @@ export default function MobileMenu() {
 							onClick={profileArrowHandler}
 							className="flex items-center justify-between pr-12"
 						>
+							<p>Profile</p>
 							{profileArrow === 'down' ? <ArrowDown /> : <ArrowUp />}
 						</li>
 						<AnimatePresence>
