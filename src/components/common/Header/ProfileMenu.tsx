@@ -39,7 +39,7 @@ export default function ProfileMenu(props: { onMouseOver: () => void }) {
 			>
 				<button>Division</button>
 				<DropDown />
-				<AnimatePresence>{divisions && <DivisionMenu />}</AnimatePresence>
+				{/* <AnimatePresence>{divisions && <DivisionMenu />}</AnimatePresence> */}
 			</li>
 		</motion.ul>
 	);

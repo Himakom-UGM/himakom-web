@@ -23,19 +23,7 @@ const nextConfig = {
 			},
 		],
 	},
-	//DISABLE EVENTS AND ASPIRATION
-	async rewrites() {
-		return [
-		  {
-			source: '/main/aspiration',
-			destination: '/main',
-		  },
-		  {
-			source: '/main/event',
-			destination: '/main',
-		  },
-		]
-	  },
+	trailingSlash: true,
 	 
 	images : {
 		unoptimized : true
