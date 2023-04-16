@@ -25,7 +25,7 @@ export const getEvents = async () => {
 		// extract description 20 words
 		const description = item?.fields.details.content[0].content[0].value;
 		const descriptionWords = description.split(' ');
-		const description20Words = descriptionWords.slice(0, 12).join(' ');
+		const description20Words = descriptionWords.slice(0, 20).join(' ');
 
 		return {
 			createAt: item.sys.createdAt,
