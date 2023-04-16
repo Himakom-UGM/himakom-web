@@ -24,6 +24,9 @@ module.exports = {
 			},
 			colors: {
 				blurBackground: 'rgba(255, 255, 255, 0.46)',
+				blurBackgroundSoft: 'rgba(255, 255, 255, 0.25)',
+				blur: 'rgba(255, 255, 255, 0.65)',
+
 				primary: {
 					100: '#3F3F9C',	
 					200: '#303078',
