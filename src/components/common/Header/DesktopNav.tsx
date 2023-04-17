@@ -42,9 +42,9 @@ export default function DesktopNav() {
 						)}
 					</AnimatePresence>
 				</li>
-				<li>
+				{/* <li>
 					<Link href="/event">Events</Link>
-				</li>
+				</li> */}
 				<li>
 					<Link href="/exam">Exam Archive</Link>
 				</li>
@@ -58,9 +58,9 @@ export default function DesktopNav() {
 					<Dropdown />
 					<AnimatePresence>{relatedOnHover && <RelatedMenu />}</AnimatePresence>
 				</li>
-				<li>
+				{/* <li>
 					<Link href="/aspiration">Aspiration</Link>
-				</li>
+				</li> */}
 			</ul>
 		</nav>
 	);

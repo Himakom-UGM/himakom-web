@@ -12,13 +12,13 @@ export default function Bottom() {
 			}
 		>
 			<Image
-				src="/images/decorative/b.svg"
+				src="/main/images/decorative/b.svg"
 				alt="Bottom"
 				width={205}
 				height={480}
 			/>
 			<Image
-				src="/images/decorative/b.svg"
+				src="/main/images/decorative/b.svg"
 				alt="Bottom"
 				width={205}
 				height={480}

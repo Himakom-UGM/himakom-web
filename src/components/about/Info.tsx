@@ -12,8 +12,8 @@ import buletan from '../../../public/assets/division/buletan.png';
 
 const data = {
 	title: 'Kewirausahaan',
-	logo: '/Logos_kewirus.png',
-	image: '/Hero.png',
+	logo: '/main/Logos_kewirus.png',
+	image: '/main/Hero.png',
 	description:
 		'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam incidunt cumque, delectus nostrum nulla aliquid nobis ad itaque suscipit illum harum totam veritatis dolorum ex repellat voluptas magnam et dolorem ipsa vitae quo fuga eveniet perspiciatis! Voluptatum culpa facere non dicta, tempore et recusandae, amet excepturi autem rerum minus distinctio?',
 };

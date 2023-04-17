@@ -32,27 +32,6 @@ export default function Layout() {
 
 	function submitHandler(e: any) {
 		console.log(e);
-		const formData = new FormData();
-		formData.append('to', e.to);
-		formData.append('from', e.from);
-		formData.append('message', e.message);
-		formData.append('subject', e.subject);
-		reset();
-		uploadToApi(formData).then((res) => {
-			if (res.status === 200) {
-				setShowSuccessModal(true);
-				setTimeout(() => {
-					setShowSuccessModal(false);
-					router.replace(router.asPath);
-				}, 2000);
-			} else {
-				setShowErrorModal(true);
-				setTimeout(() => {
-					setShowErrorModal(false);
-					router.replace(router.asPath);
-				}, 2000);
-			}
-		});
 	}
 
 	// console.log(uploadActive);

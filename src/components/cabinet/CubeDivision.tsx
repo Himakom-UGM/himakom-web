@@ -7,27 +7,27 @@ import THREE from 'three';
 export default function CubeDivision(props: any) {
 	const divisionData = [
 		{
-			texture: '/cabinet/textures/Hublu.png',
+			texture: '/main/cabinet/textures/Hublu.png',
 			url: '/division/hublu',
 		},
 		{
-			texture: '/cabinet/textures/Kewirush.png',
+			texture: '/main//cabinet/textures/Kewirush.png',
 			url: '/division/Kewirush',
 		},
 		{
-			texture: '/cabinet/textures/KPM.png',
+			texture: '/main//cabinet/textures/KPM.png',
 			url: '/division/KPM',
 		},
 		{
-			texture: '/cabinet/textures/Mikat.png',
+			texture: '/main//cabinet/textures/Mikat.png',
 			url: '/division/Mikat',
 		},
 		{
-			texture: '/cabinet/textures/PO.png',
+			texture: '/main//cabinet/textures/PO.png',
 			url: '/division/PO',
 		},
 		{
-			texture: '/cabinet/textures/PSDMA.png',
+			texture: '/main//cabinet/textures/PSDMA.png',
 			url: '/division/PSDMA',
 		},
 	];

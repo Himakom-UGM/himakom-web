@@ -12,7 +12,7 @@ export default function LeftTop() {
 			transition={{ delay: 0.5, type: 'keyframes' }}
 		>
 			<Image
-				src={'/images/decorative/lt.svg'}
+				src={'/main/images/decorative/lt.svg'}
 				alt={'Left Top'}
 				width={205}
 				height={480}

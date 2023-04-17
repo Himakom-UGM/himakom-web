@@ -91,7 +91,7 @@ const Coba = () => {
 						<div className="w-5/6 ">
 							<div className="md:w-max-sm relative -mx-20 my-5 flex max-h-[450px] w-[460px]  flex-col justify-center self-center overflow-hidden rounded-2xl bg-[#32327B] shadow-lg md:my-auto md:ml-20 -ml-[180px] md:mr-44 md:h-[450px] md:w-full">
 								<Image
-									src={'/progams.png'}
+									src={'/main/progams.png'}
 									height={900000000}
 									width={900}
 									alt="gambar"

@@ -9,7 +9,7 @@ export default function Search() {
 				className="w-full rounded-3xl border-[1.5px] border-black py-[6px] px-4 text-lg outline-none placeholder:text-[#252525]"
 			/>
 			<Image
-				src="/assets/search.svg"
+				src="/main/assets/search.svg"
 				width={50}
 				height={50}
 				alt="search"

@@ -16,9 +16,9 @@ export default function ProfileMenu() {
 			<li>
 				<Link href="/cabinet">Cabinet</Link>
 			</li>
-			<li>
+			{/* <li>
 				<Link href="/division">Division</Link>
-			</li>
+			</li> */}
 		</motion.ul>
 	);
 }

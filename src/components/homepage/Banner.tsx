@@ -11,7 +11,7 @@ export default function Banner() {
 	return (
 		<div className="relative mx-auto w-full max-w-[1920px] overflow-x-hidden overflow-y-hidden">
 			<Image
-				src="/images/bg/landing.png"
+				src="/main/images/bg/landing.png"
 				// width={1438}
 				// height={892}
 				fill
@@ -52,7 +52,7 @@ export default function Banner() {
 				}}
 			>
 				<Image
-					src="/images/bg/foto-landing.png"
+					src="/main/images/bg/foto-landing.png"
 					width={1440}
 					height={810}
 					className="pointer-events-none mx-auto mt-16 customMd:w-[75%]"

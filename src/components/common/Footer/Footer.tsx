@@ -8,7 +8,7 @@ export default function Header() {
 			<div className={Footer.wrapper}>
 				<div className={Footer.wrapper_leftcol}>
 					<Image
-						src="images/logo/logo_white.svg"
+						src="/main/images/logo/logo_white.svg"
 						width="50"
 						height="50"
 						alt="logo white"
@@ -29,7 +29,7 @@ export default function Header() {
 					<div className={Footer.wrapper_rightcol_icons}>
 						<a href="">
 							<Image
-								src="images/logo/Vector-mail.svg"
+								src="/main/images/logo/Vector-mail.svg"
 								width="36"
 								height="28"
 								alt="Email Logo"
@@ -38,7 +38,7 @@ export default function Header() {
 
 						<a href="">
 							<Image
-								src="/images/logo/Vectorline.png"
+								src="/main/images/logo/Vectorline.png"
 								width="36"
 								height="28"
 								alt="Line Logo"
@@ -47,7 +47,7 @@ export default function Header() {
 
 						<a href="">
 							<Image
-								src="/images/logo/linkedin.svg"
+								src="/main/images/logo/linkedin.svg"
 								width="36"
 								height="28"
 								alt="Linked Logo"
@@ -56,7 +56,7 @@ export default function Header() {
 
 						<a href="">
 							<Image
-								src="/images/logo/Vectortwitter.svg"
+								src="/main/images/logo/Vectortwitter.svg"
 								width="36"
 								height="28"
 								alt="Twitter Logo"
@@ -65,7 +65,7 @@ export default function Header() {
 
 						<a href="">
 							<Image
-								src="/images/logo/Vectorinstagram.png"
+								src="/main/images/logo/Vectorinstagram.png"
 								width="36"
 								height="28"
 								alt="Instagram Logo"

@@ -22,7 +22,7 @@ const Hero = () => {
 					<div className="relative z-0 mt-10 flex w-auto flex-col rounded-2xl bg-white shadow-2xl md:flex-row ">
 						<div className=" mx-auto  flex w-5/6 flex-col items-center ">
 							<Image
-								src={'/Logos_kewirus.png'}
+								src={'/main/Logos_kewirus.png'}
 								width={300}
 								height={400}
 								alt="hmm"
@@ -40,7 +40,7 @@ const Hero = () => {
 						</div>
 						<div className=" relative mx-10 my-5 w-5/6 self-center">
 							<Image
-								src={'/Hero.png'}
+								src={'/main/Hero.png'}
 								height={900}
 								width={900}
 								alt="gambar"

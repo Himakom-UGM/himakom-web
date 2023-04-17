@@ -12,7 +12,7 @@ export default function RightBottom() {
 			transition={{ delay: 0.5, type: 'keyframes' }}
 		>
 			<Image
-				src={'/images/decorative/rb.svg'}
+				src={'/main/images/decorative/rb.svg'}
 				alt={'Right Bottom'}
 				width={205}
 				height={480}

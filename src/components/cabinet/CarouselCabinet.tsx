@@ -41,7 +41,7 @@ export default function CarouselCabinet({ props }: any) {
 								</h1>
 								<div className="flex h-[322px] items-center justify-center ">
 									<Image
-										src={`/cabinet/core-team/${items.id}.png`}
+										src={`/main/cabinet/core-team/${items.id}.png`}
 										quality={100}
 										alt={items.position}
 										priority
