@@ -35,7 +35,7 @@ export default function TimelineCard({
 				</div>
 			</div>
 			<div className="mt-1 px-5 h-28">{description}</div>
-			<button className="mt-3 px-5">Read More...</button>
+			<button className="mt-3 px-5"><a href=''>Read More...</a></button>
 		</div>
 	);
 }
