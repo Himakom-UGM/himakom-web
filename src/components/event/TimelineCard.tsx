@@ -17,7 +17,7 @@ export default function TimelineCard({
 }: CardProps) {
 
 	return (
-		<div className="overflow-hidden rounded-xl bg-white pb-4">
+		<div className="overflow-hidden cursor-pointer rounded-xl bg-white pb-4">
 			<Image
 				src={image}
 				alt={title}
