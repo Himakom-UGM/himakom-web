@@ -37,7 +37,6 @@ export default function Home() {
 				const author = item?.fields.author;
 				const headerText = item?.fields.headerText;
 				const topic = item?.fields?.topic;
-				console.log(item.fields);
 				return {
 					title,
 					headerText,
@@ -66,6 +65,7 @@ export default function Home() {
 					content="Himakom adalah organisasi himpunan mahasiswa Ilmu Komputer Universitas Gadjah Mada."
 				/>
 				<meta name="keywords" content="Himakom UGM, Ilmu Komputer, Omah TI" />
+				
 			</Head>
 			<main>
 				<Banner />

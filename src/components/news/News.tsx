@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Card from './Card';
 
 const News = (props: { data: any }) => {
-	console.log(props.data[0].image);
 
 	return (
 		<div className="relative mx-auto w-full max-w-[1920px] overflow-x-hidden bg-[#f8f8f8] pb-36">

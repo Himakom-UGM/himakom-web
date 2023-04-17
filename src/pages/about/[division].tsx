@@ -147,7 +147,6 @@ export async function getStaticProps(context: any) {
 	const division = divisions.find(
 		(division: any) => division.slug === context.params.division
 	);
-	console.log(division)
 
 	return {
 		props: {

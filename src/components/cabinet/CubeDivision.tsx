@@ -47,7 +47,6 @@ export default function CubeDivision(props: any) {
 
 	const handlePointerDown = () => {
 		// Cancel the click timeout
-		console.log(clickTimeout.current, 'dowm')
 		if (clickTimeout.current !== null) {
 			clearTimeout(clickTimeout.current);
 		}
@@ -70,7 +69,7 @@ export default function CubeDivision(props: any) {
 			onPointerDown={handlePointerDown}
 			{...props}
 			ref={mesh}
-			onClick={(e : any) => console.log(e.face)}
+			// onClick={(e : any) => console.log(e.face)}
 			
 		
 		>
