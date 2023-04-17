@@ -5,7 +5,7 @@ export default function Carousel(props: { data: any }) {
 	return (
 		<div className="relative flex h-[640px] flex-col items-center justify-center bg-[#3F3F9C] px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0">
 			<Image
-				src={'/cabinet/coreBackground.png'}
+				src={'/main/cabinet/coreBackground.png'}
 				alt=""
 				quality={100}
 				fill
@@ -16,7 +16,7 @@ export default function Carousel(props: { data: any }) {
 				className="lg:hidden"
 			/>
 			<Image
-				src={'/cabinet/coreBackground2.png'}
+				src={'/main/cabinet/coreBackground2.png'}
 				alt=""
 				quality={100}
 				fill

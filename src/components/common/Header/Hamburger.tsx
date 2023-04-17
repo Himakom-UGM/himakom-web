@@ -7,7 +7,7 @@ export default function Hamburger() {
 		<button className="customMd:hidden" onClick={() => updateHamburger()}>
 			{!hamburger && (
 				<Image
-					src="/hamburger.svg"
+					src="/main/hamburger.svg"
 					alt="Hamburger"
 					width={50}
 					height={50}
@@ -17,7 +17,7 @@ export default function Hamburger() {
 			{hamburger && (
 				<div className='w-9 flex justify-center'>
 					<Image
-						src="/close.svg"
+						src="/main/close.svg"
 						alt="Close"
 						width={50}
 						height={50}

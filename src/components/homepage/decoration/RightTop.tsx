@@ -12,7 +12,7 @@ export default function RightTop() {
 			transition={{ delay: 0.5, type: 'keyframes' }}
 		>
 			<Image
-				src={'/images/decorative/rt.svg'}
+				src={'/main/images/decorative/rt.svg'}
 				alt={'Right Top'}
 				width={205}
 				height={480}

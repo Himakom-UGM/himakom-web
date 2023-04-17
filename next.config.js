@@ -2,6 +2,7 @@
 
 const path = require('path');
 const nextConfig = {
+	basePath: '/main',
 	reactStrictMode: true,
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'styles')],
@@ -22,6 +23,12 @@ const nextConfig = {
 			},
 		],
 	},
+	trailingSlash: true,
+	 
+	images : {
+		unoptimized : true
+	}
+	
 };
 
 module.exports = nextConfig;

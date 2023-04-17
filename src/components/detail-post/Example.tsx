@@ -48,7 +48,7 @@ export default function Example() {
 
 					<div className={blogpoststyle.contentwrapper_leftcol_imagewrapper}>
 						<Image
-							src="/images/blogpostimage2.png"
+							src="/main/images/blogpostimage2.png"
 							alt="image2"
 							height="497"
 							width="882"

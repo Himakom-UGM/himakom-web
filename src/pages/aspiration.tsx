@@ -11,7 +11,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const entries = await contentfulClientCS.getEntries<
 		EntryCollection<AspirationType>
 	>({
@@ -51,14 +51,14 @@ export default function Aspiration({
 			<div className="mx-auto bg-primary-100 pt-10 ">
 				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10">
 					<Image
-						src="/images/bg/aspiration.png"
+						src="/main/images/bg/aspiration.png"
 						fill
 						alt="bg"
 						style={{ zIndex: -2 }}
 					/>
 					<div className="relative  w-full overflow-hidden rounded-b-xl  ">
 						<Image
-							src="/images/bg/hero.svg"
+							src="/main/images/bg/hero.svg"
 							fill
 							quality={100}
 							alt="hero"
@@ -116,19 +116,19 @@ export default function Aspiration({
 							filteredEntries={filteredEntries}
 						/>
 					)}
-					<Image
+					{/* <Image
 						width={300}
 						height={300}
 						alt="decoration_left"
 						className=" absolute bottom-0 left-0"
-						src="/aspiration/decoration_left.svg"
-					/>
+						src="/main/aspiration/decoration_left.svg"
+					/> */}
 					<Image
 						width={300}
 						height={300}
 						alt="decoration_right"
 						className=" absolute bottom-0 right-0"
-						src="/aspiration/decoration_right.svg"
+						src="/main/aspiration/decoration_right.svg"
 					/>
 				</section>
 			</div>

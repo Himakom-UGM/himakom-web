@@ -9,7 +9,7 @@ const News = (props: { data: any }) => {
 	return (
 		<div className="relative mx-auto w-full max-w-[1920px] overflow-x-hidden bg-[#f8f8f8] pb-36">
 			<Image
-				src="/images/bg/news.png"
+				src="/main/images/bg/news.png"
 				alt="decoration"
 				width={1438}
 				height={291}
@@ -58,9 +58,9 @@ const News = (props: { data: any }) => {
 					</div>
 				</div>
 
-				<button className="mt-6 rounded-md bg-primary-300 px-4 py-2 text-white ">
+				{/* <button className="mt-6 rounded-md bg-primary-300 px-4 py-2 text-white ">
 					Load more
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);

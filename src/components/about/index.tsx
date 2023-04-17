@@ -8,14 +8,14 @@ export default function AboutPage(){
       <div className="flex flex-col lg:flex-row relative lg:justify-evenly xl:justify-between items-center px-10 pb-10 md:px-24 xl:py-20 xl:px-48 2xl:px-96 w-full h-[640px] md:h-[616px] bg-gradient-to-b from-[#F8F8F8] to-[#F8F8F8]/70 lg:to-transparent">
         <Image 
           quality={100}
-          src={"/about/backgroundAbout.png"}
+          src={"/main/about/backgroundAbout.png"}
           fill={true}
           alt=""
           className="-z-[9999] hidden lg:block"
         />
         <Image 
           quality={100}
-          src={"/about/backgroundAboutMobile.png"}
+          src={"/main/about/backgroundAboutMobile.png"}
           fill={true}
           objectFit="contain"
           objectPosition="center bottom"
@@ -26,7 +26,7 @@ export default function AboutPage(){
           <h1 className="font-bold text-[22px] lg:text-5xl xl:text-[52px] lg:text-start pt-[91px] md:pt-16 md:text-4xl">About Us</h1>
           <Image 
             quality={100}
-            src="/about/logoHimakom.svg"
+            src="/main/about/logoHimakom.svg"
             alt="Logo Himakom"
             width="128"
             height="163"
@@ -45,7 +45,7 @@ export default function AboutPage(){
         <div>
           <Image 
             quality={100}
-            src="/about/logoHimakom.svg"
+            src="/main/about/logoHimakom.svg"
             alt="Logo Himakom"
             width="234"
             height="299"
@@ -57,14 +57,14 @@ export default function AboutPage(){
 
       <div className="relative flex flex-col lg:flex-row justify-center items-center xl:items-start lg:justify-evenly xl:justify-between px-12 md:px-24 xl:px-48 2xl:px-96 xl:pt-20">
           <Image 
-            src={"/about/backgroundVision.png"}
+            src={"/main/about/backgroundVision.png"}
             fill={true}
             quality={100}
             alt=""
             className="-z-[9999]"
           />
           <Image 
-            src={"/about/backgroundVisionMobile.png"}
+            src={"/main/about/backgroundVisionMobile.png"}
             fill={true}
             quality={100}
             objectFit="cover"
@@ -82,7 +82,7 @@ export default function AboutPage(){
           <div className="relative">
             <Image
               quality={100} 
-              src={"/about/Kadek.png"}
+              src={"/main/about/Kadek.png"}
               alt="Makomji"
               width="177"
               height="266"
@@ -91,7 +91,7 @@ export default function AboutPage(){
           </div>
           <Image
             quality={100}
-            src={"/about/visionDecoration.svg"}
+            src={"/main/about/visionDecoration.svg"}
             alt=""
             width={"103"}
             height="96"
@@ -99,7 +99,7 @@ export default function AboutPage(){
           />
           <Image
             quality={100}
-            src={"/about/visionDecoration.svg"}
+            src={"/main/about/visionDecoration.svg"}
             alt=""
             width={"103"}
             height="96"
@@ -108,7 +108,7 @@ export default function AboutPage(){
       </div>
       <section className="relative md:px-24 xl:px-48 xl:pt-20 lg:flex 2xl:px-70 ">
         <Image 
-          src={"/backgroundMission.png"}
+          src={"/main/backgroundMission.png"}
           fill={true}
           quality={100}
           objectFit="cover"
@@ -116,7 +116,7 @@ export default function AboutPage(){
           className="-z-[9999] bg-[#3F3F9B] hidden lg:block"
         />
         <Image 
-          src={"/backgroundMissionMobile.png"}
+          src={"/main/backgroundMissionMobile.png"}
           fill={true}
           quality={100}
           objectFit="cover"
@@ -124,7 +124,7 @@ export default function AboutPage(){
           className="-z-[9999] bg-[#3F3F9B] lg:hidden"
         />
         <Image 
-          src="/about/missionDecoration.svg"
+          src="/main/about/missionDecoration.svg"
           alt=""
           quality={100}
           width="103"
@@ -132,7 +132,7 @@ export default function AboutPage(){
           className="bottom-0 right-0 rotate-180 lg:top-0 lg:left-0 lg:rotate-0 md:w-[170px] xl:w-[255px] h-auto absolute "
         />
         <Image 
-          src="/about/missionDecoration.svg"
+          src="/main/about/missionDecoration.svg"
           alt=""
           quality={100}
           width="103"
@@ -142,7 +142,7 @@ export default function AboutPage(){
         <div className="relative flex flex-col justify-center items-center lg:items-end xl:items-stretch lg:flex-row xl:justify-between lg:justify-evenly w-full">
             <div className="relative flex items-end">
               <Image 
-                src="/about/Kadek2.png"
+                src="/main/about/Kadek2.png"
                 alt="Makomji"
                 width="362"
                 height="575"
@@ -173,7 +173,7 @@ export default function AboutPage(){
           </div>
             <div className="relative flex items-end">
               <Image 
-                src="/about/Kadek2.png"
+                src="/main/about/Kadek2.png"
                 alt="Makomji"
                 width="177"
                 height="241"
@@ -187,7 +187,7 @@ export default function AboutPage(){
 
       <section className="h-full w-full xl:h-[720px] relative bg-gradient-to-b from-[#F8F8F8] to-[#F8F8F8]/10 lg:to-transparent">
         <Image 
-          src={"/about/backgroundPrinciple.png"}
+          src={"/main/about/backgroundPrinciple.png"}
           fill={true}
           quality={100}
           objectFit={"cover"}
@@ -197,7 +197,7 @@ export default function AboutPage(){
         />
         <Image 
           quality={100}
-          src={"/about/principleDecorationMobile.svg"}
+          src={"/main/about/principleDecorationMobile.svg"}
           alt=""
           width={"160"}
           height="133"
@@ -205,7 +205,7 @@ export default function AboutPage(){
           />
         <Image 
           quality={100}
-          src={"/about/principleDecorationMobile.svg"}
+          src={"/main/about/principleDecorationMobile.svg"}
           alt=""
           width={"160"}
           height="133"
@@ -213,7 +213,7 @@ export default function AboutPage(){
         />
         <Image 
           quality={100}
-          src={"/about/principleDecoration.svg"}
+          src={"/main/about/principleDecoration.svg"}
           alt=""
           width={"160"}
           height="133"
@@ -221,7 +221,7 @@ export default function AboutPage(){
           />
         <Image 
           quality={100}
-          src={"/about/principleDecoration.svg"}
+          src={"/main/about/principleDecoration.svg"}
           alt=""
           width={"160"}
           height="133"

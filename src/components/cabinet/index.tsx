@@ -108,7 +108,7 @@ export default function CabinetPage() {
 				<div className="bg-[#3F3F9C]">
 					<div className="relative  z-0 h-full">
 						<Image
-							src={'/cabinet/cabinetBackground.svg'}
+							src={'/main/cabinet/cabinetBackground.svg'}
 							alt=""
 							quality={100}
 							width="240"
@@ -116,7 +116,7 @@ export default function CabinetPage() {
 							className=" absolute top-0 right-0 -z-[9999] xl:w-[350px]"
 						/>
 						<Image
-							src={'/cabinet/cabinetBackground2.svg'}
+							src={'/main/cabinet/cabinetBackground2.svg'}
 							alt=""
 							quality={100}
 							width="240"
@@ -127,7 +127,7 @@ export default function CabinetPage() {
 							<div className="flex h-full w-9/12 max-w-[1056px] justify-center rounded-3xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] xl:w-full">
 								<div className="hidden items-center justify-center lg:flex lg:w-[1200px] lg:px-12 lg:py-12 xl:w-[1900px] xl:px-16">
 									<Image
-										src={'/cabinet/logo-kabinet.svg'}
+										src={'/main/cabinet/logo-kabinet.svg'}
 										alt=""
 										quality={100}
 										width={300}
@@ -146,7 +146,7 @@ export default function CabinetPage() {
 									</h2>
 									<div className="flex items-center justify-center ">
 										<Image
-											src={'/cabinet/logo-kabinet.svg'}
+											src={'/main/cabinet/logo-kabinet.svg'}
 											alt=""
 											quality={100}
 											width="140"
@@ -174,7 +174,7 @@ export default function CabinetPage() {
 				</div>
 				<div className="relative z-0 flex h-auto flex-col items-center justify-start pb-20">
 					<Image
-						src={'/cabinet/cabinetBGDecoration.svg'}
+						src={'/main/cabinet/cabinetBGDecoration.svg'}
 						alt=""
 						quality={100}
 						width="180"
@@ -182,7 +182,7 @@ export default function CabinetPage() {
 						className=" absolute top-0 right-0 -z-[9999] lg:hidden"
 					/>
 					<Image
-						src={'/cabinet/cabinetBGDecoration2.svg'}
+						src={'/main/cabinet/cabinetBGDecoration2.svg'}
 						alt=""
 						quality={100}
 						width="240"
@@ -190,7 +190,7 @@ export default function CabinetPage() {
 						className=" absolute bottom-0 left-0 -z-[9999] lg:hidden"
 					/>
 					<Image
-						src={'/cabinet/cabinetBackground3.png'}
+						src={'/main/cabinet/cabinetBackground3.png'}
 						alt=""
 						quality={100}
 						fill
@@ -201,7 +201,7 @@ export default function CabinetPage() {
 						Cabinet Structure
 					</h1>
 					<Image
-						src={'/cabinet/structureCabinet.svg'}
+						src={'/main/cabinet/structureCabinet.svg'}
 						alt=""
 						quality={100}
 						width="240"
@@ -210,7 +210,7 @@ export default function CabinetPage() {
 					/>
 					<div className="z-0 flex w-9/12 max-w-[1260px] rounded-3xl border-2 bg-[#F8F8F8] text-[#3F3F9C] shadow-[0px_4px_16px_rgba(33,33,82,0.25)] lg:justify-center">
 						<Image
-							src={'/cabinet/structureCabinet.svg'}
+							src={'/main/cabinet/structureCabinet.svg'}
 							alt=""
 							quality={100}
 							width="240"
@@ -229,7 +229,7 @@ export default function CabinetPage() {
 				</div>
 				<div className="relative flex h-[640px] flex-col items-center justify-center bg-[#3F3F9C] px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0">
 					<Image
-						src={'/cabinet/coreBackground.png'}
+						src={'/main/cabinet/coreBackground.png'}
 						alt=""
 						quality={100}
 						fill
@@ -238,7 +238,7 @@ export default function CabinetPage() {
 						className="lg:hidden"
 					/>
 					<Image
-						src={'/cabinet/coreBackground2.png'}
+						src={'/main/cabinet/coreBackground2.png'}
 						alt=""
 						quality={100}
 						fill
@@ -262,7 +262,7 @@ export default function CabinetPage() {
 				</div>
 				<div className="relative flex h-full flex-col justify-center py-14">
 					<Image
-						src={'/cabinet/cabinetBGDecoration.svg'}
+						src={'/main/cabinet/cabinetBGDecoration.svg'}
 						alt=""
 						quality={100}
 						width="180"
@@ -270,7 +270,7 @@ export default function CabinetPage() {
 						className=" absolute top-0 right-0 -z-[9999]  lg:hidden"
 					/>
 					<Image
-						src={'/cabinet/cabinetBGDecoration2.svg'}
+						src={'/main/cabinet/cabinetBGDecoration2.svg'}
 						alt=""
 						quality={100}
 						width="240"
@@ -299,7 +299,7 @@ export default function CabinetPage() {
 						</Canvas>
 					</div>
 					<Image
-						src={'/cabinet/circleDecoration.svg'}
+						src={'/main/cabinet/circleDecoration.svg'}
 						alt=""
 						quality={100}
 						width="240"
@@ -307,7 +307,7 @@ export default function CabinetPage() {
 						className=" absolute top-0 left-0 -z-[9999]"
 					/>
 					<Image
-						src={'/cabinet/circleDecoration2.svg'}
+						src={'/main/cabinet/circleDecoration2.svg'}
 						alt=""
 						quality={100}
 						width="150"
@@ -315,7 +315,7 @@ export default function CabinetPage() {
 						className=" absolute top-[10%] right-[15%] -z-[9999]"
 					/>
 					<Image
-						src={'/cabinet/rectangleDecoration.svg'}
+						src={'/main/cabinet/rectangleDecoration.svg'}
 						alt=""
 						quality={100}
 						width="240"
@@ -323,7 +323,7 @@ export default function CabinetPage() {
 						className=" absolute bottom-0 right-0 -z-[9999]"
 					/>
 					<Image
-						src={'/cabinet/rectangleDecoration2.svg'}
+						src={'/main/cabinet/rectangleDecoration2.svg'}
 						alt=""
 						quality={100}
 						width="180"
