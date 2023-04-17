@@ -42,9 +42,9 @@ export default function DesktopNav() {
 						)}
 					</AnimatePresence>
 				</li>
-				{/* <li>
+				<li>
 					<Link href="/event">Events</Link>
-				</li> */}
+				</li>
 				<li>
 					<Link href="/exam">Exam Archive</Link>
 				</li>

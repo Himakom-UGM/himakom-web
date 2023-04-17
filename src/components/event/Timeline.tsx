@@ -48,7 +48,7 @@ export default function Timeline() {
 									title={event.title}
 									date={event.date}
 									description={event.details.slice(0, 100)}
-									image={event.images ? 'https:' + event.images[0].fields.file.url : '/images/bg/not_found.png'}
+									image={event.images ? 'https:' + event.images[0].fields.file.url : '/main/images/bg/not_found.png'}
 								/>
 							))}
 					</div>
