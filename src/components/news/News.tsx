@@ -20,8 +20,8 @@ const News = (props: { data: any }) => {
 					Latest News
 				</h1>
 				<p className="py-4 px-6 text-center md:text-xl customMd:max-w-[60%]">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					Berikut adalah informasi terbaru terkait kegiatan, acara, dan berita
+					terkini yang diselenggarakan oleh HIMAKOM.
 				</p>
 				<div className="flex basis-1/2 cursor-pointer flex-col justify-center gap-x-6 gap-y-3 py-6 px-10 lg:flex-row">
 					<Card
