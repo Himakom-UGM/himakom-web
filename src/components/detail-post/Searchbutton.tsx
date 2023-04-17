@@ -10,7 +10,6 @@ export default function Example() {
     const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter") {
         event.preventDefault();
-        console.log(inputValue);
         setInputValue('');
       }
     };

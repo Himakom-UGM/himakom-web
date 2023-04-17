@@ -17,7 +17,7 @@ export default function ButtonDivision() {
           <div className="group w-[80px] h-[80px] bg-[#3F3F9C] rounded-[21px] overflow-hidden ">
             <div className="flex flex-col justify-center items-center h-full transform group-hover:-translate-y-[2px] duration-200 ">
               <Image
-                src={`/cabinet/division/${items.id}.svg`}
+                src={`/main/cabinet/division/${items.id}.svg`}
                 alt={items.position}
                 width={40}
                 height={40}

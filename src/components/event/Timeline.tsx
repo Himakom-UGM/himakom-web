@@ -39,7 +39,7 @@ export default function Timeline() {
 							</div>
 						))}
 					</div>
-					<div className="grid max-h-screen grid-cols-1 gap-4 overflow-scroll rounded-b-xl bg-blur p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+					<div className="grid overflow-x-hidden max-h-screen grid-cols-1 gap-4 overflow-scroll rounded-b-xl bg-blur p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 						{events &&
 							events.map((event: any) => (
 								<TimelineCard
@@ -48,7 +48,7 @@ export default function Timeline() {
 									title={event.title}
 									date={event.date}
 									description={event.details.slice(0, 100)}
-									image={event.images ? 'https:' + event.images[0].fields.file.url : '/main/images/bg/not_found.png'}
+									image={event.images ? 'https:' + event.images[0].fields.file.url + '?fm=webp&q=5' : '/main/images/bg/not_found.png'}
 								/>
 							))}
 					</div>
