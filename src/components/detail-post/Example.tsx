@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import SearchButton from './Searchbutton';
 
-export default function Example(props) {
+export default function Example(props: any) {
 	const date = props.date
 	const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 		day: '2-digit',
