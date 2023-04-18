@@ -6,18 +6,18 @@ import AspirationCard from './AspirationCard';
 export default function AspirationsDesktop({
 	filteredEntries,
 }: {
-	filteredEntries: Entry<AspirationType>[];
+	filteredEntries: AspirationType[];
 }) {
 	console.log(filteredEntries)
 	return (
 		<div className="relative z-10 mb-2 w-full px-20 mt-16 grid grid-cols-4 gap-8 text-primary-100  ">
-			{filteredEntries.map((entry) => (
+			{filteredEntries.map((entry, index) => (
 				<AspirationCard
-					key={entry.sys.id}
-					subject={entry.fields.subject}
-					from={entry.fields.from ? entry.fields.from : 'Anonymous'}
-					to={entry.fields.to}
-					message={entry.fields.message}
+					key={index}
+					subject={entry.subject}
+					from={entry.from ? entry.from : 'Anonymous'}
+					to={entry.to}
+					message={entry.message}
 				/>
 			))}
 		</div>

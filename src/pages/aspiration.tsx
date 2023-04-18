@@ -10,55 +10,60 @@ import { Entry, EntryCollection } from 'contentful';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-
-export async function getStaticProps() {
-	const entries = await contentfulClientCS.getEntries<
-		EntryCollection<AspirationType>
-	>({
-		content_type: 'aspiration',
-	});
-
-	return {
-		props: { entries },
-	};
-}
+import { app, db, getAspirations } from '@/utils/firebase';
+import { ReCaptchaV3Provider, initializeAppCheck } from 'firebase/app-check';
 
 
-export default function Aspiration({
-	entries,
-}: {
-	entries: EntryCollection<AspirationType>;
-}) {
+declare const self: any;
+
+export default function Aspiration({}: {}) {
+	
 	const [searchValue, setSearchValue] = useState('');
-	const [filteredEntries, setFilteredEntries] = useState(entries.items);
+	const [entries, setEntries] = useState<AspirationType[]>([]);
+	const [filteredEntries, setFilteredEntries] = useState(entries);
 
 	const isMobile = useMediaQuery(960);
 
 	useEffect(() => {
-		const filtered = entries.items.filter((entry) => {
-			return entry.fields.subject
-				.toLowerCase()
-				.includes(searchValue.toLowerCase());
+		//ENABLE THIS TO SHOW DEBUG TOKEN IN CONSOLE,
+		//BUT MAKE SURE TO DISABLE IT BEFORE DEPLOYING
+		//self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+
+		initializeAppCheck(app, {
+			provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!),
+			isTokenAutoRefreshEnabled: true,
+		  });
+		  		  
+		getAspirations(db).then((data) => {
+			console.log(data);
+			setEntries(data as AspirationType[]);
+		});
+		
+	}, []);
+
+	useEffect(() => {
+		const filtered = entries.filter((entry) => {
+			return entry.subject.toLowerCase().includes(searchValue.toLowerCase());
 		});
 		setFilteredEntries(filtered);
-	}, [entries.items, searchValue]);
+	}, [searchValue, entries]);
 
 	return (
 		<>
 			<Head>
 				<title>Aspiration</title>
 			</Head>
-			<div className="mx-auto bg-primary-100 pt-10 ">
-				<div className="relative z-10 rounded-b-full bg-primary-300 customMd:p-10">
+			<div className="mx-auto  pt-10 ">
+				<div className="relative z-10 rounded-b-full  customMd:p-10  ">
 					<Image
 						src="/main/images/bg/aspiration.png"
 						fill
 						alt="bg"
 						style={{ zIndex: -2 }}
 					/>
-					<div className="relative  w-full overflow-hidden rounded-b-xl  ">
+					<div className="relative from-primary-100 to-primary-100/90  bg-gradient-to-r   w-full overflow-hidden rounded-b-xl customMd:rounded-xl    ">
 						<Image
-							src="/main/images/bg/hero.svg"
+							src="/main/images/bg/patternpad.png"
 							fill
 							quality={100}
 							alt="hero"
@@ -67,8 +72,9 @@ export default function Aspiration({
 								zIndex: -1,
 							}}
 						/>
-						<div className="mx-auto grid max-w-[640px] grid-cols-7 items-center p-12 px-6 customMd:max-w-full customMd:gap-x-14 customMd:px-16">
-							<div className="col-span-7 flex flex-col gap-y-8 text-contrast-100 customMd:col-span-3">
+						
+						<div className="mx-auto grid max-w-[640px] grid-cols-7 items-center customMd:items-start p-12 px-6 customMd:max-w-full customMd:gap-x-14 customMd:px-16">
+							<div className="col-span-7 flex flex-col gap-y-4 customMd:gap-y-8 text-contrast-100 customMd:col-span-3">
 								<h1 className=" flex flex-col customMd:mt-0">
 									<span className="text-5xl font-semibold md:text-6xl">
 										Aspirations
@@ -76,18 +82,17 @@ export default function Aspiration({
 									<span className="text-4xl font-medium md:text-5xl">
 										for the future.
 									</span>
-								</h1>
-								<p className="w-full text-justify leading-tight customMd:leading-normal xl:w-[90%]">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-									eu turpis molestie, dictum est a, mattis tellus. Sed
-									dignissim, metus nec fringilla accumsan, risus sem
-									sollicitudin lacus, ut interdum tellus elit sed risus.
-									Maecenas eget condimentum velit, sit amet feugiat lectus.
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-									eu turpis molestie, dictum est a, mattis tellus. Sed
-									dignissim, metus nec fringilla accumsan, risus sem
-									sollicitudin lacus, ut interdum tellus elit sed risus.
-									Maecenas eget condimentum velit, sit amet feugiat lectus.{' '}
+								</h1> 
+								<p className="w-full customMd:text-xl text-justify leading-tight customMd:leading-normal xl:w-[90%]">
+									Bagian ini dirancang untuk memudahkan teman-teman HIMAKOM
+									dalam membagikan aspirasi, ide, maupun saran yang ingin
+									disampaikan secara langsung kepada tujuan atau penerima pesan
+									yang dituju. Melalui section ini, pengguna website dapat
+									menyampaikan aspirasi mereka secara langsung tanpa harus
+									melalui proses yang rumit. Dengan adanya section ini,
+									diharapkan pengguna website dapat dengan mudah berinteraksi
+									dan berkontribusi dalam pengembangan organisasi maupun
+									lingkungan sekitar mereka.
 								</p>
 							</div>
 							<div className="col-span-7 h-full customMd:col-span-4">
@@ -96,7 +101,7 @@ export default function Aspiration({
 						</div>
 					</div>
 				</div>
-				<section className=" relative flex w-full flex-col items-center bg-primary-100 px-4 pb-16">
+				<section className=" relative flex w-full flex-col items-center bg-primary-100 px-4 pb-16 z-0">
 					<div className="z-10 w-screen   rounded-b-3xl bg-contrast-100 pt-12 pb-16">
 						<p className=" mx-auto w-64  text-center text-5xl font-extrabold text-primary-100 customMd:w-full ">
 							Collective Aspirations
@@ -112,9 +117,7 @@ export default function Aspiration({
 					{isMobile ? (
 						<AspirationsMobile filteredEntries={filteredEntries} />
 					) : (
-						<AspirationsDesktop
-							filteredEntries={filteredEntries}
-						/>
+						<AspirationsDesktop filteredEntries={filteredEntries} />
 					)}
 					{/* <Image
 						width={300}

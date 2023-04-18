@@ -23,6 +23,7 @@
     "contentful-management": "^10.30.0",
     "eslint": "8.34.0",
     "eslint-config-next": "13.2.1",
+    "firebase": "^9.19.1",
     "framer-motion": "^10.0.1",
     "multiparty": "^4.2.3",
     "next": "13.2.1",

@@ -7,7 +7,7 @@ import AspirationCardMobile from './AspirationCardMobile';
 export default function AspirationsMobile({
 	filteredEntries,
 }: {
-	filteredEntries: Entry<AspirationType>[];
+	filteredEntries: AspirationType[];
 }) {
 	return (
 		<div className=" mx-4 mb-2 mt-8 z-10 flex w-full max-w-[640px] flex-col rounded-lg  border bg-white pb-8 text-primary-100  ">
