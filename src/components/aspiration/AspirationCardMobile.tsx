@@ -1,32 +1,45 @@
 import { AspirationType } from '@/utils/contentful/contentfulTypes';
 import { Entry } from 'contentful';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function AspirationCardMobile({
 	entry,
 }: {
-	entry: Entry<AspirationType>;
+	entry: AspirationType;
 }) {
 	const [enabled, setEnabled] = useState(false);
+	const variants = {
+		hidden: { y: -20, opacity: 0 },
+		visible: { y: 0, opacity: 1 },
+	};
+
 	return (
-		<div 
-            onClick={() => setEnabled(!enabled)}
-			className="flex flex-col justify-between gap-4 px-4 pt-6 cursor-pointer  "
-			key={entry.sys.id}
+		<div
+			onClick={() => setEnabled(!enabled)}
+			className="flex cursor-pointer flex-col justify-between gap-4 px-4 pt-6  "
 		>
 			<p className=" overflow-hidden text-ellipsis  text-xl font-extrabold   ">
-				{entry.fields.subject}
+				{entry.subject}
 			</p>
 			<div className=" ">
-				<p>From: {entry.fields.from}</p>
-				<p>To: {entry.fields.to}</p>
+				<p>From: {entry.from}</p>
+				<p>To: {entry.to}</p>
 			</div>
-			{enabled && (
-				<p className=" overflow-hidden text-ellipsis   ">
-					{entry.fields.message}
-				</p>
-			)}
-
+			<AnimatePresence>
+				{enabled && (
+					<motion.p
+						key="message"
+						className="overflow-hidden text-ellipsis"
+						initial="hidden"
+						animate="visible"
+						exit={{ opacity: 0 }}
+						variants={variants}
+					>
+						{entry.message}
+					</motion.p>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 }

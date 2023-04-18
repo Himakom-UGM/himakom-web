@@ -5,14 +5,15 @@ export default function SuccessModal({ enabled, setEnabled }: { enabled: boolean
 			tabIndex={-1}
 			className={` ${
 				enabled ? 'block' : 'hidden'
-			} fixed top-0 left-0 right-0 z-50 h-[calc(100%-1rem)]  overflow-y-auto overflow-x-hidden bg-black/80 p-4 transition-all md:inset-0 md:h-full`}
+			} fixed top-0 left-0 right-0 z-[200] h-[calc(100%-1rem)]  overflow-y-auto overflow-x-hidden bg-black/80 p-4 transition-all md:inset-0 md:h-full`}
 		>
-			<div className="relative top-1/2 mx-auto h-full w-full max-w-md -translate-y-1/2 md:h-auto ">
+			<div className="relative top-1/2 mx-auto  w-full max-w-md -translate-y-1/2 h-auto ">
 				<div className="relative rounded-lg bg-white shadow ">
 					<button
 						type="button"
 						className="absolute top-3 right-2.5 ml-auto inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 "
 						data-modal-hide="popup-modal"
+						onClick={() => setEnabled(false)}
 					>
 						<svg
 							aria-hidden="true"
