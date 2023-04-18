@@ -58,9 +58,9 @@ export default function DesktopNav() {
 					<Dropdown />
 					<AnimatePresence>{relatedOnHover && <RelatedMenu />}</AnimatePresence>
 				</li>
-				{/* <li>
+				<li>
 					<Link href="/aspiration">Aspiration</Link>
-				</li> */}
+				</li> 
 			</ul>
 		</nav>
 	);
