@@ -13,11 +13,9 @@ import { useEffect, useState } from 'react';
 import { app, db, getAspirations } from '@/utils/firebase';
 import { ReCaptchaV3Provider, initializeAppCheck } from 'firebase/app-check';
 
-
 declare const self: any;
 
 export default function Aspiration({}: {}) {
-	
 	const [searchValue, setSearchValue] = useState('');
 	const [entries, setEntries] = useState<AspirationType[]>([]);
 	const [filteredEntries, setFilteredEntries] = useState(entries);
@@ -30,15 +28,16 @@ export default function Aspiration({}: {}) {
 		//self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 
 		initializeAppCheck(app, {
-			provider: new ReCaptchaV3Provider(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!),
+			provider: new ReCaptchaV3Provider(
+				process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!
+			),
 			isTokenAutoRefreshEnabled: true,
-		  });
-		  		  
+		});
+
 		getAspirations(db).then((data) => {
 			console.log(data);
 			setEntries(data as AspirationType[]);
 		});
-		
 	}, []);
 
 	useEffect(() => {
@@ -53,7 +52,7 @@ export default function Aspiration({}: {}) {
 			<Head>
 				<title>Aspiration</title>
 			</Head>
-			<div className="mx-auto  pt-10 ">
+			<div className="mx-auto  pt-10 overflow-x-hidden ">
 				<div className="relative z-10 rounded-b-full  customMd:p-10  ">
 					<Image
 						src="/main/images/bg/aspiration.png"
@@ -61,7 +60,7 @@ export default function Aspiration({}: {}) {
 						alt="bg"
 						style={{ zIndex: -2 }}
 					/>
-					<div className="relative from-primary-100 to-primary-100/90  bg-gradient-to-r   w-full overflow-hidden rounded-b-xl customMd:rounded-xl    ">
+					<div className="relative w-full overflow-hidden  rounded-b-xl   bg-gradient-to-r from-primary-100 to-primary-100/90 customMd:rounded-xl    ">
 						<Image
 							src="/main/images/bg/patternpad.png"
 							fill
@@ -72,9 +71,9 @@ export default function Aspiration({}: {}) {
 								zIndex: -1,
 							}}
 						/>
-						
-						<div className="mx-auto grid max-w-[640px] grid-cols-7 items-center customMd:items-start p-12 px-6 customMd:max-w-full customMd:gap-x-14 customMd:px-16">
-							<div className="col-span-7 flex flex-col gap-y-4 customMd:gap-y-8 text-contrast-100 customMd:col-span-3">
+
+						<div className="mx-auto grid max-w-[640px] grid-cols-7 items-center p-12 px-6 customMd:max-w-full customMd:items-start customMd:gap-x-14 customMd:px-16">
+							<div className="col-span-7 flex flex-col gap-y-4 text-contrast-100 customMd:col-span-3 customMd:gap-y-8">
 								<h1 className=" flex flex-col customMd:mt-0">
 									<span className="text-5xl font-semibold md:text-6xl">
 										Aspirations
@@ -82,8 +81,8 @@ export default function Aspiration({}: {}) {
 									<span className="text-4xl font-medium md:text-5xl">
 										for the future.
 									</span>
-								</h1> 
-								<p className="w-full customMd:text-xl text-justify leading-tight customMd:leading-normal xl:w-[90%]">
+								</h1>
+								<p className="w-full text-justify leading-tight customMd:text-xl customMd:leading-normal xl:w-[90%]">
 									Bagian ini dirancang untuk memudahkan teman-teman HIMAKOM
 									dalam membagikan aspirasi, ide, maupun saran yang ingin
 									disampaikan secara langsung kepada tujuan atau penerima pesan
@@ -101,7 +100,7 @@ export default function Aspiration({}: {}) {
 						</div>
 					</div>
 				</div>
-				<section className=" relative flex w-full flex-col items-center bg-primary-100 px-4 pb-16 z-0">
+				<section className=" relative z-0 flex w-full flex-col items-center bg-primary-100 px-4 pb-16">
 					<div className="z-10 w-screen   rounded-b-3xl bg-contrast-100 pt-12 pb-16">
 						<p className=" mx-auto w-64  text-center text-5xl font-extrabold text-primary-100 customMd:w-full ">
 							Collective Aspirations
