@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { createClient } from 'contentful'
 
-import DetailedPost from '../../../components/detail-post/Example'
+import DetailedPost from '../../components/detail-post/Example'
 
 const client = createClient({
     space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
@@ -20,6 +20,7 @@ export async function getStaticPaths() {
         event: item.fields.title.toLowerCase().replace(/ /g, '-'),
       },
     }))
+    console.log(paths);
 
   
     return {
@@ -34,23 +35,37 @@ export async function getStaticProps({ params }) {
       'fields.title': params,
     })
 
-    const matchingItem = items.find((item) => item.fields.title.toLowerCase() === params.event.toLowerCase());
+    const matchingItem = items.find((item) => item.fields.title.toLowerCase().replace(/ /g, '-') === params.event.toLowerCase().replace(/ /g, '-'));
   
     return {
       props: {
         event: matchingItem || null,
+        allevents : items,
       },
     }
   }
 
-const event = ({event}) => {
+const event = ({event, allevents}) => {
+
+  const [filteredEvents, setFilteredEvents] = useState([]);
+
+  useEffect(() => {
+    if (allevents) {
+      setFilteredEvents(allevents);
+    }
+  }, [allevents]);
     console.log(event)
+    // console.log(filteredEvents)
   return (
     <div>
         <DetailedPost 
         divisi={event.fields.divisi} 
         title={event.fields.title}
         date={event.sys.createdAt}
+        img={event.fields.image[0].fields.file.url}
+        published={event.sys.publishedBy}
+        body= {event.fields.details}
+        allevents={filteredEvents}
         
         />
     </div>
