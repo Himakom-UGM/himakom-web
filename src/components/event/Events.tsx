@@ -5,7 +5,7 @@ export default function Events() {
 	return (
 		<div className="relative w-full flex-wrap pt-20">
 			<Image
-				src={'/images/bg/patternpad.svg'}
+				src={'/main/images/bg/patternpad.svg'}
 				alt="hero"
 				fill
 				className="-z-[9999] bg-fixed object-cover object-center"

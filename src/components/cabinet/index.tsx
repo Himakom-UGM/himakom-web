@@ -85,7 +85,7 @@ function LegendStructure() {
 				return (
 					<div className="flex items-center px-2 pb-1 xl:pb-3" key={index}>
 						<Image
-							src={`/cabinet/division/${items.id}Biru.svg`}
+							src={`/main/cabinet/division/${items.id}Biru.svg`}
 							alt=""
 							width={14}
 							height={12}

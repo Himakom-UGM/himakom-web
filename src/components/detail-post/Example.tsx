@@ -3,19 +3,25 @@ import Image from 'next/image';
 
 import SearchButton from './Searchbutton';
 
-export default function Example() {
+export default function Example(props) {
+	const date = props.date
+	const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+		day: '2-digit',
+		month: '2-digit',
+		year: '2-digit'
+	  }).replace(/\//g, '/');
 	return (
 		<>
 			<div className={blogpoststyle.bannerwrapper}>
 				<div className={blogpoststyle.bannerwrapper_button}>
-					<a href="">Divisi</a>
+					<a href="">{props.divisi}</a>
 				</div>
 				<div className={blogpoststyle.bannerwrapper_title}>
-					<h1>Lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
+					<h1>{props.title}</h1>
 				</div>
 
 				<div className={blogpoststyle.bannerwrapper_postdate}>
-					<h2>Posted on 02/05/20 by Ramzy Izza</h2>
+					<h2>{`Posted on ${formattedDate} by Ramzy Izza `}</h2>
 				</div>
 			</div>
 

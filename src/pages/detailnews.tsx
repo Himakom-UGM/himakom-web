@@ -40,7 +40,7 @@ const NewsPage = () => {
 			.getEntries({
 				content_type: 'news',
 			})
-			.then((response) => console.log(response.items));
+			// .then((response) => console.log(response.items));
 	}
 
 	getNews();

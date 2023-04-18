@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import Link from 'next/link';
+import Head from 'next/head';
 
 type PostsType = {
 	initial: string;
@@ -110,7 +111,10 @@ export default function Exam(props: { posts: any }) {
 	}, []);
 
 	return (
-		<div className="h-screen overflow-scroll bg-[#3F3F9C] px-12 pb-20 pt-24">
+		<div className="bg-[#3F3F9C] px-12 pb-20 pt-24">
+			<Head>
+				<title>Himakom&apos;s Exam Archive</title>
+			</Head>
 			<Image
 				src="/main/images/bg/examRight.png"
 				alt=""

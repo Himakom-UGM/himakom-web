@@ -15,7 +15,7 @@ export default function Archives() {
 			</div>
 			<div className="relative">
 				<Image
-					src={'/images/bg/foto_angkatan.png'}
+					src={'/main/images/bg/foto_angkatan.png'}
 					alt="hero"
 					fill
 					className="-z-[9999] object-cover object-center"

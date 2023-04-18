@@ -8,7 +8,6 @@ export default function AspirationsDesktop({
 }: {
 	filteredEntries: AspirationType[];
 }) {
-	console.log(filteredEntries)
 	return (
 		<div className="relative z-10 mb-2 w-full px-20 mt-16 grid grid-cols-4 gap-8 text-primary-100  ">
 			{filteredEntries.map((entry, index) => (
