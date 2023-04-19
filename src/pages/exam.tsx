@@ -113,7 +113,7 @@ export default function Exam(props: { posts: any }) {
 	return (
 		<div className="bg-[#3F3F9C] px-12 pb-20 pt-24">
 			<Head>
-				<title>Himakom&apos;s Exam Archive</title>
+				<title>Computer Science&apos;s Exam Archive</title>
 			</Head>
 			<Image
 				src="/main/images/bg/examRight.png"

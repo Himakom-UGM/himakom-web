@@ -2,9 +2,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Card from './Card';
+import MoreNews from './MoreNews';
 
 const News = (props: { data: any }) => {
-
 	return (
 		<div className="relative mx-auto w-full max-w-[1920px] overflow-x-hidden bg-[#f8f8f8] pb-36">
 			<Image
@@ -22,7 +22,7 @@ const News = (props: { data: any }) => {
 					Berikut adalah informasi terbaru terkait kegiatan, acara, dan berita
 					terkini yang diselenggarakan oleh HIMAKOM.
 				</p>
-				<div className="flex basis-1/2 cursor-pointer flex-col justify-center gap-x-6 gap-y-3 py-6 px-10 lg:flex-row">
+				<div className="flex basis-1/2 flex-col justify-center gap-x-6 gap-y-3 py-2 px-10 w-full md:w-[90%] lg:flex-row">
 					<Card
 						title={props.data[0].title}
 						description={props.data[0].headerText}
@@ -56,10 +56,7 @@ const News = (props: { data: any }) => {
 						/>
 					</div>
 				</div>
-
-				{/* <button className="mt-6 rounded-md bg-primary-300 px-4 py-2 text-white ">
-					Load more
-				</button> */}
+				<MoreNews />
 			</div>
 		</div>
 	);

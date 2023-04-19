@@ -26,7 +26,7 @@ export default function Form({
 				)}
 			</div>
 			<div className="flex flex-col">
-				<label htmlFor="to">From:</label>
+				<label htmlFor="to">From (can be anonymous):</label>
 				<input
 					type="text"
 					name="from"

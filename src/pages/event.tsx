@@ -18,7 +18,7 @@ export default function Event() {
 	return (
 		<>
 			<Head>
-				<title>Event</title>
+				<title>Himakom&apos;s Events</title>
 			</Head>
 			<main>
 				<Events />
