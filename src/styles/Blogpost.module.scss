@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 .bannerwrapper{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url('../../public/images/blogpostimage1.png') rgba(0, 0, 0, 0.77);
-    background-size: cover;
-    background-blend-mode: multiply;
     width: 100%;
     row-gap: 10px;
+    overflow: hidden;
     @media (min-width:1024px){
         padding-block: 166px;
         padding-inline: 288px;
@@ -22,6 +21,24 @@
     @media (max-width:599px){
         padding-block: 140px;
         padding-inline: 10px;
+    }
+
+    &_background{
+        position: absolute;
+        z-index: -1;
+        left: 0px;
+        object-fit: cover;
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* change the alpha value (0.5) to adjust the darkness */
+            z-index: 1;
+        }
     }
 
     &_button{
@@ -119,13 +136,27 @@
 }
 
 .contentwrapper{
+    height: fit-content;
     display: flex;
     flex-direction: row;
-    padding-inline: 47px;
     position: relative;
     column-gap: 5%;
-    padding-top: 64px;
-    padding-bottom: 30px;
+
+    @media (min-width:1025px){
+        padding-inline: 47px;
+        padding-top: 64px;
+        padding-bottom: 30px;
+    }
+
+    @media (max-width:1025px){
+        padding-inline: 20px;
+        padding-block: 40px;
+    }
+    
+    @media (max-width:1025px){
+        flex-wrap: wrap;
+        row-gap: 2rem;
+    }
 
     &_leftcol{
         width: 65%;
@@ -134,30 +165,43 @@
         display: flex;
         flex-direction: column;
         row-gap: 20px;
+        height: fit-content;
 
-        h2:not(:first-child){
-            margin-top: 20px;
+        @media (max-width:1025px){
+            width: 100%;
         }
 
-        h2{
-            font-family: 'Lato';
-            font-style: normal;
-            font-weight: 900;
-            font-size: 36px;
-            line-height: 43px;
-            text-align: justify;
+        &_content{
 
-          
+            h2:not(:first-child){
+                margin-top: 20px;
+            }
+    
+            h2{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 900;
+                font-size: 36px;
+                line-height: 43px;
+                text-align: justify;
+    
+              
+            }
+    
+            p{
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 24px;
+                margin-bottom: 32px;
+            }
+
+            li{
+                list-style: disc;
+            }
         }
 
-        p{
-            font-family: 'Lato';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 20px;
-            line-height: 24px;
-            text-align: justify;
-        }
 
         &_imagewrapper{
             p{
@@ -187,7 +231,139 @@
 
     &_rightcol{
         width: 30%;
+        height: fit-content;
 
+        @media (max-width:1025px){
+            width: 100%;
+        }
+
+        &_tablecontents{
+            &>h2{
+                margin-top: 50px;
+                margin-bottom: 14px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 38px;
+
+                border-bottom: 1px solid #252525;
+                color: #252525;
+            }
+            &_content{
+                display: flex;
+                flex-direction: column;
+                row-gap: 14px;
+                &> :not(:is(h2)) {
+                    display: none;
+                }
+
+                h2{
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 29px;
+                    
+                    color: #252525;
+                     
+                }
+            }
+        }
+
+        &_archive{
+            &>h2{
+                margin-top: 50px;
+                margin-bottom: 14px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 38px;
+
+                border-bottom: 1px solid #252525;
+                color: #252525;
+            }
+
+            &_content{
+                display: flex;
+                flex-direction: column;
+                row-gap: 14px;
+
+                h2{
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 24px;
+                    line-height: 29px;
+                    cursor: pointer;
+
+                    color: #252525;
+                }
+
+                a{
+                    font-family: 'Lato';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 29px;
+                    cursor: pointer;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                    
+                    color: #252525;
+                     
+                }
+            }
+
+            
+        }
+        
+        &_comment{
+            position: relative;
+            &>h2{
+                margin-top: 50px;
+                margin-bottom: 14px;
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 38px;
+
+                border-bottom: 1px solid #252525;
+                color: #252525;
+            }
+
+            &_form{
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                row-gap: 18px;
+                input, textarea{
+                    width: 100%;
+                    border-radius: 0px;
+                    padding: 14px;
+                    border: 1px solid #252525;
+                }
+                
+                button{
+                    border: 1px solid #252525;
+                    border-radius: 50px;
+                    padding: 8px 40px;
+                    background: white;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover{
+                        background: #252525 ;
+                        color: white;
+                    }
+                }
+            }
+
+        }
 
 
     }
