@@ -15,10 +15,12 @@ export default function MoreNews() {
 			skip: page === 1 ? 3 : 3 + page * 2,
 		});
 
-		if (res.items.length === 0) {
+		if (res.items.length <= 0) {
 			setIsEmpty(true);
 			return;
-		}
+		} else if (res.items.length < 2) {
+            setIsEmpty(true);
+        }
 
 		const data = res.items.map((item: any) => {
 			return getNewsPreview(item);
