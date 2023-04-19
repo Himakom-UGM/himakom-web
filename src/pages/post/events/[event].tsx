@@ -2,7 +2,7 @@ import React from 'react';
 import { createClient } from 'contentful';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 
-import DetailedPost from "@/components/detail-post/Example";
+import DetailedPost from '@/components/detail-post/Example';
 
 export async function getStaticPaths() {
 	const client = contentfulClientCS;
@@ -22,14 +22,15 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps({ params: any }) {
+export async function getStaticProps({ params }: any) {
 	const { items } = await contentfulClientCS.getEntries({
 		content_type: 'events',
 		'fields.title': params,
 	});
 
 	const matchingItem = items.find(
-		(item) => item.fields.title.toLowerCase() === params.event.toLowerCase()
+		(item: any) =>
+			item.fields.title.toLowerCase() === params.event.toLowerCase()
 	);
 
 	return {
@@ -39,8 +40,7 @@ export async function getStaticProps({ params: any }) {
 	};
 }
 
-const event = ({ event }) => {
-	console.log(event);
+const event = ({ event }: any) => {
 	return (
 		<div>
 			<DetailedPost

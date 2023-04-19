@@ -29,11 +29,9 @@ export default function MoreNews() {
 		setPage(page + 1);
 	};
 
-	console.log(content);
-
 	return (
 		<>
-			<div className="md:grid w-full grid-cols-2 justify-center gap-x-6 gap-y-3 py-6 px-10 md:w-[90%]">
+			<div className="customMd:grid w-full grid-cols-2 justify-center gap-x-6 gap-y-3 pt-2 md:pt-6 px-10 md:w-[90%]">
 				{content.map((item: any) => {
 					return (
 						<Card
@@ -44,7 +42,7 @@ export default function MoreNews() {
 							date={item.updatedDate}
 							author={item.author}
 							key={10}
-							image={'https:' + item.image + '?q=10&fm=webp'}
+							image={'https:' + item.image}
 						/>
 					);
 				})}
@@ -52,7 +50,7 @@ export default function MoreNews() {
 			{!isEmpty && (
 				<button
 					onClick={loadMore}
-					className="mt-6 rounded-md bg-primary-300 px-4 py-2 text-white "
+					className="mt-6 shadow-lg rounded-md bg-primary-300 px-4 py-2 text-white "
 				>
 					Load more
 				</button>

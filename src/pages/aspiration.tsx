@@ -35,7 +35,6 @@ export default function Aspiration({}: {}) {
 		});
 
 		getAspirations(db).then((data) => {
-			console.log(data);
 			setEntries(data as AspirationType[]);
 		});
 	}, []);

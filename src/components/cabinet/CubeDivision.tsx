@@ -41,7 +41,6 @@ export default function CubeDivision(props: any) {
 			onPointerDown={handlePointerDown}
 			{...props}
 			ref={mesh}
-			// onClick={(e : any) => console.log(e.face)}
 		>
 			<boxGeometry args={[3, 3, 3]} />
 			{divisionData.map((d, i) => (

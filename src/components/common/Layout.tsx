@@ -6,7 +6,7 @@ import Head from 'next/head';
 
 export default function Layout(props: { children: React.ReactNode }) {
 	return (
-		<div className="font-Lato	">
+		<div className="font-Lato">
 			<AppWrapper>
 				<Header />
 				<div className="layout__content">{props.children}</div>

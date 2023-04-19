@@ -101,7 +101,7 @@ export default function CabinetPage() {
 							Divisions
 						</h1>
 						<p className="text-center lg:text-xl">
-							Berikut adalah divisi dari kepungurusan HIMAKOM.{' '}
+							Berikut adalah divisi dari kepengurusan HIMAKOM.{' '}
 						</p>
 						<div className="flex w-full flex-row flex-wrap items-center justify-center"></div>
 						<div className="relative">
