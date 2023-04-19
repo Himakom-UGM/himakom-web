@@ -3,36 +3,9 @@ import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useRef } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
 import THREE from 'three';
+import { divisionData } from './data';
 
 export default function CubeDivision(props: any) {
-	const divisionData = [
-		{
-			texture: '/main/cabinet/textures/Hublu.png',
-			url: '/division/hublu',
-		},
-		{
-			texture: '/main//cabinet/textures/Kewirush.png',
-			url: '/division/Kewirush',
-		},
-		{
-			texture: '/main//cabinet/textures/KPM.png',
-			url: '/division/KPM',
-		},
-		{
-			texture: '/main//cabinet/textures/Mikat.png',
-			url: '/division/Mikat',
-		},
-		{
-			texture: '/main//cabinet/textures/PO.png',
-			url: '/division/PO',
-		},
-		{
-			texture: '/main//cabinet/textures/PSDMA.png',
-			url: '/division/PSDMA',
-		},
-	];
-	  
-
 	const clickTimeout = useRef<NodeJS.Timeout | null>(null);
 
 	const handlePointerUp = (e: any) => {
@@ -41,8 +14,7 @@ export default function CubeDivision(props: any) {
 		}
 
 		// Set a new click timeout
-		clickTimeout.current = setTimeout(() => {
-		}, 50); // Wait 500 milliseconds before registering the click event
+		clickTimeout.current = setTimeout(() => {}, 50); // Wait 500 milliseconds before registering the click event
 	};
 
 	const handlePointerDown = () => {
@@ -62,7 +34,7 @@ export default function CubeDivision(props: any) {
 	const material = useTexture(divisionData.map((d) => d.texture));
 
 	const mesh = useRef<THREE.Mesh>();
-	
+
 	return (
 		<mesh
 			onPointerUp={handlePointerUp}
@@ -70,8 +42,6 @@ export default function CubeDivision(props: any) {
 			{...props}
 			ref={mesh}
 			// onClick={(e : any) => console.log(e.face)}
-			
-		
 		>
 			<boxGeometry args={[3, 3, 3]} />
 			{divisionData.map((d, i) => (
@@ -79,7 +49,7 @@ export default function CubeDivision(props: any) {
 					key={i}
 					map={material[i]}
 					attach={`material-${i}`}
-				/>	
+				/>
 			))}
 		</mesh>
 	);
