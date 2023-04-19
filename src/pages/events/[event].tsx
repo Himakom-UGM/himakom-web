@@ -55,7 +55,6 @@ const event = ({event, allevents}) => {
     }
   }, [allevents]);
     console.log(event)
-    // console.log(filteredEvents)
   return (
     <div>
         <DetailedPost 

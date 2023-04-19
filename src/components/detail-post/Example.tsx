@@ -1,5 +1,6 @@
 import blogpoststyle from '../../styles/Blogpost.module.scss';
 import SearchButton from './Searchbutton';
+import react, { useState, useEffect } from 'react';
 
 import { BLOCKS, INLINES, MARKS, documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
@@ -19,7 +20,45 @@ export default function Example(props) {
 	  const allevents = props.allevents;
 	  const filteredEvents = allevents.filter((event) => event.fields.title.toLowerCase() !== props.title.toLowerCase())
 
-
+	  const renderAccordion = () => {
+		const eventsByMonth = filteredEvents.reduce((acc, event) => {
+		  const month = new Date(event.sys.createdAt).toLocaleString('default', { month: 'long' });
+		  if (!acc[month]) {
+			acc[month] = [];
+		  }
+		  acc[month].push(event);
+		  return acc;
+		}, {});
+		const [accordionState, setAccordionState] = useState({});
+	  
+		const handleAccordionToggle = (month) => {
+		  setAccordionState(prevState => ({
+			...prevState,
+			[month]: !prevState[month]
+		  }));
+		}
+	  
+		return (
+		  <>
+			{Object.entries(eventsByMonth).map(([month, events]) => (
+			  <div key={month}>
+				<h2 onClick={() => handleAccordionToggle(month)}>
+				  {month}
+				</h2>
+				{accordionState[month] && (
+				  events.map((event) => (
+					<a href={`/main/events/${event.fields.title.toLowerCase().replace(/ /g, '-')}`} key={event.sys.id}>
+					  <div><p>{event.fields.title}</p></div>
+					</a>
+				  ))
+				)}
+			  </div>
+			))}
+		  </>
+		);
+	  };
+	  
+	  
 	  
 	  
 	return (
@@ -62,11 +101,17 @@ export default function Example(props) {
 						className={blogpoststyle.contentwrapper_rightcol_archive}>
 							<h2>Archive in 2023</h2>
 							<div className={blogpoststyle.contentwrapper_rightcol_archive_content}>
-								{filteredEvents.map((allevent) => (
-									// <div>{allevent.fields.title}</div>
-									<a href={`/main/events/${allevent.fields.title.toLowerCase().replace(/ /g, '-')}`}>{allevent.fields.title}</a>
-								))}
+								{renderAccordion()}
 							</div>
+						</div>
+
+						<div className={blogpoststyle.contentwrapper_rightcol_comment}>
+							<h2>Leave a comment</h2>
+							<form action="" className={blogpoststyle.contentwrapper_rightcol_comment_form}>
+								<input type="text" placeholder='Name' />
+								<textarea name="" placeholder='Comment' id="" cols="30" rows="10"></textarea>
+								<button type='submit'>Send</button>
+							</form>
 						</div>
 				</div>
 			</div>
