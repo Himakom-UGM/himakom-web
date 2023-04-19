@@ -20,7 +20,7 @@ export default function Card(props: {
 			className="relative mx-auto flex w-full max-w-[450px] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
 		>
 			<Image
-				src={props.image}
+				src={props.image + '?fm=webp&q=5'}
 				alt="image"
 				fill
 				className={`${

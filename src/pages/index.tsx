@@ -5,6 +5,8 @@ import About from '@/components/homepage/About';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import { useEffect, useState } from 'react';
 import { getNewsPreview } from '@/utilites/getNews';
+import Decorative from '@/components/homepage/decoration/Decorative';
+import Image from 'next/image';
 
 export default function Home() {
 	const [data, setData] = useState<any>();
@@ -36,10 +38,19 @@ export default function Home() {
 				/>
 				<meta name="keywords" content="Himakom UGM, Ilmu Komputer, Omah TI" />
 			</Head>
-			<main>
+			<main className="">
 				<Banner />
 				<About />
 				{data && <News data={data} />}
+				<section className="relative w-full">
+					<Image
+						alt="background"
+						fill
+						src="/main/images/bg/536.png"
+						className="object-cover"
+					/>
+					<Decorative />
+				</section>
 			</main>
 		</>
 	);

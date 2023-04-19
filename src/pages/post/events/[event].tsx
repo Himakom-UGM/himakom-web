@@ -39,8 +39,7 @@ export async function getStaticProps({ params: any }) {
 	};
 }
 
-const event = ({ event }) => {
-	console.log(event);
+const event = ({ event }: any) => {
 	return (
 		<div>
 			<DetailedPost

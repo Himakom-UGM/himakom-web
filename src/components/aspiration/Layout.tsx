@@ -44,7 +44,6 @@ export default function Layout() {
 		);
 	}
 
-	// console.log(uploadActive);
 
 	// const fileClickHandler = () => {
 	// 	setUploadActive(true);
