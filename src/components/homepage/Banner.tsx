@@ -22,19 +22,30 @@ export default function Banner() {
 					zIndex: -1,
 				}}
 			/>
+			<Image
+				src="/main/images/bg/H.png"
+				width={559}
+				height={559}
+				alt="bg"
+				className='absolute w-[45vw] top-1/2 customMd:top-[40%] -translate-y-1/2 left-1/2 -translate-x-1/2'
+				style={{
+					objectFit: 'cover',
+					zIndex: -1,
+				}}
+			/>
 			<motion.div
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ delay: 0.8, duration: 0.2 }}
-				className="relative hidden flex-col items-center pt-32 font-semibold text-primary-300 customMd:flex 2xl:pt-28"
+				className="relative hidden flex-col items-center pt-32 font-semibold text-primary-300 customMd:flex xl:pt-44"
 			>
-				<h1 className="mb-[2px] text-2xl italic 2xl:text-3xl">
+				<h1 className="mb-[2px] text-3xl italic xl:text-[32px]">
 					Universitas Gadjah Mada
 				</h1>
-				<h2 className="text-6xl font-extrabold 2xl:text-7xl">
+				<h2 className="text-6xl font-extrabold xl:text-[87px]">
 					Himpunan Mahasiswa
 				</h2>
-				<h3 className="text-4xl 2xl:text-5xl">Ilmu Komputer</h3>
+				<h3 className="mt-2 text-4xl xl:text-[50px]">Ilmu Komputer</h3>
 			</motion.div>
 			<div className="mx-auto w-[90%] max-w-[480px] pt-44 text-center text-4xl font-semibold text-primary-300 md:max-w-[60%] customMd:hidden">
 				<h1>Himpunan Mahasiwa Ilmu Komputer</h1>

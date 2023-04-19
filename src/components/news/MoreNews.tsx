@@ -19,8 +19,8 @@ export default function MoreNews() {
 			setIsEmpty(true);
 			return;
 		} else if (res.items.length < 2) {
-            setIsEmpty(true);
-        }
+			setIsEmpty(true);
+		}
 
 		const data = res.items.map((item: any) => {
 			return getNewsPreview(item);
@@ -31,7 +31,7 @@ export default function MoreNews() {
 
 	return (
 		<>
-			<div className="customMd:grid w-full grid-cols-2 justify-center gap-x-6 gap-y-3 pt-2 md:pt-6 px-10 md:w-[90%]">
+			<div className="grid w-full flex-col gap-x-4 gap-y-3 py-2 px-6 customMd:w-full xl:grid-cols-3 customMd:grid-cols-2 lg:flex-row lg:gap-x-6 xl:px-20">
 				{content.map((item: any) => {
 					return (
 						<Card
@@ -39,7 +39,8 @@ export default function MoreNews() {
 							description={item.headerText}
 							primary={false}
 							topic={item.topic}
-							date={item.updatedDate}
+							createdDate={item.createdDate}
+							updateDate={item.updatedDate}
 							author={item.author}
 							key={10}
 							image={'https:' + item.image}
@@ -50,7 +51,7 @@ export default function MoreNews() {
 			{!isEmpty && (
 				<button
 					onClick={loadMore}
-					className="mt-6 shadow-lg rounded-md bg-primary-300 px-4 py-2 text-white "
+					className="mt-6 rounded-md bg-primary-300 px-4 py-2 text-white shadow-lg xl:text-[20px] "
 				>
 					Load more
 				</button>

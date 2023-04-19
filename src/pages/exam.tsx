@@ -129,7 +129,7 @@ export default function Exam(props: { posts: any }) {
 				height={1500}
 				className="absolute bottom-0 left-0 z-0 w-[40%]"
 			/>
-			<h1 className="text-center text-2xl font-semibold text-white lg:text-3xl">
+			<h1 className="text-center text-2xl xl:text-5xl font-semibold text-white lg:text-3xl">
 				Himakom&apos;s Exam Archive
 			</h1>
 			<div className="flex w-full justify-end">
@@ -150,8 +150,8 @@ export default function Exam(props: { posts: any }) {
 					/>
 				</div>
 			</div>
-			<div className="mx-auto mt-6 w-full px-4">
-				<section className="flex w-full flex-col gap-y-2">
+			<div className="mx-auto mt-6 w-full px-5">
+				<section className="flex w-full text-lg lg:text-xl flex-col gap-y-2">
 					{filteredList.map((item) => (
 						<div key={item.initial} className="z-10 my-4">
 							<h2 className="mb-4 border-b-4 pb-1 text-lg font-semibold text-white">
@@ -162,7 +162,7 @@ export default function Exam(props: { posts: any }) {
 									<Link
 										key={post.name}
 										href={post.link}
-										className="flex items-center justify-center rounded-xl bg-white py-4 px-4"
+										className="flex items-center justify-center rounded-xl bg-white p-5"
 									>
 										{post.name}
 									</Link>

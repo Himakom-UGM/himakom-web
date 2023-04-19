@@ -26,7 +26,7 @@ const nextConfig = {
 	trailingSlash: true,
 	 
 	images : {
-		unoptimized : true
+		unoptimized : false
 	},
 	async redirects() {
         return [

@@ -23,7 +23,7 @@ export default function DesktopNav() {
 	};
 
 	return (
-		<nav className="text- relative hidden items-center customMd:flex">
+		<nav className="xl:text-lg relative hidden items-center customMd:flex">
 			<ul className="flex items-center justify-between gap-x-6 font-semibold">
 				<li>
 					<Link href="/">Home</Link>

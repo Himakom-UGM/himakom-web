@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function CabinetAbout() {
 	return (
-		<section className="p-9 rounded-xl mx-auto bg-white w-[90%] md:w-[80%]">
+		<section className="p-14 rounded-xl mx-auto bg-white w-[90%] md:w-[80%] max-w-7xl">
 			<h1 className="md:hidden text-center text-2xl mb-6 font-bold lg:px-0 lg:pb-2 lg:text-start">
 				Arundaya Cakrabuana
 			</h1>
@@ -14,18 +14,18 @@ export default function CabinetAbout() {
 						quality={100}
 						width="500"
 						height="500"
-						className="w-44"
+						className="w-[13vw]"
 					/>
 				</div>
-				<div className="basis-2/3">
-					<h1 className="hidden text-center text-4xl font-bold md:block lg:px-0 lg:pb-2 lg:text-start xl:text-5xl">
+				<div className="basis-2/3 text-lg">
+					<h1 className="hidden text-center text-4xl font-bold md:block lg:px-0 lg:pb-2 lg:text-start xl:text-6xl">
 						Arundaya Cakrabuana
 					</h1>
-					<h2 className="text-xl text-center md:text-start md:text-2xl font-semibold lg:block xl:text-2xl">
+					<h2 className="text-xl text-center md:text-start md:text-2xl font-semibold lg:block xl:text-3xl">
 						Himakom Periode 2023/2024
 					</h2>
 					<section className="mt-3">
-						<h3 className="font-semibold">Arundaya (Matahari Terbit)</h3>
+						<h3 className="font-semibold text-xl">Arundaya (Matahari Terbit)</h3>
 						<p>
 							Memiliki makna untuk terus bangkit, percaya diri, dan motivasi
 							untuk terus bergerak maju dengan penuh semangat juang dalam
@@ -33,7 +33,7 @@ export default function CabinetAbout() {
 						</p>
 					</section>
 					<section className="mt-3">
-						<h3 className="font-semibold">Cakrabuana (Roda dunia) </h3>
+						<h3 className="font-semibold text-xl">Cakrabuana (Roda dunia) </h3>
 						<p>
 							<span>Dilambangkan dengan roda bergerigi</span>{' '}
 							<ol className="list-decimal pl-6">
