@@ -97,10 +97,10 @@ export default function CabinetPage() {
 							height="240"
 							className=" absolute bottom-0 left-0 -z-[9999] lg:hidden"
 						/>
-						<h1 className="pt-14 pb-3 text-center text-3xl font-bold xl:text-[52px]">
+						<h1 className="pt-14 pb-3 text-center text-3xl lg:text-5xl font-bold">
 							Divisions
 						</h1>
-						<p className="text-center">
+						<p className="text-center lg:text-xl">
 							Berikut adalah divisi dari kepungurusan HIMAKOM.{' '}
 						</p>
 						<div className="flex w-full flex-row flex-wrap items-center justify-center"></div>

@@ -4,6 +4,7 @@ import Banner from '@/components/homepage/Banner';
 import About from '@/components/homepage/About';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import { useEffect, useState } from 'react';
+import { getNewsPreview } from '@/utilites/getNews';
 
 export default function Home() {
 	const [data, setData] = useState<any>();
@@ -15,38 +16,7 @@ export default function Home() {
 			});
 
 			const extractedData = response.items.map((item) => {
-				const createdDate = new Date(item.sys.createdAt).toLocaleDateString(
-					'id-ID',
-					{
-						year: 'numeric',
-						month: 'numeric',
-						day: 'numeric',
-					}
-				);
-				const updatedDate = new Date(item.sys.updatedAt).toLocaleDateString(
-					'id-ID',
-					{
-						year: 'numeric',
-						month: 'numeric',
-						day: 'numeric',
-					}
-				);
-				const title = item.fields.title;
-				const image = item.fields.image[0].fields.file.url;
-				const detail = item?.fields.detailnews;
-				const author = item?.fields.author;
-				const headerText = item?.fields.headerText;
-				const topic = item?.fields?.topic;
-				return {
-					title,
-					headerText,
-					createdDate,
-					updatedDate,
-					image,
-					detail,
-					author,
-					topic,
-				};
+				return getNewsPreview(item);
 			});
 
 			setData(extractedData);
@@ -65,7 +35,6 @@ export default function Home() {
 					content="Himakom adalah organisasi himpunan mahasiswa Ilmu Komputer Universitas Gadjah Mada."
 				/>
 				<meta name="keywords" content="Himakom UGM, Ilmu Komputer, Omah TI" />
-				
 			</Head>
 			<main>
 				<Banner />

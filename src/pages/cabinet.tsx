@@ -5,7 +5,7 @@ export default function Cabinet() {
 	return (
 		<>
 			<Head>
-				<title>Cabinet</title>
+				<title>Arundaya Cakrabuana</title>
 			</Head>
 
 			<main>
