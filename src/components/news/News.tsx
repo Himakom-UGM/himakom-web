@@ -23,7 +23,7 @@ const News = (props: { data: any }) => {
 					terkini 
 					yang diselenggarakan oleh HIMAKOM.
 				</p>
-				<div className="grid w-full basis-1/2 flex-col justify-center gap-x-4 xl:gap-x-12 gap-y-3 py-2 px-6 customMd:w-full customMd:grid-cols-2 lg:flex-row lg:gap-x-6 xl:px-20">
+				<div className="grid w-full xl:max-w-[82vw] basis-1/2 flex-col justify-center gap-x-4 xl:gap-x-12 gap-y-3 py-2 px-6 customMd:w-full customMd:grid-cols-2 lg:flex-row lg:gap-x-6 xl:px-20">
 					<Card
 						title={props.data[0].title}
 						description={props.data[0].headerText}

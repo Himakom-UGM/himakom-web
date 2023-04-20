@@ -31,7 +31,7 @@ export default function MoreNews() {
 
 	return (
 		<>
-			<div className="grid w-full flex-col gap-x-4 gap-y-3 py-2 px-6 customMd:w-full xl:grid-cols-3 customMd:grid-cols-2 lg:flex-row lg:gap-x-6 xl:px-20">
+			<div className="grid w-full xl:max-w-[82vw] flex-col gap-x-4 gap-y-3 py-2 px-6 customMd:w-full xl:grid-cols-3 customMd:grid-cols-2 lg:flex-row lg:gap-x-6 xl:px-20">
 				{content.map((item: any) => {
 					return (
 						<Card

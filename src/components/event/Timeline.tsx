@@ -28,7 +28,7 @@ export default function Timeline() {
 	return (
 		<div className="flex w-full flex-col justify-center py-16 px-8 lg:px-12 xl:px-20">
 			{years && (
-				<div className="">
+				<div className="xl:max-w-[85vw] mx-auto">
 					<div className={ years > 3 ? 'flex justify-start gap-x-6 rounded-t-lg bg-[#212152] py-3 px-2 text-xl font-semibold text-white md:px-8' : 'flex justify-center gap-x-6 rounded-t-lg bg-[#212152] py-2 px-2 text-xl font-semibold text-white md:px-8' }>
 						{years.map((year: string) => (
 							<div

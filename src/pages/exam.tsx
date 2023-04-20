@@ -111,7 +111,7 @@ export default function Exam(props: { posts: any }) {
 	}, []);
 
 	return (
-		<div className="bg-[#3F3F9C] px-12 pb-20 pt-24">
+		<div className="bg-[#3F3F9C] relative min-h-screen px-12 pb-20 pt-24">
 			<Head>
 				<title>Computer Science&apos;s Exam Archive</title>
 			</Head>
@@ -132,7 +132,7 @@ export default function Exam(props: { posts: any }) {
 			<h1 className="text-center text-2xl xl:text-5xl font-semibold text-white lg:text-3xl">
 				Himakom&apos;s Exam Archive
 			</h1>
-			<div className="flex w-full justify-end">
+			<div className="flex w-full justify-end ">
 				<div className="relative">
 					<input
 						type="text"

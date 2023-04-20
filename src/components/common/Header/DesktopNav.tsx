@@ -25,7 +25,7 @@ export default function DesktopNav() {
 	return (
 		<nav className="xl:text-lg relative hidden items-center customMd:flex">
 			<ul className="flex items-center justify-between gap-x-6 font-semibold">
-				<li>
+				<li className='hover:underline-offset-4 duration-300 hover:underline'>
 					<Link href="/">Home</Link>
 				</li>
 				<li
@@ -42,10 +42,10 @@ export default function DesktopNav() {
 						)}
 					</AnimatePresence>
 				</li>
-				<li>
+				<li className='hover:underline-offset-4 duration-300 hover:underline'>
 					<Link href="/event">Events</Link>
 				</li>
-				<li>
+				<li className='hover:underline-offset-4 duration-300 hover:underline'>
 					<Link href="/exam">Exam Archive</Link>
 				</li>
 				<li
@@ -58,7 +58,7 @@ export default function DesktopNav() {
 					<Dropdown />
 					<AnimatePresence>{relatedOnHover && <RelatedMenu />}</AnimatePresence>
 				</li>
-				<li>
+				<li className='hover:underline-offset-4 duration-300 hover:underline'>
 					<Link href="/aspiration">Aspiration</Link>
 				</li> 
 			</ul>

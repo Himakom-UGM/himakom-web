@@ -24,7 +24,7 @@ export default function CabinetAbout() {
 					<h2 className="text-xl text-center md:text-start md:text-2xl font-semibold lg:block xl:text-3xl">
 						Himakom Periode 2023/2024
 					</h2>
-					<section className="mt-3">
+					<section className="mt-8 xl:max-w-[85%]">
 						<h3 className="font-semibold text-xl">Arundaya (Matahari Terbit)</h3>
 						<p>
 							Memiliki makna untuk terus bangkit, percaya diri, dan motivasi
@@ -32,7 +32,7 @@ export default function CabinetAbout() {
 							menggapai masa depan yang luar biasa.
 						</p>
 					</section>
-					<section className="mt-3">
+					<section className="mt-3 xl:max-w-[85%]">
 						<h3 className="font-semibold text-xl">Cakrabuana (Roda dunia) </h3>
 						<p>
 							<span>Dilambangkan dengan roda bergerigi</span>{' '}
@@ -54,11 +54,11 @@ export default function CabinetAbout() {
 			<div className="mt-6">
 				<div className="flex items-center gap-x-2 text-sm font-semibold ">
 					<div className="h-6 w-6 bg-[#F3BE00]"></div>
-					<p>Ceria dan optimistis</p>
+					<p className='text-lg'>Ceria dan optimistis</p>
 				</div>
 				<div className="mt-2 flex items-center gap-x-2 text-sm font-semibold">
 					<div className="h-6 w-6 bg-[#868686]"></div>
-					<p>Bertanggung Jawab dan Serius</p>
+					<p className='text-lg'>Bertanggung Jawab dan Serius</p>
 				</div>
 			</div>
 		</section>
