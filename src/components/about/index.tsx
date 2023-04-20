@@ -4,7 +4,7 @@ import { Lato } from 'next/font/google';
 export default function AboutPage() {
 	return (
 		<>
-			<div className="relative flex h-[640px] w-full flex-col items-center bg-gradient-to-b from-[#F8F8F8] to-[#F8F8F8]/70 px-10 pb-10 md:h-[616px] md:px-24 lg:flex-row lg:justify-evenly lg:to-transparent xl:justify-between xl:py-20 xl:px-48 2xl:px-96">
+			<div className="relative flex h-[640px] w-full flex-col items-center bg-gradient-to-b from-[#F8F8F8] to-[#F8F8F8]/70 px-10 pb-10 md:h-[616px] md:px-20 lg:flex-row lg:justify-evenly lg:to-transparent xl:justify-between xl:py-20 xl:px-40 2xl:px-60">
 				<Image
 					quality={100}
 					src={'/main/about/backgroundAbout.png'}
@@ -21,8 +21,8 @@ export default function AboutPage() {
 					alt=""
 					className="absolute -bottom-5 -z-[9999] block opacity-50 lg:hidden "
 				/>
-				<div className="text-center md:w-5/6 lg:w-3/6">
-					<h1 className="pt-[91px] text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-4xl">
+				<div className=" md:w-5/6">
+					<h1 className="pt-[91px] text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-6xl">
 						About Us
 					</h1>
 					<Image
@@ -31,9 +31,9 @@ export default function AboutPage() {
 						alt="Logo Himakom"
 						width="128"
 						height="163"
-						className="mt-8 ml-auto mr-auto  h-auto md:w-[188px] lg:hidden"
+						className="mt-8 ml-auto mr-auto h-auto md:w-[188px] lg:hidden"
 					/>
-					<p className="py-4 text-justify lg:text-lg xl:text-2xl 2xl:py-10 ">
+					<p className="py-4 text-justify lg:text-lg xl:text-2xl 2xl:py-10 max-w-[760px]">
 						Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi mahasiswa
 						Ilmu Komputer Universitas Gadjah Mada yang terbentuk sejak tahun
 						1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa Ilmu Komputer
@@ -51,7 +51,7 @@ export default function AboutPage() {
 						alt="Logo Himakom"
 						width="234"
 						height="299"
-						className="mt-8 hidden lg:block xl:w-[280px]"
+						className="mt-8 hidden lg:block xl:w-[300px] mr-24"
 					/>
 				</div>
 			</div>
@@ -234,11 +234,11 @@ export default function AboutPage() {
 					className="absolute right-0 hidden h-auto scale-x-[-1] transform md:block md:w-[330px] lg:w-[475px] xl:w-[550px]"
 				/>
 				<div className="flex h-full flex-col items-center justify-center py-44">
-					<div className="w-[80%] md:p-4 rounded-xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] customMd:w-[1250px] lg:mx-32 lg:w-auto xl:-mt-32 ">
+					<div className="w-[80%] xl:w-[70%] md:p-4 rounded-xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] customMd:w-[1250px] lg:mx-32 lg:w-auto xl:-mt-32 ">
 						<h1 className="pt-6 pb-4 text-center text-2xl font-bold lg:text-4xl xl:text-6xl">
 							Principle
 						</h1>
-						<p className="px-10  pb-6 text-justify font-medium lg:text-lg">
+						<p className="px-10  pb-6 text-justify font-medium lg:text-xl xl:text-2xl mt-6">
 							Himpunan Mahasiswa Ilmu Komputer Universitas Gadjah Mada atau
 							HIMAKOM UGM memiliki tiga nilai utama yang selalu dibawa dari
 							tahun ke tahun, yakni Aspirasi, Inisiasi, dan Perwujudan. Ketiga

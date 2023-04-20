@@ -19,10 +19,10 @@ export default function About() {
 			/>
 			<div className="hidden items-center justify-center gap-x-32 py-20 text-white customMd:flex 2xl:py-32 ">
 				<div className="max-w-[45%] basis-1/2">
-					<h1 className="text-2xl lg:text-3xl font-semibold xl:text-4xl 2xl:text-5xl">
+					<h1 className="text-2xl lg:text-3xl font-semibold xl:text-[52px]">
 						About Us
 					</h1>
-					<p className="mt-5 text-justify xl:text-lg">
+					<p className="mt-5 text-justify xl:text-[20px] max-w-[75%]">
 						Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi mahasiswa
 						Ilmu Komputer Universitas Gadjah Mada yang terbentuk sejak tahun
 						1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa Ilmu Komputer

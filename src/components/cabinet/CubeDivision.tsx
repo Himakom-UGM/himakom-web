@@ -1,11 +1,13 @@
 import Router, { useRouter } from 'next/router';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
-import THREE from 'three';
+
 import { divisionData } from './data';
 
+
 export default function CubeDivision(props: any) {
+	const [hover, setHover] = useState(false);
 	const clickTimeout = useRef<NodeJS.Timeout | null>(null);
 
 	const handlePointerUp = (e: any) => {
@@ -31,17 +33,10 @@ export default function CubeDivision(props: any) {
 		Router.push(division.url);
 	};
 
-	const material = useTexture(divisionData.map((d) => d.texture));
-
-	const mesh = useRef<THREE.Mesh>();
-
+	const mesh = useRef();
+	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.001));
 	return (
-		<mesh
-			onPointerUp={handlePointerUp}
-			onPointerDown={handlePointerDown}
-			{...props}
-			ref={mesh}
-		>
+		<mesh {...props} ref={mesh} onClick={(e) => handleClick(e)}>
 			<boxGeometry args={[3, 3, 3]} />
 			{divisionData.map((d, i) => (
 				<meshStandardMaterial

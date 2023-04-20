@@ -22,23 +22,20 @@ const nextConfig = {
 				pathname: '/**',
 			},
 		],
+		unoptimized: false,
 	},
 	trailingSlash: true,
-	 
-	images : {
-		unoptimized : true
-	},
-	async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/main',
-                basePath: false,
-                permanent: false
-            }
-        ]
-    }
 
+	async redirects() {
+		return [
+			{
+				source: '/',
+				destination: '/main',
+				basePath: false,
+				permanent: false,
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;

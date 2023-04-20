@@ -15,24 +15,26 @@ const News = (props: { data: any }) => {
 				className="absolute top-0 z-0 w-full"
 			/>
 			<div className="relative flex flex-col items-center justify-center py-12 text-[#252525]">
-				<h1 className="font-lato text-3xl font-semibold xl:text-5xl">
+				<h1 className="font-lato text-3xl font-semibold xl:text-[52px]">
 					Latest News
 				</h1>
-				<p className="py-4 px-6 text-center md:text-lg customMd:max-w-[60%]">
+				<p className="mt-1 mb-2 py-4 px-6 text-center md:text-lg md:max-w-[80%] customMd:max-w-[60%] xl:text-[20px] xl:max-w-3xl">
 					Berikut adalah informasi terbaru terkait kegiatan, acara, dan berita
-					<br />
-					terkini yang diselenggarakan oleh HIMAKOM.
+					terkini 
+					yang diselenggarakan oleh HIMAKOM.
 				</p>
-				<div className="flex w-full basis-1/2 flex-col justify-center gap-x-6 gap-y-3 py-2 px-10 md:w-[90%] lg:flex-row">
+				<div className="grid w-full xl:max-w-[82vw] lg:max-w-[90vw] basis-1/2 flex-col justify-center gap-x-4 xl:gap-x-12 gap-y-3 py-2 px-6 customMd:w-full customMd:grid-cols-2 lg:flex-row lg:gap-x-6 xl:px-20">
 					<Card
 						title={props.data[0].title}
 						description={props.data[0].headerText}
 						primary
 						topic={props.data[0].topic}
-						date={props.data[0].updatedDate}
+						createdDate={props.data[0].createdDate}
+						updateDate={props.data[0].updatedDate}
 						author={props.data[0].author}
 						key={10}
 						image={'https:' + props.data[0].image}
+						slug={props.data[0].slug}
 					/>
 					<div className="flex basis-1/2 flex-col gap-y-4">
 						<Card
@@ -40,20 +42,24 @@ const News = (props: { data: any }) => {
 							description={props.data[1].headerText}
 							primary={false}
 							topic={props.data[1].topic}
-							date={props.data[1].updatedDate}
+							createdDate={props.data[0].createdDate}
+							updateDate={props.data[0].updatedDate}
 							author={props.data[1].author}
 							key={12}
 							image={'https:' + props.data[1].image}
+							slug={props.data[1].slug}
 						/>
 						<Card
 							title={props.data[2].title}
 							description={props.data[2].headerText}
 							primary={false}
 							topic={props.data[2].topic}
-							date={props.data[2].updatedDate}
+							createdDate={props.data[0].createdDate}
+							updateDate={props.data[0].updatedDate}
 							author={props.data[2].author}
 							key={13}
 							image={'https:' + props.data[2].image}
+							slug={props.data[2].slug}
 						/>
 					</div>
 				</div>

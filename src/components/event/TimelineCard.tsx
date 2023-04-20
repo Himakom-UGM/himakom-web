@@ -16,27 +16,36 @@ export default function TimelineCard({
 	description,
 	image,
 }: CardProps) {
-
 	return (
-		<div className="overflow-hidden cursor-pointer rounded-xl bg-white pb-4">
+		<div className="relative overflow-hidden rounded-xl bg-white pb-12">
 			<Image
-				src={image}
+				src={image + '?q=8&fm=webp'}
 				alt={title}
 				width={720}
 				height={720}
-                className="object-cover h-36 xl:h-40"
+				className="h-40 object-cover xl:h-48"
 			/>
-			<div className="flex h-[68px] justify-between px-5 py-2">
-				<div>
-					<h1 className="text-xl font-semibold">{title}</h1>
+			<div className="flex h-[68px]  justify-between px-5 pt-4 pb-2">
+				<div className="">
+					<h1 className="text-2xl font-semibold xl:text-3xl">{title}</h1>
 					<div className="text-sm">{date}</div>
 				</div>
-				<div className="h-fit mt-1 rounded-md bg-[#F3BE00] px-2 font-semibold text-white">
+				<div className="mt-1 h-fit rounded-md bg-[#F3BE00] px-2 py-1 text-xl font-semibold text-white">
 					{division}
 				</div>
 			</div>
-			<div className="mt-1 px-5 h-28">{description}</div>
-			<button className="mt-3 px-5"><Link href=''>Read More...</Link></button>
+			<div className="mt-2 h-fit px-5 text-lg lg:mt-8 xl:h-40">
+				{description}
+			</div>
+			<button className="absolute cursor-pointer bottom-2 px-5 text-xl hover:font-semibold">
+				<Link href={'/event/' + transformTitleToParam(title)}>
+					Read More...
+				</Link>
+			</button>
 		</div>
 	);
+}
+
+function transformTitleToParam(url: string) {
+	return url.toLowerCase().replace(/ /g, '-');
 }

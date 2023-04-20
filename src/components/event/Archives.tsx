@@ -5,9 +5,9 @@ import Timeline from './Timeline';
 export default function Archives() {
 	return (
 		<div>
-			<div className="bg-[#F3BE00] py-12">
-				<h1 className="text-center text-5xl font-semibold">Archives</h1>
-				<p className="mx-auto mt-4 text-center md:max-w-[540px]">
+			<div className="bg-[#F3BE00] pt-12 pb-16">
+				<h1 className="text-center text-5xl font-semibold xl:text-[64px]">Archives</h1>
+				<p className="mx-auto mt-4 text-center md:max-w-[540px] lg:text-[20px]">
 					Jelajahi sejarah HIMAKOM dan lihat momen-momen yang membentuk kami.
 					Telusuri arsip kami dan temukan tonggak-tonggak sejarah penting yang
 					telah membawa kami ke saat ini.
