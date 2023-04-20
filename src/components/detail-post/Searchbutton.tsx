@@ -10,7 +10,6 @@ export default function Example() {
     const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter") {
         event.preventDefault();
-        console.log(inputValue);
         setInputValue('');
       }
     };
@@ -27,7 +26,7 @@ export default function Example() {
             onChange={(event) => setInputValue(event.target.value)}
             onKeyPress={handleKeyPress}
             />
-            <Image src='search_icon.svg' alt='search icon' width='30' height='30' className={buttonStyle.search_icon}/>
+            <Image src='/main/search_icon.svg' alt='search icon' width='30' height='30' className={buttonStyle.search_icon}/>
           </form>
         </div>
         

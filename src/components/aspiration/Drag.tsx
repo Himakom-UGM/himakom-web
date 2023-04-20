@@ -24,7 +24,6 @@ export default function Drag(props: { onClose: () => void }) {
 		}
 	}
 
-	console.log('dragActive', dragActive);
 
 	function handleDrop(e: React.DragEvent<HTMLDivElement>) {
 		e.preventDefault();
@@ -58,11 +57,9 @@ export default function Drag(props: { onClose: () => void }) {
 	}
 
 	function handleTrash(index: number) {
-		console.log(index);
 		setFiles((prev) => prev.filter((_, i) => i !== index));
 	}
 
-	console.log('length', files.length);
 	return (
 		<div
 			className={`relative grid h-full grid-cols-2 rounded-xl border-2 border-black ${

@@ -7,3 +7,14 @@
     filter: sepia(100%) hue-rotate(203deg) saturate(185%);
 }
 
+body::-webkit-scrollbar-thumb {
+	background-color: #F3DB00;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 1000px 200px 10px #32327b;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}

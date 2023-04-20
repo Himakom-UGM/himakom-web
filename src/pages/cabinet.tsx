@@ -1,17 +1,16 @@
-import CabinetPage from "@/components/cabinet";
-import Head from "next/head";
-import Example from "@/components/cabinet/Example";
+import CabinetPage from '@/components/cabinet';
+import Head from 'next/head';
 
 export default function Cabinet() {
-  return (
-    <>
-      <Head>
-        <title>Cabinet</title>
-      </Head>
+	return (
+		<>
+			<Head>
+				<title>Arundaya Cakrabuana</title>
+			</Head>
 
-      <main>
-        <CabinetPage />
-      </main>
-    </>
-  );
+			<main>
+				<CabinetPage />
+			</main>
+		</>
+	);
 }

@@ -3,7 +3,7 @@ import Image from 'next/image';
 function ArrowUp() {
 	return (
 		<Image
-			src="/assets/arrow-up.svg"
+			src="/main/assets/arrow-up.svg"
 			width={20}
 			height={20}
 			alt="arrow"
@@ -15,7 +15,7 @@ function ArrowUp() {
 function ArrowDown() {
 	return (
 		<Image
-			src="/assets/arrow-down.svg"
+			src="/main/assets/arrow-down.svg"
 			width={20}
 			height={20}
 			alt="arrow"

@@ -2,16 +2,16 @@ import Image from 'next/image';
 
 export default function About() {
 	return (
-		<div className="relative mx-auto h-fit max-w-7xl overflow-y-hidden bg-about-mobile customMd:bg-about">
+		<div className="relative mx-auto h-fit max-w-[1920px] overflow-y-hidden bg-about-mobile customMd:bg-about">
 			<Image
-				src="/images/bg/fmipa.png"
+				src="/main/images/bg/fmipa.png"
 				alt="FMIPA UGM"
 				width={1920}
 				height={1080}
 				className="absolute right-0 -z-10 hidden w-[60%] customMd:block"
 			/>
 			<Image
-				src="/images/bg/fmipa.png"
+				src="/main/images/bg/fmipa.png"
 				alt="FMIPA UGM"
 				width={1920}
 				height={1080}
@@ -19,10 +19,10 @@ export default function About() {
 			/>
 			<div className="hidden items-center justify-center gap-x-32 py-20 text-white customMd:flex 2xl:py-32 ">
 				<div className="max-w-[45%] basis-1/2">
-					<h1 className="text-2xl font-semibold xl:text-4xl 2xl:text-5xl">
+					<h1 className="text-2xl lg:text-3xl font-semibold xl:text-[52px]">
 						About Us
 					</h1>
-					<p className="mt-5 text-justify text-base xl:text-lg">
+					<p className="mt-5 text-justify xl:text-[20px] max-w-[75%]">
 						Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi mahasiswa
 						Ilmu Komputer Universitas Gadjah Mada yang terbentuk sejak tahun
 						1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa Ilmu Komputer
@@ -34,7 +34,7 @@ export default function About() {
 					</p>
 				</div>
 				<Image
-					src={'/images/logo/himakom.svg'}
+					src={'/main/images/logo/himakom.svg'}
 					alt="Himakom UGM"
 					width={280}
 					height={50}
@@ -44,7 +44,7 @@ export default function About() {
 			<div className="flex customMd:hidden flex-col items-center gap-y-2 py-16 pt-20 text-white">
 				<h1 className="text-3xl xl:text-4xl mb-1 font-semibold">About Us</h1>
 				<Image
-					src={'/images/logo/himakom.svg'}
+					src={'/main/images/logo/himakom.svg'}
 					alt="Himakom UGM"
 					width={280}
 					height={50}

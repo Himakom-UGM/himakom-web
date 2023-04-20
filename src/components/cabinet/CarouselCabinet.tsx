@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Lato } from 'next/font/google';
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Mousewheel, Navigation } from 'swiper';
@@ -8,8 +8,12 @@ import { Autoplay, Mousewheel, Navigation } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useEffect } from 'react';
 
+export default function CarouselCabinet({ props }: any) {
+	const [rendered, setRendered] = useState(false);
+	useEffect(() => {
+		setRendered(true);
+	}, []);
 
 export default function CarouselCabinet({props}:any) {
   return(
@@ -58,12 +62,11 @@ export default function CarouselCabinet({props}:any) {
 									</h1>
 									<h2>2021</h2>
 								</div>
-							</div>
-						</div>
-					</div>
-				</SwiperSlide>
-			);
-		})}
-	</Swiper>
-  )
+							</SwiperSlide>
+						);
+					})}
+				</Swiper>
+			)}
+		</>
+	);
 }

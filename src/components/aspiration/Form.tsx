@@ -1,39 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 
-export default function Form() {
-	const [fromName, setFromName] = useState<string>('');
-	const [anonymous, setAnonymous] = useState<boolean>(false);
-	const fromNameRef = useRef<HTMLInputElement>(null);
-	const toNameRef = useRef<HTMLInputElement>(null);
-	const msgRef = useRef<HTMLTextAreaElement>(null);
-
-	function anonymousHandler() {
-		setAnonymous((prev) => {
-			// if anonymous is checked, then focus on msg input else focus on fromName input
-			if (prev) {
-				fromNameRef.current?.focus();
-				setFromName('');
-			}
-			if (!prev) {
-				msgRef.current?.focus();
-				setFromName('anonymous');
-			}
-			return !prev;
-		});
-	}
-
-	
-	function fromNameHandler(e: React.ChangeEvent<HTMLInputElement>) {
-		setFromName(e.target.value);
-		setAnonymous(false);
-	}
-
-	useEffect(() => {
-		toNameRef.current?.focus();
-	}, []);
-
+export default function Form({
+	register,
+	errors,
+}: {
+	register: any;
+	errors: any;
+}) {
 	return (
-		<div className='flex flex-col gap-y-2'>
+		<div className="flex flex-col gap-y-2">
 			<div className="flex flex-col">
 				<label htmlFor="to">To:</label>
 				<input
@@ -41,35 +16,41 @@ export default function Form() {
 					name="to"
 					id="to"
 					placeholder="Enter Name..."
-					ref={toNameRef}
+					{...register('to', { required: 'This is required' })}
+					className="mt-1 rounded-lg bg-formColor-100 px-[14px] py-[6px] text-base outline-none"
+				/>
+				{errors.to && (
+					<p className="mt-2 text-xs italic text-red-500">
+						{errors.to.message}
+					</p>
+				)}
+			</div>
+			<div className="flex flex-col">
+				<label htmlFor="to">From (can be anonymous):</label>
+				<input
+					type="text"
+					name="from"
+					{...register('from')}
+					id="from"
+					placeholder="Enter Name..."
 					className="mt-1 rounded-lg bg-formColor-100 px-[14px] py-[6px] text-base outline-none"
 				/>
 			</div>
 			<div className="flex flex-col">
-				<div className="flex">
-					<label htmlFor="from">From:</label>
-					<div className="flex gap-x-1">
-						<input
-							type="checkbox"
-							onChange={anonymousHandler}
-							name="anonymous"
-							checked={anonymous}
-							id="anonymous"
-							className="ml-2 outline-none"
-						/>
-						<label htmlFor="anonymous">Anonymous</label>
-					</div>
-				</div>
+				<label htmlFor="to">Subject:</label>
 				<input
 					type="text"
-					name="from"
-					id="from"
-					value={fromName}
-					onChange={fromNameHandler}
-					ref={fromNameRef}
+					name="subject"
+					{...register('subject', { required: 'This is required' })}
+					id="subject"
 					placeholder="Enter Name..."
 					className="mt-1 rounded-lg bg-formColor-100 px-[14px] py-[6px] text-base outline-none"
 				/>
+				{errors.subject && (
+					<p className="mt-2 text-xs italic text-red-500">
+						{errors.subject.message}
+					</p>
+				)}
 			</div>
 			<div className="flex flex-col">
 				<label htmlFor="message">Message:</label>
@@ -77,11 +58,16 @@ export default function Form() {
 					<textarea
 						name="message"
 						id="message"
-						ref={msgRef}
+						{...register('message', { required: 'This is required' })}
 						placeholder="Enter Message..."
 						className="min-h-[216px] w-full bg-formColor-100 outline-none"
 					/>
 				</div>
+				{errors.message && (
+					<p className="mt-2 text-xs italic text-red-500">
+						{errors.message.message}
+					</p>
+				)}
 			</div>
 		</div>
 	);

@@ -12,18 +12,22 @@ module.exports = {
 				'about-mobile':
 					'linear-gradient(to bottom, rgba(50, 50, 123, 1) 0%, rgba(50, 50, 123, .9) 42%, rgba(50, 50, 123, .7) 82%, rgba(50, 50, 123, 0.5) 100%)',
 				'content-overlay':
-					'linear-gradient(to bottom, rgba(218, 218, 218, 0.2) 0%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0.1) 0%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
 				'content-overlay-mobile':
 					'linear-gradient(to bottom, rgba(218, 218, 218, 0.1) 0%, rgba(63, 63, 156, 1) 87%, rgba(63, 63, 156, 1) 100%)',
 				content:
-					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 0%,rgba(218, 218, 218, 0) 40%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 0%,rgba(218, 218, 218, 0) 30%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
 				'content-overlaySecondary':
-					'linear-gradient(to bottom, rgba(218, 218, 218, 0.2) 0%, rgba(33, 33, 82, 1) 67%, rgba(33, 33, 82, 1) 100%)',
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0.2) 0%, rgba(33, 33, 82, 1) 50%, rgba(33, 33, 82, 1) 100%)',
 				'content-secondary':
-					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 40%, rgba(33, 33, 82, 1) 67%, rgba(33, 33, 82, 1) 100%)',
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 20%, rgba(33, 33, 82, 0.99) 30%, rgba(33, 33, 82, 1) 100%)',
 			},
 			colors: {
 				blurBackground: 'rgba(255, 255, 255, 0.46)',
+				blurBackgroundSoft: 'rgba(255, 255, 255, 0.2)',
+				blur: 'rgba(255, 255, 255, 0.6)',
+				'blur-100': 'rgba(255, 255, 255, 0.85)',
+
 				primary: {
 					100: '#3F3F9C',
 					200: '#303078',
@@ -58,6 +62,7 @@ module.exports = {
 			},
 			screens: {
 				customMd: '960px',
+				customSm: '320px',
 			},
 			animation: {
 				'slide-down': 'slideDown 0.5s ease-in-out',
