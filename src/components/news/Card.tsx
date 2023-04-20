@@ -15,8 +15,8 @@ export default function Card(props: {
 }) {
 	const router = useRouter();
 	return (
-		<div
-			onClick={redirectHandler}
+		<Link
+			href={'/news/' + props.slug}
 			className="relative mx-auto max-w-[80vw] customMd:max-w-none flex w-full min-w-[24rem] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
 		>
 			<Image
