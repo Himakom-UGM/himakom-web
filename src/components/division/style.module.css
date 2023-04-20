@@ -1,0 +1,11 @@
+.scroll::-webkit-scrollbar-thumb {
+	background-color: #F3DB00;
+}
+
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 1000px 200px 10px #32327b;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 8px;
+}

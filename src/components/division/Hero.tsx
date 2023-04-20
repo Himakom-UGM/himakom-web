@@ -1,54 +1,33 @@
-import React from 'react';
 import Image from 'next/image';
-
-import segitiga from '../../../public/assets/division/segitiga.png';
-import buletan from '../../../public/assets/division/buletan.png';
 
 const Hero = () => {
 	return (
-		<div className="  relative h-screen w-screen overflow-hidden bg-white bg-cover bg-center">
-			<Image
-				src={segitiga}
-				className="absolute -bottom-[50vh] -left-[300px] z-0  h-auto w-[825px]"
-				alt=""
-			/>
-			<Image
-				src={buletan}
-				alt=""
-				className="absolute -top-[300px]  -right-[300px] z-0 h-auto w-[825px]"
-			></Image>
-			<div className="bg-gray flex min-h-screen flex-col items-center justify-center py-2 ">
-				<main className="flex w-full flex-1 items-center justify-center px-20 text-center">
-					<div className="relative z-0 mt-10 flex w-auto flex-col rounded-2xl bg-white shadow-2xl md:flex-row ">
-						<div className=" mx-auto  flex w-5/6 flex-col items-center ">
-							<Image
-								src={'/main/Logos_kewirus.png'}
-								width={300}
-								height={400}
-								alt="hmm"
-								className="mt-20 h-[165px] w-[165px] "
-							></Image>
-							<p className="text-4xl">Kewirausahaan</p>
-							<p className="ml-5 px-5 py-8 text-justify text-xl">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-								incidunt cumque, delectus nostrum nulla aliquid nobis ad itaque
-								suscipit illum harum totam veritatis dolorum ex repellat
-								voluptas magnam et dolorem ipsa vitae quo fuga eveniet
-								perspiciatis! Voluptatum culpa facere non dicta, tempore et
-								recusandae, amet excepturi autem rerum minus distinctio?{' '}
-							</p>
-						</div>
-						<div className=" relative mx-10 my-5 w-5/6 self-center">
-							<Image
-								src={'/main/Hero.png'}
-								height={900}
-								width={900}
-								alt="gambar"
-								className="w-[1920px] py-10"
-							></Image>
-						</div>
-					</div>
-				</main>
+		<div className="pt-36 pb-24">
+			<div className="relative flex flex-col items-center gap-y-6 rounded-xl border bg-[#f8f8f8] py-16 px-12 shadow-2xl md:w-[92%] mx-auto customMd:max-w-[90%] xl:max-w-[1440px] customMd:flex-row">
+				<div className="relative flex basis-[40%] flex-col items-center gap-y-4">
+					<Image
+						src="/main/logo_kwrs.png"
+						alt="kewirush"
+						width={1920}
+						height={1080}
+						className="w-44 xl:w-56 rounded-xl"
+					/>
+					<h1 className="text-4xl xl:text-5xl font-semibold">Kewirausahaan</h1>
+					<p className="xl:px-12 max-w-xl customMd:max-w-none text-justify text-lg lg:text-2xl">
+						Kewirausahaan merupakan sebuah divisi dalam HIMAKOM yang membina
+						mahasiswa dalam upaya menanamkan jiwa kewirausahaan dan manajemen
+						finansial, serta mengembangkan kreativitas mahasiswa.
+					</p>
+				</div>
+				<div className="flex basis-3/5 place-content-center">
+					<Image
+						src="/main/images/bg/content_imgdetailpost.png"
+						alt="kewirush"
+						width={1920}
+						height={1080}
+						className="w-[80%] rounded-xl"
+					/>
+				</div>
 			</div>
 		</div>
 	);

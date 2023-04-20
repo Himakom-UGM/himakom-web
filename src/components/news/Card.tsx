@@ -18,7 +18,7 @@ export default function Card(props: {
 	return (
 		<div
 			onClick={redirectHandler}
-			className="relative mx-auto max-w-[80vw] customMd:max-w-none flex w-full min-w-[24rem] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
+			className="relative mx-auto flex w-full min-w-[24rem] max-w-[80vw] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl customMd:max-w-none"
 		>
 			<Image
 				src={props.image + '?fm=webp&q=5'}
@@ -26,7 +26,7 @@ export default function Card(props: {
 				fill
 				className={`${
 					props.primary ? '' : ''
-				} absolute aspect-square xl:w-[639px] object-cover customMd:scale-100`}
+				} absolute aspect-square object-cover customMd:scale-100 xl:w-[639px]`}
 			/>
 
 			<div
@@ -41,18 +41,18 @@ export default function Card(props: {
 						props.primary ? 'gap-y-1 customMd:pt-64' : 'gap-y-1 customMd:pt-20'
 					} pt-32 font-lato text-[#F8F8F8]`}
 				>
-					<h1 className="text-2xl font-semibold lg:text-3xl xl:text-5xl ">
+					<h1 className="text-2xl font-semibold xl:text-3xl 2xl:text-5xl ">
 						{props.title}
 					</h1>
-					<p className="my-1 xl:my-4 text-lg customMd:max-w-[90%] xl:text-[20px]">
+					<p className="my-1 xl:text-lg customMd:max-w-[90%] xl:my-4 xl:text-[20px]">
 						{props.description}
 					</p>
-					<div className="flex flex-col items-center gap-y-3 gap-x-5 pt-2 pb-6 lg:flex-row">
-						<div className="rounded-2xl border border-white px-4 py-1 lg:px-5 lg:py-2 text-lg text-white">
+					<div className="flex flex-col items-center gap-y-3 gap-x-5 pt-2 pb-6 lg:pb-8 lg:flex-row">
+						<div className="rounded-2xl border border-white px-4 py-1 xl:text-lg text-white xl:px-5 xl:py-2">
 							{props.topic}
 						</div>
 						{props.createdDate && props.author && (
-							<section className='text-lg flex flex-col gap-y-1'>
+							<section className="flex flex-col gap-y-1 xl:text-lg">
 								<div className="text-white">
 									Posted on {props.createdDate} by {props.author}
 								</div>
