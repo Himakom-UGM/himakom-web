@@ -34,6 +34,7 @@ const News = (props: { data: any }) => {
 						author={props.data[0].author}
 						key={10}
 						image={'https:' + props.data[0].image}
+						slug={props.data[0].slug}
 					/>
 					<div className="flex basis-1/2 flex-col gap-y-4">
 						<Card
@@ -46,6 +47,7 @@ const News = (props: { data: any }) => {
 							author={props.data[1].author}
 							key={12}
 							image={'https:' + props.data[1].image}
+							slug={props.data[1].slug}
 						/>
 						<Card
 							title={props.data[2].title}
@@ -57,6 +59,7 @@ const News = (props: { data: any }) => {
 							author={props.data[2].author}
 							key={13}
 							image={'https:' + props.data[2].image}
+							slug={props.data[2].slug}
 						/>
 					</div>
 				</div>
