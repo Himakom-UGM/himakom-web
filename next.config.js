@@ -24,21 +24,20 @@ const nextConfig = {
 		],
 	},
 	trailingSlash: true,
-	 
-	images : {
-		unoptimized : false
+
+	images: {
+		unoptimized: false,
 	},
 	async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/main',
-                basePath: false,
-                permanent: false
-            }
-        ]
-    }
-
+		return [
+			{
+				source: '/',
+				destination: '/main',
+				basePath: false,
+				permanent: false,
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;
