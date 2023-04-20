@@ -44,7 +44,7 @@ export default function Decorative() {
 					</h1>
 					<Link
 						href="/aspiration"
-						className="rounded-lg bg-[#212152] px-[15px] py-[6px] text-white shadow-lg lg:text-lg"
+						className="rounded-lg z-20 bg-[#212152] px-[15px] py-[6px] text-white shadow-lg lg:text-lg"
 					>
 						Click here!
 					</Link>
