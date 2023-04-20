@@ -2,20 +2,85 @@ import blogpoststyle from '../../styles/Blogpost.module.scss';
 import SearchButton from './Searchbutton';
 import react, { useState, useEffect } from 'react';
 
-import { BLOCKS, INLINES, MARKS, documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 
 export default function Example(props) {
+	// ADD CODE STARTS
+
+	const renderOptions = {
+		renderNode: {
+		  [INLINES.EMBEDDED_ENTRY]: (node, children) => {
+			// target the contentType of the EMBEDDED_ENTRY to display as you need
+			if (node.data.target.sys.contentType.sys.id === "blogPost") {
+			  return (
+				<a href={`/blog/${node.data.target.fields.slug}`}>            {node.data.target.fields.title}
+				</a>
+			  );
+			}
+		  },
+		  [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+			// target the contentType of the EMBEDDED_ENTRY to display as you need
+			if (node.data.target.sys.contentType.sys.id === "codeBlock") {
+			  return (
+				<pre>
+				  <code>{node.data.target.fields.code}</code>
+				</pre>
+			  );
+			}
+	  
+			if (node.data.target.sys.contentType.sys.id === "videoEmbed") {
+			  return (
+				<iframe
+				  src={node.data.target.fields.embedUrl}
+				  height="100%"
+				  width="100%"
+				  frameBorder="0"
+				  scrolling="no"
+				  title={node.data.target.fields.title}
+				  allowFullScreen={true}
+				/>
+			  );
+			}
+		  },
+	  
+		  [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+			if(node.data.target.fields.details.content.nodeType === 'embedded-asset-block'){
+				return (
+					<img
+					  src={`https://${node.target.fields.details.content}`}
+					  height={node.data.target.fields.file.details.image.height}
+					  width={node.data.target.fields.file.details.image.width}
+					  alt={node.data.target.fields.description}
+					/>
+				  );
+			}
+		  },
+		  [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+			// render the EMBEDDED_ASSET as you need
+			return (
+			  <img
+				src={`https://${node.data.target.fields.file.url}`}
+				height={node.data.target.fields.file.details.image.height}
+				width={node.data.target.fields.file.details.image.width}
+				alt={node.data.target.fields.description}
+			  />
+			);
+		  },
+		},
+	};
+
+
+
+	// ADD CODE ENDS
 	const date = props.date
 	const formattedDate = new Date(date).toLocaleDateString('en-GB', {
 		day: '2-digit',
 		month: '2-digit',
 		year: '2-digit'
 	  }).replace(/\//g, '/');
-
-	  const options = {
-		renderText: text => text.split('\n').flatMap((text, i) => [i > 0 && <br />, text]),
-	  };
 	  
 	  const allevents = props.allevents;
 	  const filteredEvents = allevents.filter((event) => event.fields.title.toLowerCase() !== props.title.toLowerCase())
@@ -94,7 +159,7 @@ export default function Example(props) {
 						className={blogpoststyle.contentwrapper_rightcol_tablecontents}>
 							<h2>Table of Contents</h2>
 							<div className={blogpoststyle.contentwrapper_rightcol_tablecontents_content}>
-								{documentToReactComponents(props.body, options)}
+								{documentToReactComponents(props.body, renderOptions)}
 							</div>
 						</div>
 					<div
