@@ -16,7 +16,7 @@ export default function AspirationCard({
 				<p>From: {from}</p>
 				<p>To: {to}</p>
 			</div>
-			<div className=" invisible relative z-0 mt-8 overflow-hidden text-ellipsis opacity-0 transition-opacity  duration-500 group-hover:visible group-hover:opacity-100 ">
+			<div className=" invisible relative z-0 mt-8 text-ellipsis opacity-0 transition-opacity  duration-500 group-hover:visible group-hover:opacity-100 overflow-auto ">
 				{message}
 			</div>
 		</div>

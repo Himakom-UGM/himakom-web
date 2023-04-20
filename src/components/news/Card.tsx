@@ -17,10 +17,10 @@ export default function Card(props: {
 	return (
 		<div
 			onClick={redirectHandler}
-			className="relative flex w-full max-w-[450px] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
+			className="relative mx-auto flex w-full max-w-[450px] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
 		>
 			<Image
-				src={props.image}
+				src={props.image + '?fm=webp&q=5'}
 				alt="image"
 				fill
 				className={`${
@@ -32,7 +32,7 @@ export default function Card(props: {
 				className={`${
 					props.primary
 						? 'bg-content-overlay-mobile hover:bg-content customMd:h-full customMd:bg-content-overlay'
-						: '-mt-2 bg-content-overlaySecondary hover:bg-content-secondary customMd:mt-0'
+						: '-mt-2 h-full bg-content-overlaySecondary hover:bg-content-secondary customMd:mt-0'
 				} relative flex flex-col rounded-xl px-8 transition-all duration-700`}
 			>
 				<div

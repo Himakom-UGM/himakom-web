@@ -1,14 +1,12 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import { Open_Sans } from 'next/font/google';
-import Example from '@/components/homepage/Example';
 import News from '@/components/news/News';
 import Banner from '@/components/homepage/Banner';
 import About from '@/components/homepage/About';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
-import { EntryCollection } from 'contentful';
 import { useEffect, useState } from 'react';
-import { NewsType } from '@/utils/contentful/contentfulTypes';
+import { getNewsPreview } from '@/utilites/getNews';
+import Decorative from '@/components/homepage/decoration/Decorative';
+import Image from 'next/image';
 
 export default function Home() {
 	const [data, setData] = useState<any>();
@@ -20,39 +18,7 @@ export default function Home() {
 			});
 
 			const extractedData = response.items.map((item) => {
-				const createdDate = new Date(item.sys.createdAt).toLocaleDateString(
-					'id-ID',
-					{
-						year: 'numeric',
-						month: 'numeric',
-						day: 'numeric',
-					}
-				);
-				const updatedDate = new Date(item.sys.updatedAt).toLocaleDateString(
-					'id-ID',
-					{
-						year: 'numeric',
-						month: 'numeric',
-						day: 'numeric',
-					}
-				);
-				const title = item.fields.title;
-				const image = item.fields.image[0].fields.file.url;
-				const detail = item?.fields.detailnews;
-				const author = item?.fields.author;
-				const headerText = item?.fields.headerText;
-				const topic = item?.fields?.topic;
-				console.log(item.fields);
-				return {
-					title,
-					headerText,
-					createdDate,
-					updatedDate,
-					image,
-					detail,
-					author,
-					topic,
-				};
+				return getNewsPreview(item);
 			});
 
 			setData(extractedData);
@@ -71,12 +37,20 @@ export default function Home() {
 					content="Himakom adalah organisasi himpunan mahasiswa Ilmu Komputer Universitas Gadjah Mada."
 				/>
 				<meta name="keywords" content="Himakom UGM, Ilmu Komputer, Omah TI" />
-				<link rel="icon" href="himakom.ico" />
 			</Head>
-			<main>
+			<main className="">
 				<Banner />
 				<About />
 				{data && <News data={data} />}
+				<section className="relative w-full">
+					<Image
+						alt="background"
+						fill
+						src="/main/images/bg/536.png"
+						className="object-cover"
+					/>
+					<Decorative />
+				</section>
 			</main>
 		</>
 	);

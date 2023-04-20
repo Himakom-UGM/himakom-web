@@ -60,9 +60,9 @@ export default function MobileMenu() {
 						<AnimatePresence>
 							{relatedArrow === 'up' && <RelatedMenu />}
 						</AnimatePresence>
-						{/* <li>
+						<li>
 							<Link href="/aspiration">Aspiration</Link>
-						</li> */}
+						</li>
 						<li>
 							<Link href="/contact">Contact Us</Link>
 						</li>

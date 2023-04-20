@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import SuccessModal from './SuccessModal';
 import { useRouter } from 'next/router';
 import ErrorModal from './ErrorModal';
+import { db, writeAspiration } from '@/utils/firebase';
 
 export default function Layout() {
 	// const [numberUpload, setNumberUpload] = useState(0);
@@ -22,19 +23,27 @@ export default function Layout() {
 		reset
 	} = useForm();
 
-	async function uploadToApi(formData: FormData) {
-		const data = await fetch('/api/uploadaspiration', {
-			method: 'POST',
-			body: formData,
-		});
-		return data;
-	}
 
 	function submitHandler(e: any) {
-		console.log(e);
+		writeAspiration(db, {
+			...e,
+		}).then(() => {
+			setShowSuccessModal(true);
+			setTimeout(() => {
+				router.reload()
+			}, 2000);
+			reset();
+		}
+		).catch(() => {
+			setShowErrorModal(true);
+			setTimeout(() => {
+				router.reload()
+			}, 2000);
+
+		}
+		);
 	}
 
-	// console.log(uploadActive);
 
 	// const fileClickHandler = () => {
 	// 	setUploadActive(true);

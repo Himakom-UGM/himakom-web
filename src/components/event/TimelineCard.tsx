@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 type CardProps = {
 	division: string;
@@ -17,7 +18,7 @@ export default function TimelineCard({
 }: CardProps) {
 
 	return (
-		<div className="overflow-hidden rounded-xl bg-white pb-4">
+		<div className="overflow-hidden cursor-pointer rounded-xl bg-white pb-4">
 			<Image
 				src={image}
 				alt={title}
@@ -35,7 +36,7 @@ export default function TimelineCard({
 				</div>
 			</div>
 			<div className="mt-1 px-5 h-28">{description}</div>
-			<button className="mt-3 px-5"><a href=''>Read More...</a></button>
+			<button className="mt-3 px-5"><Link href=''>Read More...</Link></button>
 		</div>
 	);
 }
