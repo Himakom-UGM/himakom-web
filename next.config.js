@@ -24,7 +24,6 @@ const nextConfig = {
 		],
 	},
 	trailingSlash: true,
-
 	images: {
 		unoptimized: false,
 	},

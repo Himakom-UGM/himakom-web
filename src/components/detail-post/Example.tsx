@@ -3,6 +3,7 @@ import SearchButton from './Searchbutton';
 import react, { useState, useEffect } from 'react';
 
 import { BLOCKS, INLINES, MARKS, documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Image from 'next/image';
 
 
 export default function Example(props: any) {
@@ -65,7 +66,7 @@ export default function Example(props: any) {
 		<>
 			<div className={blogpoststyle.bannerwrapper}>
 				<div className={blogpoststyle.bannerwrapper_background}>
-				<img src={props.img} alt="" />
+				<Image src={props.img} alt="" />
 				</div>
 				<div className={blogpoststyle.bannerwrapper_button}>
 					<a href="">{props.divisi}</a>
