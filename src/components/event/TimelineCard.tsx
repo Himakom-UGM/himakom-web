@@ -17,7 +17,7 @@ export default function TimelineCard({
 	image,
 }: CardProps) {
 	return (
-		<div className="relative cursor-pointer overflow-hidden rounded-xl bg-white pb-12">
+		<div className="relative overflow-hidden rounded-xl bg-white pb-12">
 			<Image
 				src={image + '?q=8&fm=webp'}
 				alt={title}
@@ -37,7 +37,7 @@ export default function TimelineCard({
 			<div className="mt-2 h-fit px-5 text-lg lg:mt-8 xl:h-40">
 				{description}
 			</div>
-			<button className="absolute bottom-2 px-5 text-xl hover:font-semibold">
+			<button className="absolute cursor-pointer bottom-2 px-5 text-xl hover:font-semibold">
 				<Link href={'/event/' + transformTitleToParam(title)}>
 					Read More...
 				</Link>
