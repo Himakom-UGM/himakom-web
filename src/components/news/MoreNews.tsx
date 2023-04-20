@@ -44,6 +44,7 @@ export default function MoreNews() {
 							author={item.author}
 							key={10}
 							image={'https:' + item.image}
+							slug={item.slug}
 						/>
 					);
 				})}
