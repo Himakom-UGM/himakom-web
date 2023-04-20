@@ -22,11 +22,10 @@ const nextConfig = {
 				pathname: '/**',
 			},
 		],
-	},
-	trailingSlash: true,
-	images: {
 		unoptimized: false,
 	},
+	trailingSlash: true,
+
 	async redirects() {
 		return [
 			{
