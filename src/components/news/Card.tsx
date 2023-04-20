@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function Card(props: {
@@ -10,14 +11,12 @@ export default function Card(props: {
 	updateDate?: string;
 	author?: string;
 	primary: boolean;
+	slug: string;
 }) {
 	const router = useRouter();
-	const redirectHandler = () => {
-		router.push('/detailnews');
-	};
 	return (
-		<div
-			onClick={redirectHandler}
+		<Link
+			href={'/news/' + props.slug}
 			className="relative mx-auto max-w-[80vw] customMd:max-w-none flex w-full min-w-[24rem] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
 		>
 			<Image
@@ -64,6 +63,6 @@ export default function Card(props: {
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }

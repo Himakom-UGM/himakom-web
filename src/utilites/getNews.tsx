@@ -16,7 +16,10 @@ export const getNewsPreview = (item: any) => {
 	const headerText = item?.fields.headerText;
 	const topic = item?.fields?.topic;
     const id = item?.sys?.id;
+	const slug = item?.fields?.slug;
+
 	return {
+		slug,
 		title,
 		headerText,
 		createdDate,
