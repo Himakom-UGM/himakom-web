@@ -1,10 +1,12 @@
 import Router, { useRouter } from 'next/router';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useTexture, OrbitControls } from '@react-three/drei';
-
+import { PHPI } from '.';
 
 export default function CubeDivision(props: any) {
+	const [hover, setHover] = useState(false);
+
 	const divisionData = [
 		{
 			texture: '/cabinet/textures/Hublu.png',
@@ -36,10 +38,11 @@ export default function CubeDivision(props: any) {
 		Router.push(divisionData[e.face?.materialIndex].url);
 	};
 
+
 	const mesh = useRef();
 	useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.001));
 	return (
-		<mesh {...props} ref={mesh} onClick={(e) => console.log(e.face)}>
+		<mesh {...props} ref={mesh} onClick={(e) => handleClick(e)}>
 			<boxGeometry args={[3, 3, 3]} />
 			{divisionData.map((d, i) => <meshStandardMaterial
 				{...useTexture({

@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Mousewheel, Navigation } from 'swiper';
 
 // Import Swiper styles
-import 'swiper/css';
+import '/swiper.css';
 import 'swiper/css/navigation';
 import { useEffect } from 'react';
 
@@ -17,12 +17,14 @@ export default function CarouselCabinet({props}:any) {
       loop
       loopedSlides={1}
       slidesPerView= 'auto'
-      modules= {[Mousewheel, Navigation, Autoplay]}
+      modules= {[Autoplay]}
       autoplay = {{
 		reverseDirection: true,
         delay: 2000,
 		disableOnInteraction: true
       }}
+	  mousewheel = {false}
+
     >
 		{props?.map((items:any) => {
 			return (
