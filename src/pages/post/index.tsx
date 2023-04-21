@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Blogpost from '../../components/detail-post/Example';
+// import Blogpost from '../../components/detail-post/Example';
 
 export default function Post() {
 	const contentful = require('contentful');
@@ -21,7 +21,7 @@ export default function Post() {
 			</Head>
 			<main>
 				Post
-				<Blogpost />
+				{/* <Blogpost /> */}
 			</main>
 		</>
 	);

@@ -2,7 +2,7 @@ import React from 'react';
 import { createClient } from 'contentful';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 
-import DetailedPost from '@/components/detail-post/Example';
+// import DetailedPost from '@/components/detail-post/Example';
 
 export async function getStaticPaths() {
 	const client = contentfulClientCS;
@@ -43,11 +43,11 @@ export async function getStaticProps({ params }: any) {
 const event = ({ event }: any) => {
 	return (
 		<div>
-			<DetailedPost
+			{/* <DetailedPost
 				divisi={event.fields.divisi}
 				title={event.fields.title}
 				date={event.sys.createdAt}
-			/>
+			/> */}
 		</div>
 	);
 };
