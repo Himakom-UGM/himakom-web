@@ -25,7 +25,7 @@ export default function CabinetStructure() {
 				alt=""
 				quality={100}
 				fill
-				className="absolute bottom-0 left-0 -z-[9999] object-cover"
+				className="absolute bottom-0 left-0 -z-[9999] hidden lg:block"
 			/>
 			<h1 className="my-8 rounded-3xl bg-[#F8F8F8] py-3 px-[45px] text-2xl font-semibold shadow-[0px_4px_16px_rgba(33,33,82,0.25)] lg:my-14 lg:bg-transparent lg:text-5xl lg:font-bold lg:shadow-none ">
 				Cabinet Structure
@@ -36,7 +36,7 @@ export default function CabinetStructure() {
 				quality={100}
 				width="240"
 				height="280"
-				className="pb-11 lg:hidden"
+				className="pb-11 md:hidden"
 			/>
 			<div className="z-0 flex w-[80%] max-w-7xl justify-center rounded-3xl border-2 bg-[#F8F8F8] py-4 text-[#3F3F9C] shadow-[0px_4px_16px_rgba(33,33,82,0.25)] lg:justify-center">
 				<div className="relative md:basis-2/3 flex justify-center items-center">
@@ -46,7 +46,7 @@ export default function CabinetStructure() {
 						quality={100}
 						width={240}
 						height={280}
-						className="mx-auto hidden md:w-[60%] lg:block"
+						className="mx-auto hidden md:w-[60%] md:block"
 					/>
 				</div>
 				<div className="mx-auto w-full justify-start flex md:basis-1/3 flex-col items-center md:justify-center border-[#3F3F9C] lg:my-10 lg:border-l-2 xl:border-l-4">

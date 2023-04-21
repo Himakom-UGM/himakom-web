@@ -57,7 +57,8 @@ export default function CabinetPage() {
 							alt=""
 							quality={100}
 							fill
-							className="object-contain object-bottom lg:hidden"
+							objectFit='cover'
+							className="object-bottom lg:hidden"
 						/>
 						<Image
 							src={'/main/cabinet/coreBackground2.png'}

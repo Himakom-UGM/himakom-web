@@ -64,26 +64,26 @@ export const phpiData = [
 export const divisionData = [
 	{
 		texture: '/main/cabinet/textures/Hublu.png',
-		url: '/division/hublu',
+		url: '/about/hublu',
 	},
 	{
 		texture: '/main//cabinet/textures/Kewirush.png',
-		url: '/division/Kewirush',
+		url: '/about/kewirausahaan',
 	},
 	{
 		texture: '/main//cabinet/textures/KPM.png',
-		url: '/division/KPM',
+		url: '/about/kpm',
 	},
 	{
 		texture: '/main//cabinet/textures/Mikat.png',
-		url: '/division/Mikat',
+		url: '/about/mikat',
 	},
 	{
 		texture: '/main//cabinet/textures/PO.png',
-		url: '/division/PO',
+		url: '/about/po',
 	},
 	{
 		texture: '/main//cabinet/textures/PSDMA.png',
-		url: '/division/PSDMA',
+		url: '/about/psdma',
 	},
 ];
