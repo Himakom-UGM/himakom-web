@@ -4,6 +4,10 @@ import Head from 'next/head';
 import Info from '@/components/about/Info';
 import Carousel from '@/components/common/Carousel';
 import Program from '@/components/about/Program';
+import {
+	contentfulClient,
+	contentfulClientCS,
+} from '@/utils/contentful/contentfulClient';
 
 export type PropsDivision = {
 	info: {
@@ -131,10 +135,14 @@ export default function Division(props: PropsDivision) {
 
 // get static paths
 export async function getStaticPaths() {
-	const divisions = await getDivisions();
-	const paths = divisions.map((division) => ({
-		params: { division: division.slug },
+	const divisions = await contentfulClient.getEntries({
+		content_type: 'divisi',
+	});
+
+	const paths = divisions.items.map((division: any) => ({
+		params: { division: division.fields.slug },
 	}));
+
 	return {
 		paths,
 		fallback: false,
@@ -143,14 +151,28 @@ export async function getStaticPaths() {
 
 // get static props
 export async function getStaticProps(context: any) {
-	const divisions = await getDivisions();
-	const division = divisions.find(
-		(division: any) => division.slug === context.params.division
+	const divisions = await contentfulClient.getEntries({
+		content_type: 'divisi',
+	});
+
+	const rawData: any = divisions.items.find(
+		(division: any) => division.fields.slug === context.params.division
 	);
 
+	const data = {
+		createdAt: rawData.sys.createdAt,
+		updatedAt: rawData.sys.updatedAt,
+		title: rawData.fields.title,
+		description: rawData.fields.description,
+		image: rawData.fields.image?.fields.file.url,
+		logo: rawData.fields.logo?.fields.file.url,
+		members: rawData.fields.member,
+		programs: rawData.fields.program,
+	};
+
+	console.log(data);
+
 	return {
-		props: {
-			division,
-		},
+		props: {},
 	};
 }

@@ -22,7 +22,7 @@ const nextConfig = {
 				pathname: '/**',
 			},
 		],
-		unoptimized: false,
+		unoptimized: true,
 	},
 	trailingSlash: true,
 
