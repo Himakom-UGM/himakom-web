@@ -21,7 +21,11 @@ const program = [
 	},
 ];
 
-export default function Program() {
+type ProgramProps = {
+	idKey: string;
+};
+
+export default function Program({ idKey }: ProgramProps) {
 	const [selectedProgram, setSelectedProgram] = useState<string>('1');
 
 	return (

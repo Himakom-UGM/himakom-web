@@ -2,10 +2,8 @@ import Search from '@/components/news/Search';
 import Section from '@/components/news/Section';
 import TableOfContent from '@/components/news/TableOfContent';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
-import { NewsType } from '@/utils/contentful/contentfulTypes';
 import { EntryCollection } from 'contentful';
 import { motion } from 'framer-motion';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {
@@ -13,24 +11,26 @@ import {
 	ReactElement,
 	ReactFragment,
 	ReactPortal,
+	useCallback,
 	useEffect,
 	useState,
 } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function Slug() {
 	const router = useRouter();
 	const [news, setNews] = useState<EntryCollection<any>>();
 	const [loading, setLoading] = useState(true);
-	const fetchNews = async () => {
+	const fetchNews = useCallback(async () => {
 		const data = contentfulClientCS.getEntries<any>({
 			content_type: 'news',
 			'fields.slug[in]': router.query.slug,
 		});
 		return data;
-	};
+	}, [router.query.slug]);
 
 	const options = {
 		renderNode: {
@@ -133,7 +133,7 @@ export default function Slug() {
 				setLoading(false);
 			});
 		}
-	}, [router.query.slug]);
+	}, [router, router.query.slug, fetchNews]);
 
 	const formattedDate = (date: string) => {
 		const newDate = new Date(date);
@@ -149,7 +149,10 @@ export default function Slug() {
 	if (news)
 		return (
 			<div className="w-full border-2 border-black bg-[#F1F1F1]">
-				<div className="customMd:flex-rowtext-white relative mx-auto flex max-w-[1440px] flex-col gap-x-4 bg-[#F8F8F8]  px-8 pt-20 xl:text-xl">
+				<Head>
+					<title>{news.items[0].fields.title}</title>
+				</Head>
+				<div className="customMd:flex-rowtext-white relative mx-auto flex max-w-[1440px] flex-col gap-x-4 bg-[#F8F8F8] px-8  pt-20 lg:w-[80%] xl:text-xl">
 					<motion.article
 						initial={{
 							opacity: 0,
