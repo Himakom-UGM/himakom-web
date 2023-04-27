@@ -2,10 +2,8 @@ import Search from '@/components/news/Search';
 import Section from '@/components/news/Section';
 import TableOfContent from '@/components/news/TableOfContent';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
-import { NewsType } from '@/utils/contentful/contentfulTypes';
 import { EntryCollection } from 'contentful';
 import { motion } from 'framer-motion';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import {
@@ -13,23 +11,26 @@ import {
 	ReactElement,
 	ReactFragment,
 	ReactPortal,
+	useCallback,
 	useEffect,
 	useState,
 } from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import Link from 'next/link';
+import Head from 'next/head';
 
 export default function Slug() {
 	const router = useRouter();
 	const [news, setNews] = useState<EntryCollection<any>>();
-  const [loading, setLoading] = useState(true);
-	const fetchNews = async () => {
+	const [loading, setLoading] = useState(true);
+	const fetchNews = useCallback(async () => {
 		const data = contentfulClientCS.getEntries<any>({
 			content_type: 'news',
 			'fields.slug[in]': router.query.slug,
 		});
 		return data;
-	};
+	}, [router.query.slug]);
 
 	const options = {
 		renderNode: {
@@ -117,10 +118,7 @@ export default function Slug() {
 					| null
 					| undefined
 			) => <li className="">{children}</li>,
-      [BLOCKS.HR]: (node: any) => (
-        <hr className="my-4 border-gray-300" />
-      ),
-			
+			[BLOCKS.HR]: (node: any) => <hr className="my-4 border-gray-300" />,
 		},
 	};
 
@@ -132,10 +130,10 @@ export default function Slug() {
 					return;
 				}
 				setNews(data);
-        setLoading(false);
+				setLoading(false);
 			});
 		}
-	}, [router.query.slug]);
+	}, [router, router.query.slug, fetchNews]);
 
 	const formattedDate = (date: string) => {
 		const newDate = new Date(date);
@@ -146,42 +144,52 @@ export default function Slug() {
 		});
 	};
 
-  if(loading) return <div className=' relative w-screen h-screen'></div>
+	if (loading) return <div className=" relative h-screen w-screen"></div>;
 
 	if (news)
 		return (
-			<div className="relative mx-auto flex max-w-7xl flex-col gap-x-4 px-8 pt-20 customMd:flex-row">
-				<motion.article
-					initial={{
-						opacity: 0,
-						y: 50,
-					}}
-					animate={{ opacity: 1, y: 0 }}
-					className="mb-12 flex basis-3/4 flex-col"
-				>
-					<h1 className="text-3xl font-semibold customMd:max-w-[70%] 2xl:text-4xl">
-						{news.items[0].fields.title}
-					</h1>
-					<p className="text-lg">{news.items[0].fields.headerText}</p>
-					<p className=" mt-2 text-sm">
-						Posted on {formattedDate(news.items[0].sys.createdAt)} by{' '}
-						{news.items[0].fields.author}{' '}
-					</p>
-					<div className=" first-letter relative mt-3 mb-6 flex h-[400px] w-full  bg-formColor-100 text-3xl text-slate-600">
-						<Image
-							src={'https:' + news.items[0].fields.image[0].fields.file.url}
-							alt={news.items[0].fields.image[0].fields.title}
-							fill
-							className=" object-contain"
-						/>
-					</div>
-					<p>
-						{documentToReactComponents(
-							news.items[0].fields.detailnews,
-							options
-						)}
-					</p>
-				</motion.article>
+			<div className="w-full border-2 border-black bg-[#F1F1F1]">
+				<Head>
+					<title>{news.items[0].fields.title}</title>
+				</Head>
+				<div className="customMd:flex-rowtext-white relative mx-auto flex max-w-[1440px] flex-col gap-x-4 bg-[#F8F8F8] px-8  pt-20 lg:w-[80%] xl:text-xl">
+					<motion.article
+						initial={{
+							opacity: 0,
+							y: 50,
+						}}
+						animate={{ opacity: 1, y: 0 }}
+						className="mb-12 flex basis-3/4 flex-col"
+					>
+						<h1 className="text-3xl font-semibold customMd:max-w-[70%] 2xl:text-4xl">
+							{news.items[0].fields.title}
+						</h1>
+						<p className="text-lg">{news.items[0].fields.headerText}</p>
+						<p className=" mt-2 text-sm">
+							Posted on {formattedDate(news.items[0].sys.createdAt)} by{' '}
+							{news.items[0].fields.author}{' '}
+						</p>
+						<div className="first-letter relative mt-3 mb-6 flex h-[400px] w-full text-3xl text-slate-600">
+							<Link
+								target="_blank"
+								href={'https:' + news.items[0].fields.image[0].fields.file.url}
+							>
+								<Image
+									src={'https:' + news.items[0].fields.image[0].fields.file.url}
+									alt={news.items[0].fields.image[0].fields.title}
+									fill
+									className="object-contain"
+								/>
+							</Link>
+						</div>
+						<p>
+							{documentToReactComponents(
+								news.items[0].fields.detailnews,
+								options
+							)}
+						</p>
+					</motion.article>
+				</div>
 			</div>
 		);
 }

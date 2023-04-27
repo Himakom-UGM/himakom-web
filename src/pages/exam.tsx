@@ -151,7 +151,7 @@ export default function Exam(props: { posts: any }) {
 				</div>
 			</div>
 			<div className="mx-auto mt-6 w-full px-5">
-				<section className="flex w-full text-lg lg:text-xl flex-col gap-y-2">
+				<section className="flex w-full text-lg xl:text-xl flex-col gap-y-2">
 					{filteredList.map((item) => (
 						<div key={item.initial} className="z-10 my-4">
 							<h2 className="mb-4 border-b-4 pb-1 text-lg font-semibold text-white">
