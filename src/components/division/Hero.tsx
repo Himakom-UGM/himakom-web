@@ -2,14 +2,29 @@ import Image from 'next/image';
 import { client } from '@/utils/graphql';
 import { gql } from '@apollo/client';
 import { useCallback, useEffect, useState } from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 type HeroProps = {
 	idKey: string;
 };
 
+const initialData = {
+	title: '',
+	description: {
+		json: '',
+	},
+	image: {
+		url: '',
+	},
+	logo: {
+		url: '',
+	},
+};
+
 const Hero = ({ idKey }: HeroProps) => {
 	// get data with graphql
-	const [data, setData] = useState<any>();
+	const [data, setData] = useState<any>(initialData);
 	const getData = useCallback(async () => {
 		const data = await client.query({
 			query: gql`
@@ -43,10 +58,23 @@ const Hero = ({ idKey }: HeroProps) => {
 		});
 	}, [getData]);
 
+	const options = {
+		renderNode: {
+			[BLOCKS.PARAGRAPH]: (node: any, children: any) => (
+				<p className="max-w-xl text-justify customMd:max-w-none lg:text-lg xl:text-xl xl:px-12">
+					{children}
+				</p>
+			),
+			[BLOCKS.HEADING_1]: (node: any, children: any) => (
+				<h1 className="mb-4 text-xl font-bold">{children}</h1>
+			),
+		},
+	};
+
 	return (
 		<div className="pt-36 pb-24">
-			<div className="relative mx-auto flex flex-col items-center gap-y-6 rounded-xl border bg-[#f8f8f8] py-16 px-12 shadow-2xl md:w-[92%] customMd:max-w-[90%] customMd:flex-row xl:max-w-[1440px]">
-				<div className="relative flex basis-[40%] flex-col items-center gap-y-4">
+			<div className="relative mx-auto flex flex-col items-center gap-y-6 rounded-xl border bg-[#f8f8f8] py-12 xl:py-16 px-12 shadow-2xl md:w-[92%] customMd:max-w-[90%] customMd:flex-row xl:max-w-[1440px]">
+				<div className="relative flex basis-[45%] flex-col items-center gap-y-4">
 					<Image
 						src="/main/logo_kwrs.png"
 						alt="kewirush"
@@ -54,14 +82,10 @@ const Hero = ({ idKey }: HeroProps) => {
 						height={1080}
 						className="w-44 rounded-xl xl:w-56"
 					/>
-					<h1 className="text-4xl font-semibold xl:text-5xl">Keiqu</h1>
-					<p className="max-w-xl text-justify text-lg customMd:max-w-none lg:text-2xl xl:px-12">
-						Kewirausahaan merupakan sebuah divisi dalam HIMAKOM yang membina
-						mahasiswa dalam upaya menanamkan jiwa kewirausahaan dan manajemen
-						finansial, serta mengembangkan kreativitas mahasiswa.
-					</p>
+					<h1 className="text-2xl lg:text-3xl font-semibold xl:text-4xl">{data.title}</h1>
+					{documentToReactComponents(data.description.json, options)}
 				</div>
-				<div className="flex basis-3/5 place-content-center">
+				<div className="flex basis-[55%] place-content-center">
 					<Image
 						src="/main/images/bg/content_imgdetailpost.png"
 						alt="kewirush"

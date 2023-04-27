@@ -1,13 +1,8 @@
 import blogpoststyle from '../../styles/Blogpost.module.scss';
 import SearchButton from './Searchbutton';
-import react, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import {
-	BLOCKS,
-	INLINES,
-	MARKS,
-	documentToReactComponents,
-} from '@contentful/rich-text-react-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
 
 export default function Example(props: any) {
@@ -23,7 +18,7 @@ export default function Example(props: any) {
 
 	const options = {
 		renderText: (text: any) =>
-			text.split('\n').flatMap((text, i) => [i > 0 && <br />, text]),
+			text.split('\n').flatMap((text: any, i: any) => [i > 0 && <br />, text]),
 	};
 
 	const allevents = props.allevents;
@@ -33,7 +28,7 @@ export default function Example(props: any) {
 	);
 
 	const renderAccordion = () => {
-		const eventsByMonth = filteredEvents.reduce((acc, event) => {
+		const eventsByMonth = filteredEvents.reduce((acc:any, event:any) => {
 			const month = new Date(event.sys.createdAt).toLocaleString('default', {
 				month: 'long',
 			});
@@ -44,8 +39,8 @@ export default function Example(props: any) {
 			return acc;
 		}, {});
 
-		const handleAccordionToggle = (month) => {
-			setAccordionState((prevState) => ({
+		const handleAccordionToggle = (month:any) => {
+			setAccordionState((prevState:any) => ({
 				...prevState,
 				[month]: !prevState[month],
 			}));
@@ -80,10 +75,13 @@ export default function Example(props: any) {
 	return (
 		<>
 			<div className={blogpoststyle.bannerwrapper}>
-				<div
-					className={blogpoststyle.bannerwrapper_background + 'relative '}
-				>
-					<Image fill src={'https:' + props.img} alt="hellow" className='object-cover' />
+				<div className={blogpoststyle.bannerwrapper_background + 'relative '}>
+					<Image
+						fill
+						src={'https:' + props.img}
+						alt="hellow"
+						className="object-cover"
+					/>
 				</div>
 				<div className={blogpoststyle.bannerwrapper_button}>
 					<a href="">{props.divisi}</a>
@@ -140,8 +138,8 @@ export default function Example(props: any) {
 								name=""
 								placeholder="Comment"
 								id=""
-								cols="30"
-								rows="10"
+								cols={30}
+								rows={10}
 							></textarea>
 							<button type="submit">Send</button>
 						</form>
