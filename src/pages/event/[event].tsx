@@ -56,15 +56,16 @@ const Event = ({ event, allevents }: any) => {
 			setFilteredEvents(allevents);
 		}
 	}, [allevents]);
-	console.log(event);
+
+	console.log(event.fields.image?.[0]?.fields.file.url)
 	return (
 		<div>
 			<DetailedPost
 				divisi={event.fields.divisi}
 				title={event.fields.title}
 				date={event.sys.createdAt}
-				img={event.fields.image[0].fields.file.url}
-				published={event.sys.publishedBy}
+				img={event.fields.image?.[0]?.fields.file.url}
+				published={event.fields.publisher}
 				body={event.fields.details}
 				allevents={filteredEvents}
 			/>
