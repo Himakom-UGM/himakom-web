@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from 'contentful';
 
-// import DetailedPost from '../../components/detail-post/Example';
+import DetailedPost from '../../components/detail-post/Example';
 import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 
 const client = createClient({
@@ -59,7 +59,7 @@ const Event = ({ event, allevents }: any) => {
 	console.log(event);
 	return (
 		<div>
-			{/* <DetailedPost
+			<DetailedPost
 				divisi={event.fields.divisi}
 				title={event.fields.title}
 				date={event.sys.createdAt}
@@ -67,7 +67,7 @@ const Event = ({ event, allevents }: any) => {
 				published={event.sys.publishedBy}
 				body={event.fields.details}
 				allevents={filteredEvents}
-			/> */}
+			/>
 		</div>
 	);
 };

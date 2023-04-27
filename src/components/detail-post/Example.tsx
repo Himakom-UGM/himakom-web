@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
+import Head from 'next/head';
 
 export default function Example(props: any) {
 	const date = props.date;
@@ -28,7 +29,7 @@ export default function Example(props: any) {
 	);
 
 	const renderAccordion = () => {
-		const eventsByMonth = filteredEvents.reduce((acc:any, event:any) => {
+		const eventsByMonth = filteredEvents.reduce((acc: any, event: any) => {
 			const month = new Date(event.sys.createdAt).toLocaleString('default', {
 				month: 'long',
 			});
@@ -39,8 +40,8 @@ export default function Example(props: any) {
 			return acc;
 		}, {});
 
-		const handleAccordionToggle = (month:any) => {
-			setAccordionState((prevState:any) => ({
+		const handleAccordionToggle = (month: any) => {
+			setAccordionState((prevState: any) => ({
 				...prevState,
 				[month]: !prevState[month],
 			}));
@@ -74,11 +75,16 @@ export default function Example(props: any) {
 
 	return (
 		<>
+			<Head>
+				<title>Event: {props.title}</title>
+			</Head>
 			<div className={blogpoststyle.bannerwrapper}>
-				<div className={blogpoststyle.bannerwrapper_background + 'relative '}>
+				<div
+					className={blogpoststyle.bannerwrapper_background + 'relative customMd:mt-32'}
+				>
 					<Image
 						fill
-						src={'https:' + props.img}
+						src={'https:' + props.img + '?q=30&fm=webp'}
 						alt="hellow"
 						className="object-cover"
 					/>
