@@ -14,7 +14,7 @@ module.exports = {
 				'content-overlay':
 					'linear-gradient(to bottom, rgba(218, 218, 218, 0.1) 0%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
 				'content-overlay-mobile':
-					'linear-gradient(to bottom, rgba(218, 218, 218, 0.1) 0%, rgba(63, 63, 156, 1) 87%, rgba(63, 63, 156, 1) 100%)',
+					'linear-gradient(to bottom, rgba(218, 218, 218, 0.1) 0%, rgba(63, 63, 156, 1) 57%, rgba(63, 63, 156, 1) 100%)',
 				content:
 					'linear-gradient(to bottom, rgba(218, 218, 218, 0) 0%,rgba(218, 218, 218, 0) 30%, rgba(63, 63, 156, 1) 50%, rgba(63, 63, 156, 1) 100%)',
 				'content-overlaySecondary':
