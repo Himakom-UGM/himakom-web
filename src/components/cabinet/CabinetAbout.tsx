@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function CabinetAbout() {
 	return (
 		<section className="p-6 md:p-10 lg:p-14 rounded-xl mx-auto bg-white w-[90%] md:w-[80%] max-w-7xl">
-			<h1 className="md:hidden text-center text-2xl mb-6 font-bold lg:px-0 lg:pb-2 lg:text-start">
+			<h1 className="md:hidden text-center text-2xl mb-7 font-bold lg:px-0 lg:pb-2 lg:text-start">
 				Arundaya Cakrabuana
 			</h1>
 			<div className="flex flex-col gap-x-10 justify-center md:flex-row gap-y-2">
@@ -21,7 +21,7 @@ export default function CabinetAbout() {
 					<h1 className="hidden text-center text-4xl font-bold md:block lg:px-0 lg:pb-2 lg:text-start xl:text-6xl">
 						Arundaya Cakrabuana
 					</h1>
-					<h2 className="text-xl text-center md:text-start md:text-2xl font-semibold lg:block xl:text-3xl">
+					<h2 className="text-xl mt-3 text-center md:text-start md:text-2xl font-semibold lg:block xl:text-3xl">
 						Himakom Periode 2023/2024
 					</h2>
 					<section className="mt-8 xl:max-w-[85%]">

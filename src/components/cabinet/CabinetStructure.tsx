@@ -38,22 +38,22 @@ export default function CabinetStructure() {
 				height="280"
 				className="pb-11 md:hidden"
 			/>
-			<div className="z-0 flex w-[80%] max-w-7xl justify-center rounded-3xl border-2 bg-[#F8F8F8] py-4 text-[#3F3F9C] shadow-[0px_4px_16px_rgba(33,33,82,0.25)] lg:justify-center">
-				<div className="relative md:basis-2/3 flex justify-center items-center">
+			<div className="z-0 flex w-[93%] md:w-[80%] max-w-7xl justify-center rounded-3xl border-2 bg-[#F8F8F8] py-4 text-[#3F3F9C] shadow-[0px_4px_16px_rgba(33,33,82,0.25)] lg:justify-center">
+				<div className="relative flex items-center justify-center md:basis-2/3">
 					<Image
 						src={'/main/cabinet/structureCabinet.svg'}
 						alt=""
 						quality={100}
 						width={240}
 						height={280}
-						className="mx-auto hidden md:w-[60%] md:block"
+						className="mx-auto hidden md:block md:w-[60%]"
 					/>
 				</div>
-				<div className="mx-auto w-full justify-start flex md:basis-1/3 flex-col items-center md:justify-center border-[#3F3F9C] lg:my-10 lg:border-l-2 xl:border-l-4">
+				<div className="mx-auto flex w-full flex-col items-center justify-start border-[#3F3F9C] md:basis-1/3 md:justify-center lg:my-10 lg:border-l-2 xl:border-l-4">
 					<h3 className="pt-3 pb-4 text-center text-xl font-bold lg:text-2xl">
 						Keterangan
 					</h3>
-					<div className="flex flex-col md:pl-0 w-full items-start pb-2 lg:text-lg xl:pl-12 xl:text-xl">
+					<div className="flex w-full flex-col items-start pb-2 pl-2 lg:text-lg xl:pl-12 xl:text-xl">
 						<LegendStructure />
 					</div>
 				</div>
@@ -75,7 +75,7 @@ function LegendStructure() {
 							height={12}
 							className="filter"
 						/>
-						<h4 className="lg:text-md max-w-[280px] pl-3 text-start text-[12px] font-bold leading-4 xl:text-xl">
+						<h4 className="lg:text-md max-w-[280px] pl-3 text-start font-bold leading-5 xl:text-xl">
 							{items.position}
 						</h4>
 					</div>

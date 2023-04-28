@@ -21,8 +21,8 @@ export default function AboutPage() {
 					alt=""
 					className="absolute -bottom-5 -z-[9999] block opacity-50 lg:hidden "
 				/>
-				<div className=" md:w-5/6">
-					<h1 className="pt-[91px] text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-6xl">
+				<div className="md:w-5/6">
+					<h1 className="pt-[91px] text-center text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-6xl">
 						About Us
 					</h1>
 					<Image
@@ -33,7 +33,7 @@ export default function AboutPage() {
 						height="163"
 						className="mt-8 ml-auto mr-auto h-auto md:w-[188px] lg:hidden"
 					/>
-					<p className="py-4 text-justify lg:text-lg xl:text-2xl 2xl:py-10 max-w-[760px]">
+					<p className="text-justify lg:text-lg xl:text-2xl 2xl:py-10 max-w-[760px]">
 						Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi mahasiswa
 						Ilmu Komputer Universitas Gadjah Mada yang terbentuk sejak tahun
 						1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa Ilmu Komputer
@@ -233,7 +233,7 @@ export default function AboutPage() {
 					height="133"
 					className="absolute right-0 hidden h-auto scale-x-[-1] transform md:block md:w-[330px] lg:w-[475px] xl:w-[550px]"
 				/>
-				<div className="flex h-full flex-col items-center justify-center py-44">
+				<div className="flex h-full mb-10 flex-col items-center justify-center py-44">
 					<div className="w-[80%] xl:w-[70%] md:p-4 rounded-xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] customMd:w-[1250px] lg:mx-32 lg:w-auto xl:-mt-32 ">
 						<h1 className="pt-6 pb-4 text-center text-2xl font-bold lg:text-4xl xl:text-6xl">
 							Principle
