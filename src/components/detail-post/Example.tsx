@@ -80,7 +80,7 @@ export default function Example(props: any) {
 			</Head>
 			<div className={blogpoststyle.bannerwrapper}>
 				<div
-					className={blogpoststyle.bannerwrapper_background + 'relative customMd:mt-32'}
+					className={blogpoststyle.bannerwrapper_background + 'relative xl:mt-20'}
 				>
 					<Image
 						fill
@@ -139,13 +139,14 @@ export default function Example(props: any) {
 							action=""
 							className={blogpoststyle.contentwrapper_rightcol_comment_form}
 						>
-							<input type="text" placeholder="Name" />
+							<input type="text" placeholder="Name" className='outline-none'/>
 							<textarea
 								name=""
 								placeholder="Comment"
 								id=""
 								cols={30}
 								rows={10}
+								className='outline-none'
 							></textarea>
 							<button type="submit">Send</button>
 						</form>

@@ -17,7 +17,7 @@ export default function Card(props: {
 	return (
 		<Link
 			href={'/news/' + props.slug}
-			className="relative mx-auto max-w-[80vw] customMd:max-w-none flex w-full min-w-[24rem] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
+			className="relative mx-auto max-w-[80vw] customMd:max-w-none flex w-full min-w-[22rem] basis-1/2 cursor-pointer flex-col overflow-hidden rounded-xl"
 		>
 			<Image
 				src={props.image + '?fm=webp&q=5'}

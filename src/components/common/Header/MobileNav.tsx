@@ -28,7 +28,7 @@ export default function MobileMenu() {
 					initial={{ y: '-100%' }}
 					exit={{ y: '-100%' }}
 					transition={{ type: 'just' }}
-					className="z-20 shadow-lg w-full bg-[#f6f6f6] pb-6 customMd:hidden"
+					className="z-40 w-full bg-[#f6f6f6] pb-6 shadow-lg customMd:hidden"
 				>
 					<ul className="mt-4 flex flex-col gap-y-6 pl-8 text-lg font-semibold">
 						<li>
@@ -62,9 +62,6 @@ export default function MobileMenu() {
 						</AnimatePresence>
 						<li>
 							<Link href="/aspiration">Aspiration</Link>
-						</li>
-						<li>
-							<Link href="/contact">Contact Us</Link>
 						</li>
 					</ul>
 				</motion.nav>

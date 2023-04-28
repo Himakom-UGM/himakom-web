@@ -25,7 +25,7 @@ export default function TimelineCard({
 				height={720}
 				className="h-40 object-cover xl:h-48"
 			/>
-			<div className="flex h-[68px]  justify-between px-5 pt-4 pb-2">
+			<div className="flex h-[68px] justify-between px-5 pt-4 pb-2">
 				<div className="">
 					<h1 className="text-2xl font-semibold xl:text-3xl">{title}</h1>
 					<div className="text-sm">{date}</div>

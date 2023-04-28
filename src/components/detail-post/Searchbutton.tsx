@@ -21,6 +21,7 @@ export default function Example() {
             <input 
             type="text" 
             placeholder='Find Other Article'
+            className='outline-none'
             id="search-input"
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}

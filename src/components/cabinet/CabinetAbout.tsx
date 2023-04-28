@@ -2,11 +2,11 @@ import Image from 'next/image';
 
 export default function CabinetAbout() {
 	return (
-		<section className="p-14 rounded-xl mx-auto bg-white w-[90%] md:w-[80%] max-w-7xl">
+		<section className="p-6 md:p-10 lg:p-14 rounded-xl mx-auto bg-white w-[90%] md:w-[80%] max-w-7xl">
 			<h1 className="md:hidden text-center text-2xl mb-6 font-bold lg:px-0 lg:pb-2 lg:text-start">
 				Arundaya Cakrabuana
 			</h1>
-			<div className="flex flex-col justify-center md:flex-row gap-y-2">
+			<div className="flex flex-col gap-x-10 justify-center md:flex-row gap-y-2">
 				<div className="flex basis-1/3 items-center justify-center ">
 					<Image
 						src="/main/cabinet/logo-kabinet.svg"
@@ -14,7 +14,7 @@ export default function CabinetAbout() {
 						quality={100}
 						width="500"
 						height="500"
-						className="w-[13vw]"
+						className="w-[38vw] md:w-[25vw] md:min-w-[220px] lg:w-[14vw]"
 					/>
 				</div>
 				<div className="basis-2/3 text-lg">
