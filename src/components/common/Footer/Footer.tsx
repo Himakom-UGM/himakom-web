@@ -27,7 +27,7 @@ export default function Header() {
 
 				<div className={Footer.wrapper_rightcol}>
 					<div className={Footer.wrapper_rightcol_icons}>
-						<a href="">
+						<a href="mailto:Himakom.mipa@ugm.ac.id"  target="_blank">
 							<Image
 								src="/main/images/logo/Vector-mail.svg"
 								width="36"
@@ -36,7 +36,7 @@ export default function Header() {
 							/>
 						</a>
 
-						<a href="">
+						<a href="line://ti/p/@myk3387q"  target="_blank">
 							<Image
 								src="/main/images/logo/Vectorline.png"
 								width="36"
@@ -45,7 +45,7 @@ export default function Header() {
 							/>
 						</a>
 
-						<a href="">
+						<a href="https://id.linkedin.com/company/himakomugm"  target="_blank">
 							<Image
 								src="/main/images/logo/linkedin.svg"
 								width="36"
@@ -54,7 +54,7 @@ export default function Header() {
 							/>
 						</a>
 
-						<a href="">
+						<a href="https://twitter.com/himakomugm?lang=en"  target="_blank">
 							<Image
 								src="/main/images/logo/Vectortwitter.svg"
 								width="36"
@@ -63,7 +63,7 @@ export default function Header() {
 							/>
 						</a>
 
-						<a href="">
+						<a href="https://www.instagram.com/himakomugm/?hl=en"  target="_blank">
 							<Image
 								src="/main/images/logo/Vectorinstagram.png"
 								width="36"
