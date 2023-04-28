@@ -42,6 +42,8 @@
     }
 
     &_button{
+        filter: drop-shadow(2px 4px 6px black);
+        z-index: 10;
         color: white;
         margin-inline: auto;
 
@@ -77,9 +79,12 @@
     }
 
     &_title{
+        
+        z-index: 10;
         margin-inline: auto;
 
         h1{
+            filter: drop-shadow(2px 4px 6px black);
             font-family: 'Lato';
             font-style: normal;
             font-weight: 700;
@@ -108,7 +113,9 @@
     }
 
     &_postdate{
-        margin-inline: auto;
+        filter: drop-shadow(2px 4px 6px black);
+        z-index: 10;
+        margin-inline: 50px;
         font-style: normal;
         font-weight: 400;
         text-align: center;
