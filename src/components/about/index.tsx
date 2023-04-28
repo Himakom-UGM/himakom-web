@@ -4,7 +4,7 @@ import { Lato } from 'next/font/google';
 export default function AboutPage() {
 	return (
 		<>
-			<div className="relative flex h-[640px] w-full flex-col items-center bg-gradient-to-b from-[#F8F8F8] to-[#F8F8F8]/70 px-10 pb-10 md:h-[616px] md:px-20 lg:flex-row lg:justify-evenly lg:to-transparent xl:justify-between xl:py-20 xl:px-40 2xl:px-60">
+			<div className="relative flex h-auto w-full flex-col items-center bg-gradient-to-b from-[#F8F8F8] to-[#F8F8F8]/70 px-10 pb-10 md:h-[616px] md:px-20 lg:flex-row lg:justify-evenly lg:to-transparent xl:justify-between xl:py-20 xl:px-40 2xl:px-60">
 				<Image
 					quality={100}
 					src={'/main/about/backgroundAbout.png'}
@@ -22,7 +22,7 @@ export default function AboutPage() {
 					className="absolute -bottom-5 -z-[9999] block opacity-50 lg:hidden "
 				/>
 				<div className=" md:w-5/6">
-					<h1 className="pt-[91px] text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-6xl">
+					<h1 className="pt-[91px] text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-6xl text-center ">
 						About Us
 					</h1>
 					<Image
@@ -33,7 +33,7 @@ export default function AboutPage() {
 						height="163"
 						className="mt-8 ml-auto mr-auto h-auto md:w-[188px] lg:hidden"
 					/>
-					<p className="py-4 text-justify lg:text-lg xl:text-2xl 2xl:py-10 max-w-[760px]">
+					<p className="py-4 text-justify text-[15px] lg:text-lg xl:text-2xl 2xl:py-10 max-w-[760px]">
 						Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi mahasiswa
 						Ilmu Komputer Universitas Gadjah Mada yang terbentuk sejak tahun
 						1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa Ilmu Komputer
@@ -109,14 +109,14 @@ export default function AboutPage() {
 			</div>
 			<section className="2xl:px-70 relative md:px-24 lg:flex xl:px-48 xl:pt-20 ">
 				<Image
-					src={'/main/backgroundMission.png'}
+					src={'/main/about/backgroundMission.png'}
 					fill={true}
 					quality={100}
 					alt=""
 					className="-z-[9999] hidden bg-[#3F3F9B] object-cover lg:block"
 				/>
 				<Image
-					src={'/main/backgroundMissionMobile.png'}
+					src={'/main/about/backgroundMissionMobile.png'}
 					fill={true}
 					quality={100}
 					alt=""
@@ -150,11 +150,11 @@ export default function AboutPage() {
 							quality={100}
 						/>
 					</div>
-					<div className="flex flex-col items-center justify-start text-justify text-white lg:ml-10 lg:w-1/2 lg:items-start lg:py-12 xl:py-0 xl:leading-7 2xl:justify-center ">
+					<div className="flex flex-col items-center justify-start text-justify text-white lg:ml-10 xl:mb-12 lg:w-3/4  lg:items-start lg:py-12 xl:py-0 xl:leading-7 2xl:justify-center ">
 						<h1 className="pt-7 text-2xl font-bold md:text-4xl lg:text-[48px] xl:text-6xl 2xl:text-[72px]">
 							Mission
 						</h1>
-						<ol className="list-decimal pt-3 font-medium md:w-2/3 md:px-0 md:text-base lg:w-full lg:text-lg xl:text-2xl xl:leading-9 2xl:pt-8 px-16 customMd:pl-4">
+						<ol className="list-decimal pt-3 font-medium md:w-2/3 md:px-0 text-sm md:text-base lg:w-full lg:text-lg xl:text-2xl xl:leading-9 2xl:pt-8 px-10 customMd:pl-4">
 							<li>
 								Menciptakan lingkungan dengan suasana yang nyaman melalui 3S
 								(Santai, Serius, Selesai)
