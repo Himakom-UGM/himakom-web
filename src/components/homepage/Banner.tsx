@@ -52,8 +52,8 @@ export default function Banner() {
 				<h2 className="mt-2 text-2xl font-medium">Universitas Gadjah Mada</h2>
 			</div>
 			<motion.div
-				initial={{ y: '100vh', opacity: 0 }}
-				animate={{ y: 0, opacity: 1 }}
+				initial={{ y: 100, opacity: 0, scale:0 }}
+				animate={{ y: 0, opacity: 1, scale:1 }}
 				transition={{
 					delay: 0.1,
 					duration: 0.35,
