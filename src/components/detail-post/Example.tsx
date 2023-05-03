@@ -1,10 +1,5 @@
 import blogpoststyle from '../../styles/Blogpost.module.scss';
 import SearchButton from './Searchbutton';
-<<<<<<< HEAD
-import { useState } from 'react';
-
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-=======
 import React,{
 	JSXElementConstructor,
 	ReactElement,
@@ -18,7 +13,6 @@ import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import {
 	documentToReactComponents,
 } from '@contentful/rich-text-react-renderer';
->>>>>>> fam-add-25-04
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -32,12 +26,6 @@ export default function Example(props: any) {
 		})
 		.replace(/\//g, '/');
 
-<<<<<<< HEAD
-	const options = {
-		renderText: (text: any) =>
-			text.split('\n').flatMap((text: any, i: any) => [i > 0 && <br />, text]),
-	};
-=======
 		const options = {
 			renderNode: {
 			  [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => (
@@ -93,7 +81,6 @@ export default function Example(props: any) {
 	
 		
 		
->>>>>>> fam-add-25-04
 
 	const allevents = props.allevents;
 	const filteredEvents = allevents.filter(
@@ -101,30 +88,10 @@ export default function Example(props: any) {
 			event.fields.title.toLowerCase() !== props.title.toLowerCase()
 	);
 
-<<<<<<< HEAD
-	const renderAccordion = () => {
-		const eventsByMonth = filteredEvents.reduce((acc: any, event: any) => {
-			const month = new Date(event.sys.createdAt).toLocaleString('default', {
-				month: 'long',
-			});
-			if (!acc[month]) {
-				acc[month] = [];
-			}
-			acc[month].push(event);
-			return acc;
-		}, {});
-
-		const handleAccordionToggle = (month: any) => {
-			setAccordionState((prevState: any) => ({
-				...prevState,
-				[month]: !prevState[month],
-			}));
-=======
 	interface Event {
 		sys: {
 		  createdAt: string;
 		  id: string;
->>>>>>> fam-add-25-04
 		};
 		fields: {
 		  title: string;
@@ -254,10 +221,6 @@ export default function Example(props: any) {
 								id=""
 								cols={30}
 								rows={10}
-<<<<<<< HEAD
-								className='outline-none'
-=======
->>>>>>> fam-add-25-04
 							></textarea>
 							<button type="submit">Send</button>
 						</form>
