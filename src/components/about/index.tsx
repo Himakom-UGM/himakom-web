@@ -21,38 +21,41 @@ export default function AboutPage() {
 					alt=""
 					className="absolute -bottom-5 -z-[9999] block opacity-50 lg:hidden "
 				/>
-				<div className="md:w-5/6">
-					<h1 className="pt-[91px] text-center text-2xl font-bold md:pt-16 md:text-4xl lg:text-start lg:text-5xl xl:text-6xl">
-						About Us
-					</h1>
-					<Image
-						quality={100}
-						src="/main/about/logoHimakom.svg"
-						alt="Logo Himakom"
-						width="128"
-						height="163"
-						className="mt-8 ml-auto mr-auto h-auto md:w-[188px] lg:hidden"
-					/>
-					<p className="text-justify lg:text-lg xl:text-2xl 2xl:py-10 max-w-[760px]">
-						Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi mahasiswa
-						Ilmu Komputer Universitas Gadjah Mada yang terbentuk sejak tahun
-						1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa Ilmu Komputer
-						dan ikut berkontribusi dalam kegiatan-kegiatan kampus yang
-						bermanfaat seperti kegiatan sosial, kunjungan industri, hingga
-						seminar dan lomba tingkat nasional. Memiliki Badan Semi Otonom
-						bernama Omah TI yang berperan sebagai pusat pengembangan teknologi
-						informasi bagi mahasiswa Ilmu Komputer.
-					</p>
-				</div>
-				<div>
-					<Image
-						quality={100}
-						src="/main/about/logoHimakom.svg"
-						alt="Logo Himakom"
-						width="234"
-						height="299"
-						className="mt-8 hidden lg:block xl:w-[300px] mr-24"
-					/>
+				<div className='customMd:inline-flex gap-8 items-center flex-grow justify-between'>
+					<div className="flex flex-col">
+						<h1 className="text-center text-2xl font-bold pt-16 customMd:pt-0   md:text-4xl lg:text-start lg:text-5xl xl:text-6xl">
+							About Us
+						</h1>
+						<div className="">
+							<Image
+								quality={100}
+								src="/main/about/logoHimakom.svg"
+								alt="Logo Himakom"
+								width="128"
+								height="163"
+								className="mt-2 ml-auto mr-auto h-auto md:w-[188px] lg:hidden"
+							/>
+							<p className="max-w-[1024px] text-justify lg:text-lg xl:text-2xl 2xl:py-10">
+								Himpunan Mahasiswa Ilmu Komputer (HIMAKOM) adalah asosiasi
+								mahasiswa Ilmu Komputer Universitas Gadjah Mada yang terbentuk
+								sejak tahun 1998. HIMAKOM menjadi wadah aspirasi seluruh mahasiswa
+								Ilmu Komputer dan ikut berkontribusi dalam kegiatan-kegiatan
+								kampus yang bermanfaat seperti kegiatan sosial, kunjungan
+								industri, hingga seminar dan lomba tingkat nasional. Memiliki
+								Badan Semi Otonom bernama Omah TI yang berperan sebagai pusat
+								pengembangan teknologi informasi bagi mahasiswa Ilmu Komputer.
+							</p>
+						</div>
+					</div>
+					<div className=' relative flex-grow w-60  h-64'>
+						<Image
+							quality={100}
+							src="/main/about/logoHimakom.svg"
+							alt="Logo Himakom"
+							fill
+							className='hidden lg:block object-contain'
+						/>
+					</div>
 				</div>
 			</div>
 
@@ -107,21 +110,8 @@ export default function AboutPage() {
 					className="absolute bottom-0 right-0 h-auto scale-x-[-1] transform md:w-[170px] lg:right-0 lg:top-0 lg:rotate-180 lg:scale-x-[1] xl:w-[255px] "
 				/>
 			</div>
-			<section className="2xl:px-70 relative md:px-24 lg:flex xl:px-48 xl:pt-20 ">
-				<Image
-					src={'/main/backgroundMission.png'}
-					fill={true}
-					quality={100}
-					alt=""
-					className="-z-[9999] hidden bg-[#3F3F9B] object-cover lg:block"
-				/>
-				<Image
-					src={'/main/backgroundMissionMobile.png'}
-					fill={true}
-					quality={100}
-					alt=""
-					className="-z-[9999] bg-[#3F3F9B] object-cover lg:hidden"
-				/>
+			<section className="2xl:px-70 relative md:px-24 lg:flex xl:px-48 bg-[#3F3F9B] ">
+				
 				<Image
 					src="/main/about/missionDecoration.svg"
 					alt=""
@@ -150,11 +140,11 @@ export default function AboutPage() {
 							quality={100}
 						/>
 					</div>
-					<div className="flex flex-col items-center justify-start text-justify text-white lg:ml-10 lg:w-1/2 lg:items-start lg:py-12 xl:py-0 xl:leading-7 2xl:justify-center ">
+					<div className="flex flex-col items-center justify-start text-justify text-white lg:ml-10 lg:w-1/2 lg:items-start lg:py-12 xl:py-0 xl:leading-7 2xl:justify-center my-16  ">
 						<h1 className="pt-7 text-2xl font-bold md:text-4xl lg:text-[48px] xl:text-6xl 2xl:text-[72px]">
 							Mission
 						</h1>
-						<ol className="list-decimal pt-3 font-medium md:w-2/3 md:px-0 md:text-base lg:w-full lg:text-lg xl:text-2xl xl:leading-9 2xl:pt-8 px-16 customMd:pl-4">
+						<ol className="list-decimal px-16 pt-3 font-medium md:w-2/3 md:px-0 md:text-base customMd:pl-4 lg:w-full lg:text-lg xl:text-2xl xl:leading-9 2xl:pt-8">
 							<li>
 								Menciptakan lingkungan dengan suasana yang nyaman melalui 3S
 								(Santai, Serius, Selesai)
@@ -196,10 +186,8 @@ export default function AboutPage() {
 					src={'/main/about/backgroundPrinciple.png'}
 					fill={true}
 					quality={100}
-					objectFit={'cover'}
-					objectPosition="center"
 					alt=""
-					className="-z-[9999]"
+					className="-z-[9999] object-cover"
 				/>
 				<Image
 					quality={100}
@@ -233,12 +221,12 @@ export default function AboutPage() {
 					height="133"
 					className="absolute right-0 hidden h-auto scale-x-[-1] transform md:block md:w-[330px] lg:w-[475px] xl:w-[550px]"
 				/>
-				<div className="flex h-full mb-10 flex-col items-center justify-center py-44">
-					<div className="w-[80%] xl:w-[70%] md:p-4 rounded-xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] customMd:w-[1250px] lg:mx-32 lg:w-auto xl:-mt-32 ">
+				<div className="flex h-full flex-col items-center justify-center py-44">
+					<div className="w-[80%] rounded-xl bg-white shadow-[0px_4px_16px_rgba(33,33,82,0.25)] md:p-4 customMd:w-[1250px] lg:mx-32 lg:w-auto xl:-mt-32 xl:w-[70%] ">
 						<h1 className="pt-6 pb-4 text-center text-2xl font-bold lg:text-4xl xl:text-6xl">
 							Principle
 						</h1>
-						<p className="px-10  pb-6 text-justify font-medium lg:text-xl xl:text-2xl mt-6">
+						<p className="mt-6  px-10 pb-6 text-justify font-medium lg:text-xl xl:text-2xl">
 							Himpunan Mahasiswa Ilmu Komputer Universitas Gadjah Mada atau
 							HIMAKOM UGM memiliki tiga nilai utama yang selalu dibawa dari
 							tahun ke tahun, yakni Aspirasi, Inisiasi, dan Perwujudan. Ketiga
