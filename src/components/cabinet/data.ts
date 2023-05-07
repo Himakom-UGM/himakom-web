@@ -17,7 +17,7 @@ export const phpiData = [
 	{
 		id: 'sekre',
 		position: 'Sekretaris Umum',
-		name: 'Maeve Zahwa A.C.K',
+		name: 'Maeve Zahwa A.C.Z',
 	},
 	{
 		id: 'bendahara',
