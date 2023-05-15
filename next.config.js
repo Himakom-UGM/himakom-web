@@ -26,16 +26,7 @@ const nextConfig = {
 	},
 	trailingSlash: true,
 
-	async redirects() {
-		return [
-			{
-				source: '/',
-				destination: '/main',
-				basePath: false,
-				permanent: false,
-			},
-		];
-	},
+	
 };
 
 module.exports = nextConfig;

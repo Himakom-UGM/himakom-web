@@ -132,7 +132,7 @@ export default function Exam(props: { posts: any }) {
 			<h1 className="text-center text-2xl xl:text-5xl font-semibold text-white lg:text-3xl">
 				Himakom&apos;s Exam Archive
 			</h1>
-			<div className="flex w-full justify-end ">
+			<div className="flex w-full justify-center my-4">
 				<div className="relative">
 					<input
 						type="text"

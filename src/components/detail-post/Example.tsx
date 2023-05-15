@@ -55,7 +55,7 @@ export default function Example(props: any) {
 
 				// Render the embedded image
 				return (
-					<Image
+					<img
 						src={url}
 						alt={title ? title['en-US'] : ''}
 						title={title ? title['en-US'] : ''}

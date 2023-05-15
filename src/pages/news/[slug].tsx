@@ -148,7 +148,7 @@ export default function Slug() {
 
 	if (news)
 		return (
-			<div className="w-full border-2 border-black bg-[#F1F1F1]">
+			<div className="w-full  bg-[#F1F1F1]">
 				<Head>
 					<title>{news.items[0].fields.title}</title>
 				</Head>
