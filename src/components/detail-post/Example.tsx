@@ -1,11 +1,6 @@
 import blogpoststyle from '../../styles/Blogpost.module.scss';
 import SearchButton from './Searchbutton';
-<<<<<<< HEAD
-import { useState } from 'react';
-
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-=======
-import React,{
+import React, {
 	JSXElementConstructor,
 	ReactElement,
 	ReactFragment,
@@ -15,10 +10,7 @@ import React,{
 } from 'react';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
-import {
-	documentToReactComponents,
-} from '@contentful/rich-text-react-renderer';
->>>>>>> fam-add-25-04
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -32,68 +24,57 @@ export default function Example(props: any) {
 		})
 		.replace(/\//g, '/');
 
-<<<<<<< HEAD
 	const options = {
-		renderText: (text: any) =>
-			text.split('\n').flatMap((text: any, i: any) => [i > 0 && <br />, text]),
-	};
-=======
-		const options = {
-			renderNode: {
-			  [BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => (
+		renderNode: {
+			[BLOCKS.PARAGRAPH]: (node: any, children: React.ReactNode) => (
 				<p className="mb-4">{children}</p>
-			  ),
-			  [BLOCKS.HEADING_1]: (node: any, children: React.ReactNode) => (
+			),
+			[BLOCKS.HEADING_1]: (node: any, children: React.ReactNode) => (
 				<h1 className="mb-4 text-3xl font-bold">{children}</h1>
-			  ),
-			  [BLOCKS.HEADING_2]: (node: any, children: React.ReactNode) => (
+			),
+			[BLOCKS.HEADING_2]: (node: any, children: React.ReactNode) => (
 				<h2 className="mb-4 text-2xl font-bold">{children}</h2>
-			  ),
-			  [BLOCKS.HEADING_3]: (node: any, children: React.ReactNode) => (
+			),
+			[BLOCKS.HEADING_3]: (node: any, children: React.ReactNode) => (
 				<h3 className="mb-4 text-xl font-bold">{children}</h3>
-			  ),
-			  [BLOCKS.UL_LIST]: (node: any, children: React.ReactNode) => (
+			),
+			[BLOCKS.UL_LIST]: (node: any, children: React.ReactNode) => (
 				<ul className="list-inside list-disc ">{children}</ul>
-			  ),
-			  [BLOCKS.OL_LIST]: (node: any, children: React.ReactNode) => (
+			),
+			[BLOCKS.OL_LIST]: (node: any, children: React.ReactNode) => (
 				<ol className="list-inside list-decimal ">{children}</ol>
-			  ),
-			  [BLOCKS.LIST_ITEM]: (node: any, children: React.ReactNode) => (
+			),
+			[BLOCKS.LIST_ITEM]: (node: any, children: React.ReactNode) => (
 				<li className="">{children}</li>
-			  ),
-			  [BLOCKS.HR]: (node: any) => <hr className="my-4 border-gray-300" />,
-			  [BLOCKS.EMBEDDED_ASSET]: (node: any, children: React.ReactNode) => {
+			),
+			[BLOCKS.HR]: (node: any) => <hr className="my-4 border-gray-300" />,
+			[BLOCKS.EMBEDDED_ASSET]: (node: any, children: React.ReactNode) => {
 				// Access the fields of the embedded asset using `node.data.target.fields`
 				const { title, file } = node.data.target.fields;
 				const { url, contentType } = file;
-		  
+
 				// Render the embedded image
 				return (
-				  <img
-					src={url}
-					alt={title ? title['en-US'] : ''}
-					title={title ? title['en-US'] : ''}
-					// Add any additional attributes or styles as needed
-				  />
+					<Image
+						src={url}
+						alt={title ? title['en-US'] : ''}
+						title={title ? title['en-US'] : ''}
+						// Add any additional attributes or styles as needed
+					/>
 				);
-			  },
-
 			},
-			renderText: (text: string) => (
-			  <>
+		},
+		renderText: (text: string) => (
+			<>
 				{text.split('\n').map((text, i) => (
-				  <React.Fragment key={i}>
-					{i > 0 && <br />}
-					{text}
-				  </React.Fragment>
+					<React.Fragment key={i}>
+						{i > 0 && <br />}
+						{text}
+					</React.Fragment>
 				))}
-			  </>
-			),
-		  };
-	
-		
-		
->>>>>>> fam-add-25-04
+			</>
+		),
+	};
 
 	const allevents = props.allevents;
 	const filteredEvents = allevents.filter(
@@ -101,85 +82,70 @@ export default function Example(props: any) {
 			event.fields.title.toLowerCase() !== props.title.toLowerCase()
 	);
 
-<<<<<<< HEAD
-	const renderAccordion = () => {
-		const eventsByMonth = filteredEvents.reduce((acc: any, event: any) => {
-			const month = new Date(event.sys.createdAt).toLocaleString('default', {
-				month: 'long',
-			});
-			if (!acc[month]) {
-				acc[month] = [];
-			}
-			acc[month].push(event);
-			return acc;
-		}, {});
+	interface Event {
+		sys: {
+			createdAt: string;
+			id: string;
+		};
+		fields: {
+			title: string;
+		};
+	}
 
-		const handleAccordionToggle = (month: any) => {
-			setAccordionState((prevState: any) => ({
+	interface Props {
+		filteredEvents: Event[];
+	}
+
+	const RenderAccordion: React.FunctionComponent<Props> = ({
+		filteredEvents,
+	}) => {
+		const [accordionState, setAccordionState] = useState<{
+			[key: string]: boolean;
+		}>({});
+		const eventsByMonth: { [key: string]: Event[] } = filteredEvents.reduce(
+			(acc: { [key: string]: Event[] }, event: Event) => {
+				const month = new Date(event.sys.createdAt).toLocaleString('default', {
+					month: 'long',
+				});
+				if (!acc[month]) {
+					acc[month] = [];
+				}
+				acc[month].push(event);
+				return acc;
+			},
+			{}
+		);
+
+		const handleAccordionToggle = (month: string) => {
+			setAccordionState((prevState) => ({
 				...prevState,
 				[month]: !prevState[month],
 			}));
-=======
-	interface Event {
-		sys: {
-		  createdAt: string;
-		  id: string;
->>>>>>> fam-add-25-04
 		};
-		fields: {
-		  title: string;
-		};
-	  }
-	  
-	  interface Props {
-		filteredEvents: Event[];
-	  }
-	  
-	  const RenderAccordion: React.FunctionComponent<Props> = ({ filteredEvents }) => {
-		const [accordionState, setAccordionState] = useState<{ [key: string]: boolean }>({});
-		const eventsByMonth: { [key: string]: Event[] } = filteredEvents.reduce((acc: { [key: string]: Event[] }, event: Event) => {
-		  const month = new Date(event.sys.createdAt).toLocaleString('default', {
-			month: 'long',
-		  });
-		  if (!acc[month]) {
-			acc[month] = [];
-		  }
-		  acc[month].push(event);
-		  return acc;
-		}, {});
-	  
-		const handleAccordionToggle = (month: string) => {
-		  setAccordionState((prevState) => ({
-			...prevState,
-			[month]: !prevState[month],
-		  }));
-		};
-	  
-		return (
-		  <>
-			{Object.entries(eventsByMonth).map(([month, events]) => (
-			  <div key={month}>
-				<h2 onClick={() => handleAccordionToggle(month)}>{month}</h2>
-				{accordionState[month] &&
-				  events.map((event) => (
-					<a
-					  href={`/main/event/${event.fields.title
-						.toLowerCase()
-						.replace(/ /g, '-')}`}
-					  key={event.sys.id}
-					>
-					  <div>
-						<p>{event.fields.title}</p>
-					  </div>
-					</a>
-				  ))}
-			  </div>
-			))}
-		  </>
-		);
-	  };
 
-	  
+		return (
+			<>
+				{Object.entries(eventsByMonth).map(([month, events]) => (
+					<div key={month}>
+						<h2 onClick={() => handleAccordionToggle(month)}>{month}</h2>
+						{accordionState[month] &&
+							events.map((event) => (
+								<a
+									href={`/main/event/${event.fields.title
+										.toLowerCase()
+										.replace(/ /g, '-')}`}
+									key={event.sys.id}
+								>
+									<div>
+										<p>{event.fields.title}</p>
+									</div>
+								</a>
+							))}
+					</div>
+				))}
+			</>
+		);
+	};
 
 	return (
 		<>
@@ -188,7 +154,9 @@ export default function Example(props: any) {
 			</Head>
 			<div className={blogpoststyle.bannerwrapper}>
 				<div
-					className={blogpoststyle.bannerwrapper_background + 'relative xl:mt-20'}
+					className={
+						blogpoststyle.bannerwrapper_background + 'relative xl:mt-20'
+					}
 				>
 					<Image
 						fill
@@ -237,7 +205,7 @@ export default function Example(props: any) {
 						<div
 							className={blogpoststyle.contentwrapper_rightcol_archive_content}
 						>
-							 <RenderAccordion filteredEvents={filteredEvents} />
+							<RenderAccordion filteredEvents={filteredEvents} />
 						</div>
 					</div>
 
@@ -247,17 +215,13 @@ export default function Example(props: any) {
 							action=""
 							className={blogpoststyle.contentwrapper_rightcol_comment_form}
 						>
-							<input type="text" placeholder="Name" className='outline-none'/>
+							<input type="text" placeholder="Name" className="outline-none" />
 							<textarea
 								name=""
 								placeholder="Comment"
 								id=""
 								cols={30}
 								rows={10}
-<<<<<<< HEAD
-								className='outline-none'
-=======
->>>>>>> fam-add-25-04
 							></textarea>
 							<button type="submit">Send</button>
 						</form>

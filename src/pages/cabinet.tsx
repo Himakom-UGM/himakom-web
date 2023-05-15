@@ -7,7 +7,6 @@ export default function Cabinet() {
 			<Head>
 				<title>Arundaya Cakrabuana</title>
 			</Head>
-
 			<main>
 				<CabinetPage />
 			</main>

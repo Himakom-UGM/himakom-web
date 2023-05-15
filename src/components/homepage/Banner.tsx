@@ -22,12 +22,13 @@ export default function Banner() {
 					zIndex: -1,
 				}}
 			/>
+
 			<Image
 				src="/main/images/bg/H.png"
 				width={559}
 				height={559}
 				alt="bg"
-				className='absolute w-[45vw] top-1/2 customMd:top-[40%] -translate-y-1/2 left-1/2 -translate-x-1/2'
+				className="absolute top-1/2 left-1/2 w-[45vw] -translate-y-1/2 -translate-x-1/2 customMd:top-[40%]"
 				style={{
 					objectFit: 'cover',
 					zIndex: -1,
