@@ -4,6 +4,57 @@ import { contentfulClientCS } from '@/utils/contentful/contentfulClient';
 import Link from 'next/link';
 import Head from 'next/head';
 
+async function getExams() {
+	const posts = (await contentfulClientCS.getEntries({
+		content_type: 'exams',
+	})) as any;
+
+	const postsData = posts.items.map((post: any) => {
+		return {
+			name: post?.fields?.class,
+			link: post?.fields?.driveLink,
+		};
+	});
+
+	// sort by name ascending
+	postsData.sort((a: any, b: any) => {
+		if (a.name < b.name) {
+			return -1;
+		}
+		if (a.name > b.name) {
+			return 1;
+		}
+		return 0;
+	});
+
+	const groupedPosts = postsData.reduce((acc: any, curr: any) => {
+		const initial = curr.name[0];
+		const index = acc.findIndex((item: any) => item.initial === initial);
+		if (index === -1) {
+			acc.push({
+				initial,
+				data: [curr],
+			});
+		} else {
+			acc[index].data.push(curr);
+		}
+		return acc;
+	}, []);
+
+	return groupedPosts;
+}
+
+export async function getStaticProps() {
+	const data = await getExams();
+
+	return {
+		props: {
+			data,
+		},
+	};
+}
+
+
 type PostsType = {
 	initial: string;
 	data: {
@@ -12,10 +63,9 @@ type PostsType = {
 	}[];
 }[];
 
-export default function Exam(props: { posts: any }) {
-	const [data, setData] = useState<PostsType>(props.posts);
-	const [filteredList, setFilteredList] = useState<PostsType>(props.posts);
-	const [containedValue, setContainedValue] = useState<PostsType>(props.posts);
+export default function Exam({ data }: { data: PostsType }) {
+	const [filteredList, setFilteredList] = useState<PostsType>(data);
+	const [containedValue, setContainedValue] = useState<PostsType>(data);
 	const [delay, setDelay] = useState<boolean>(false);
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -62,51 +112,6 @@ export default function Exam(props: { posts: any }) {
 	}
 
 	useEffect(() => {
-		async function getExams() {
-			const posts = (await contentfulClientCS.getEntries({
-				content_type: 'exams',
-			})) as any;
-
-			const postsData = posts.items.map((post: any) => {
-				return {
-					name: post?.fields?.class,
-					link: post?.fields?.driveLink,
-				};
-			});
-
-			// sort by name ascending
-			postsData.sort((a: any, b: any) => {
-				if (a.name < b.name) {
-					return -1;
-				}
-				if (a.name > b.name) {
-					return 1;
-				}
-				return 0;
-			});
-
-			const groupedPosts = postsData.reduce((acc: any, curr: any) => {
-				const initial = curr.name[0];
-				const index = acc.findIndex((item: any) => item.initial === initial);
-				if (index === -1) {
-					acc.push({
-						initial,
-						data: [curr],
-					});
-				} else {
-					acc[index].data.push(curr);
-				}
-				return acc;
-			}, []);
-
-			return groupedPosts;
-		}
-
-		getExams().then((res) => {
-			setData(res);
-			setFilteredList(res);
-		});
-
 		inputRef.current?.focus();
 	}, []);
 
@@ -133,13 +138,13 @@ export default function Exam(props: { posts: any }) {
 				Himakom&apos;s Exam Archive
 			</h1>
 			<div className="flex w-full justify-center my-4">
-				<div className="relative">
+				<div className="relative w-full max-w-3xl">
 					<input
 						type="text"
 						placeholder="Search"
 						ref={inputRef}
 						onChange={handleSearch}
-						className="rounded-xl py-[6px] pl-10 pr-4 text-lg outline-none placeholder:text-slate-400"
+						className="rounded-xl py-[6px] w-full pl-10 pr-4 text-lg outline-none placeholder:text-slate-400"
 					/>
 					<Image
 						src="/main/assets/search-gray.svg"
@@ -150,7 +155,7 @@ export default function Exam(props: { posts: any }) {
 					/>
 				</div>
 			</div>
-			<div className="mx-auto mt-6 w-full px-5">
+			<div className="mx-auto mt-6 w-full max-w-7xl">
 				<section className="flex w-full text-lg xl:text-xl flex-col gap-y-2">
 					{filteredList.map((item) => (
 						<div key={item.initial} className="z-10 my-4">
@@ -176,37 +181,3 @@ export default function Exam(props: { posts: any }) {
 	);
 }
 
-export async function getStaticProps() {
-	const groupedPosts = [
-		{
-			initial: 'A',
-			data: [],
-		},
-		{
-			initial: 'B',
-			data: [],
-		},
-		{
-			initial: 'C',
-			data: [],
-		},
-		{
-			initial: 'D',
-			data: [],
-		},
-		{
-			initial: 'E',
-			data: [],
-		},
-		{
-			initial: 'F',
-			data: [],
-		},
-	];
-
-	return {
-		props: {
-			posts: groupedPosts,
-		},
-	};
-}

@@ -2,12 +2,14 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppContext } from '@/context/state';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp } from './Arrow';
 import ProfileMenu from './mobile/ProfileMenu';
 import RelatedMenu from './mobile/RelatedMenu';
+import { useRouter } from 'next/router';
 
 export default function MobileMenu() {
+	const router = useRouter();
 	const { hamburger } = useAppContext();
 	const [profileArrow, setProfileArrow] = useState<string>('down');
 	const [relatedArrow, setRelatedArrow] = useState<string>('down');
@@ -19,6 +21,7 @@ export default function MobileMenu() {
 	const relatedArrowHandler = () => {
 		setRelatedArrow(relatedArrow === 'down' ? 'up' : 'down');
 	};
+
 
 	return (
 		<AnimatePresence>

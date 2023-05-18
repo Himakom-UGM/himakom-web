@@ -183,9 +183,6 @@ export default function Example(props: any) {
 						{documentToReactComponents(props.body, options)}
 					</div>
 
-					<div className={blogpoststyle.contentwrapper_leftcol_notes}>
-						<p>Put any text or notes below here</p>
-					</div>
 				</div>
 
 				<div className={blogpoststyle.contentwrapper_rightcol}>

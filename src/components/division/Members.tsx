@@ -1,14 +1,17 @@
 import Image from 'next/image';
 import CarouselCabinet from '../cabinet/CarouselCabinet';
 import { phpiData } from '../cabinet/data';
+import { AnySoaRecord } from 'dns';
+import { Entry } from 'contentful';
+import CarouselDivision from './CarouselDivision';
 
 type MembersType = {
 	idKey: string;
 };
 
-export default function Members({ idKey }: MembersType) {
+export default function Members({ data }: { data: any }) {
 	return (
-		<div className="max-w-screen relative flex h-[640px] flex-col items-center justify-center overflow-x-hidden bg-[#3F3F9C] px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0">
+		<div className="max-w-screen relative flex py-16  flex-col items-center justify-start overflow-x-hidden bg-[#3F3F9C] px-0 sm:px-5 lg:px-8 xl:px-1 2xl:px-0">
 			<Image
 				src={'/main/cabinet/coreBackground.png'}
 				alt=""
@@ -42,7 +45,18 @@ export default function Members({ idKey }: MembersType) {
 				Division Members
 			</h1>
 			<div className="z-30 flex w-full -skew-x-[8deg] p-4 ">
-				<CarouselCabinet props={phpiData} />
+				{data && (
+					<CarouselDivision
+						props={data.map((member: Entry<any>) => {
+							return {
+								id: member.sys.id,
+								name: member.fields.name,
+								position: member.fields.role,
+								photoUrl: 'https:'+member.fields.photo.fields.file.url,
+							};
+						})}
+					/>
+				)}
 			</div>
 		</div>
 	);

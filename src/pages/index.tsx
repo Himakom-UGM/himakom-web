@@ -7,26 +7,24 @@ import { useEffect, useState } from 'react';
 import { getNewsPreview } from '@/utilites/getNews';
 import Decorative from '@/components/homepage/decoration/Decorative';
 import Image from 'next/image';
+import { useQuery } from 'react-query';
+
+async function fetchContent() {
+	const response = await contentfulClientCS.getEntries<any>({
+		content_type: 'news',
+	});
+
+	const extractedData = response.items.map((item) => {
+		return getNewsPreview(item);
+	});
+
+	return extractedData;
+
+}
 
 export default function Home() {
-	const [data, setData] = useState<any>();
-
-	useEffect(() => {
-		async function fetchContent() {
-			const response = await contentfulClientCS.getEntries<any>({
-				content_type: 'news',
-			});
-
-			const extractedData = response.items.map((item) => {
-				return getNewsPreview(item);
-			});
-
-			setData(extractedData);
-		}
-
-		fetchContent();
-	}, []);
-
+	const {data} = useQuery('news', fetchContent, )
+		
 	return (
 		<>
 			<Head>

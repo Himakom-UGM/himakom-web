@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from 'react';
+import { useRouter } from 'next/router';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const AppContext = createContext({
 	hamburger: false,
@@ -7,6 +8,12 @@ const AppContext = createContext({
 
 export const AppWrapper = (props: { children: any }) => {
 	const [hamburger, setHamburger] = useState<boolean>(false);
+	const router = useRouter();
+
+	useEffect(() => {
+		setHamburger(false);
+	}, [router.pathname]);
+
 
 	function updateHamburger() {
 		setHamburger((val) => !val);

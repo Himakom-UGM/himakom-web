@@ -45,13 +45,14 @@ export async function writeAspiration(db:Firestore, {
     to: string,
 }) {
     // write aspirations to firestore
+    
     const aspirationCol = collection(db, 'aspirations');
     const newAspiration = {
         subject: subject,
         message: message,
         from: from,
         to: to,
-        createdAt: new Date(),
+        createdAt: Date.now(),
     };
     await addDoc(aspirationCol, newAspiration);
 

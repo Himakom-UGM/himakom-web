@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export -o main/",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.12",
     "@contentful/rich-text-html-renderer": "^16.0.3",
     "@contentful/rich-text-react-renderer": "^15.16.3",
     "@fullcalendar/core": "^6.1.5",
@@ -31,11 +30,11 @@
     "framer-motion": "^10.0.1",
     "fullcalendar": "^6.1.5",
     "graphql": "^16.6.0",
-    "multiparty": "^4.2.3",
     "next": "13.2.1",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.5",
+    "react-query": "^3.39.3",
     "sass": "^1.58.3",
     "sharp": "^0.31.3",
     "swiper": "^9.1.0",
